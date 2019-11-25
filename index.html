@@ -229,10 +229,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-11-24 16:35:11 / Modified: 16:45:11" itemprop="dateCreated datePublished" datetime="2019-11-24T16:35:11-05:00">2019-11-24</time>
+              <time title="Created: 2019-11-24 16:35:11" itemprop="dateCreated datePublished" datetime="2019-11-24T16:35:11-05:00">2019-11-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-11-25 01:37:19" itemprop="dateModified" datetime="2019-11-25T01:37:19-05:00">2019-11-25</time>
+              </span>
 
           
 
@@ -251,6 +257,183 @@
 <h4 id="scaffolds"><a href="#scaffolds" class="headerlink" title="scaffolds"></a>scaffolds</h4><p>Scaffold folder. When you create a new post, Hexo bases the new file on the scaffold.</p>
 <h4 id="source"><a href="#source" class="headerlink" title="source"></a>source</h4><p>Source folder. This is where you put your site’s content.<br>Hexo <strong>ignores</strong> hidden files and files or folders whose names are prefixed with _ (underscore) - except the _posts folder.Renderable files (e.g. Markdown, HTML) will be processed and put into the public folder, while other files will simply be copied.</p>
 <h4 id="themes"><a href="#themes" class="headerlink" title="themes"></a>themes</h4><p>Theme folder. Hexo generates a static website by combining the site contents with the theme.</p>
+<h3 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h3><p>You can modify site settings in _config.yml</p>
+<h4 id="Site"><a href="#Site" class="headerlink" title="Site"></a>Site</h4><p><strong>Site</strong><br>Setting    and its description:<br><strong>title</strong>: The title of your website<br><strong>subtitle</strong>:The subtitle of your website<br><strong>description</strong>: The description of your website<br><strong>keywords</strong>: The keywords of your website. Separate multiple keywords with commas ,.<br><strong>author</strong>: Your name<br><strong>language</strong>: The language of your website. Use a 2-letter ISO-639-1 code or optionally its variant. Default is en.<br><strong>timezone</strong>: The timezone of your website. Hexo uses the setting on your computer by default. You can find the list of available timezones <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank" rel="noopener">here</a>. Some examples are America/New_York, Japan, and UTC.</p>
+<h4 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>The URL of your website</td>
+<td></td>
+</tr>
+<tr>
+<td>root</td>
+<td>The root directory of your website</td>
+<td></td>
+</tr>
+<tr>
+<td>permalink</td>
+<td>The  permalink format of articles</td>
+<td>:year/:month/:day/:title/</td>
+</tr>
+<tr>
+<td>permalink_defaults</td>
+<td>Default values of each segment in permalink</td>
+<td></td>
+</tr>
+<tr>
+<td>pretty_urls</td>
+<td>Rewrite the permalinkvariables to pretty URLs</td>
+<td></td>
+</tr>
+<tr>
+<td>pretty_urls.trailing_index</td>
+<td>Trailing index.html, set to false to remove it</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h3><h4 id="init"><a href="#init" class="headerlink" title="init"></a>init</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init [folder]</span><br></pre></td></tr></table></figure>
+<h4 id="new"><a href="#new" class="headerlink" title="new"></a>new</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<p>Creates a new article. If no layout is provided, Hexo will use the default_layout from _config.yml. If the title contains spaces, surround it with quotation marks.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p, —path</td>
+<td>Post path. Customize the path of the post.</td>
+</tr>
+<tr>
+<td>-r, —replace</td>
+<td>Replace the current post if existed.</td>
+</tr>
+<tr>
+<td>-s, —slug</td>
+<td>Post slug. Customize the URL of the post.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>By default, Hexo will use the title to define the path of the file. For pages, it will create a deirectory of that name and an index.md file in it.Use the —path option to override that behaviour and define the file path:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page --path about/me <span class="string">"About me"</span></span><br></pre></td></tr></table></figure><br>page teamplate is in the scaffolds folder.<br>will create source/about/me.md file with the title “About me” set in the front matter. Please note that the title is mandatory. For example, this will not result in the behaviour you might expect:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page --path about/me</span><br></pre></td></tr></table></figure><br>will create the post source/_posts/about/me.md with the title “page” in the front matter. This is because there is only one argument (page) and the default layout is post.</p>
+<h4 id="generate"><a href="#generate" class="headerlink" title="generate"></a>generate</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-d, —deploy</td>
+<td>Deploy after generation finishes</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="publish"><a href="#publish" class="headerlink" title="publish"></a>publish</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+<p>Publishes a draft. Move the file from draft to post folder. </p>
+<h3 id="Writing"><a href="#Writing" class="headerlink" title="Writing"></a>Writing</h3><p>To create a new post or a new page, you can run the following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure><br>post is the default layout, but you can supply your own. You can change the default layout by editing the default_layout setting in _config.yml.</p>
+<h4 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h4><p>There are three default layouts in Hexo: post, page and draft. Files created by each of them is saved to a different path. Newly created posts are saved to the source/_posts folder.<br>| Layout  |    Path|<br>|————-|——————-|<br>|post    |source/_posts|<br>|page|source|<br>|draft|<strong>source/_drafts</strong>|</p>
+<h4 id="Filename"><a href="#Filename" class="headerlink" title="Filename"></a>Filename</h4><p>By default, Hexo uses the post title as its filename. You can edit the <strong>new_post_name</strong> seting in _config.yml to change the default filename.  For example, :year-:month-:day-:title.md will prefix filenames with the post creation date. You can use the following placeholders:<br>| Layout  |    Path|<br>|————-|——————-|<br>|:title      | Post title (lower case, with spaces replaced by hyphens)|<br>|:year      | Created year, e.g. 2015|<br>|:month      | Created month (leading zeros), e.g. 04|<br>|:i_month | Created month (no leading zeros), e.g. 4|<br>|:day      | Created day (leading zeros), e.g. 07|<br>|:i_day      | Created day (no leading zeros), e.g. 7|</p>
+<h4 id="Draft"><a href="#Draft" class="headerlink" title="Draft"></a>Draft</h4><p>Previously, we mentioned a special layout in Hexo: draft. Posts initialized with this layout are saved to the <strong>source/_drafts</strong> folder. You can use the publish command to move drafts to the source/_posts folder. publish works in a similar way to the new command.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo publish [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure><br>Drafts are not displayed by default. You can add the —draft option when running Hexo or enable the render_drafts setting in _config.yml to render drafts.</p>
+<h4 id="Scaffolds"><a href="#Scaffolds" class="headerlink" title="Scaffolds"></a>Scaffolds</h4><p>When creating posts, Hexo will build files based on the corresponding file in scaffolds folder. For example:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new photo <span class="string">"My Gallery"</span></span><br></pre></td></tr></table></figure><br>When you run this command, Hexo will try to find photo.md in the scaffolds folder and build the post based on it. The following placeholders are available in scaffolds:<br>| Layout  |    Path|<br>|————-|——————-|<br>|layout | Layout |<br>|title  | Title |<br>|date   | File created date |</p>
+<h3 id="Front-matter"><a href="#Front-matter" class="headerlink" title="Front-matter"></a>Front-matter</h3><p>Front-matter is a block of YAML or JSON at the beginning of the file that is used to configure settings for your writings. Front-matter is terminated by three dashes when written in YAML or three semicolons when written in JSON.</p>
+<p>YAML<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">AML</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Hello</span> <span class="string">World</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2013</span><span class="string">/7/13</span> <span class="number">20</span><span class="string">:46:25</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">JSON</span><br><span class="line">"title": "Hello World",</span><br><span class="line">"date": "2013/7/13 20:46:25"</span><br><span class="line">;;;</span><br></pre></td></tr></table></figure>
+<h4 id="Settings-amp-Their-Default-Values"><a href="#Settings-amp-Their-Default-Values" class="headerlink" title="Settings &amp; Their Default Values"></a>Settings &amp; Their Default Values</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Layout</th>
+<th>Path</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>layout</td>
+<td>layout</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Title</td>
+<td>Filename (posts only)</td>
+</tr>
+<tr>
+<td>date</td>
+<td>Published date</td>
+<td>File created date</td>
+</tr>
+<tr>
+<td>updated</td>
+<td>Updated date</td>
+<td>File updated date</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>Enables comment feature for the post</td>
+<td>true</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>Tags</td>
+<td>(Not available for pages)</td>
+</tr>
+<tr>
+<td>categories</td>
+<td>Categories (Not available for pages)</td>
+</tr>
+<tr>
+<td>permalink</td>
+<td>Overrides the default permalink of the post</td>
+</tr>
+<tr>
+<td>keywords</td>
+<td>The keywords that only used in meta tag and Open Graph (not recommended</td>
+</tr>
+<tr>
+<td>excerpt</td>
+<td>Page excerpt in plain text. Use this plugin to format the text</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="Categories-amp-Tags"><a href="#Categories-amp-Tags" class="headerlink" title="Categories &amp; Tags"></a>Categories &amp; Tags</h4><p>Only posts support the use of categories and tags. </p>
+<ol>
+<li><strong>Categories</strong> apply to posts in order, resulting in a hierarchy of classifications and sub-classifications. </li>
+<li><strong>Tags</strong> are all defined on the same hierarchical level so the order in which they appear is not important.<br><strong>Example</strong><br>categories:</li>
+</ol>
+<ul>
+<li>Sports</li>
+<li>Baseball<br>tags:</li>
+<li>Injury</li>
+<li>Fight</li>
+<li>Shocking<br>If you want to apply multiple category hierarchies, use a list of names instead of a single name. If Hexo sees any categories defined this way on a post, it will treat each category for that post as its own independent hierarchy.<br><strong>Example</strong></li>
+</ul>
+<p>categories:</p>
+<ul>
+<li>[Sports, Baseball]</li>
+<li>[MLB, American League, Boston Red Sox]</li>
+<li>[MLB, American League, New York Yankees]</li>
+<li>Rivalries</li>
+</ul>
 
       
     </div>
