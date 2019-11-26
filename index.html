@@ -237,7 +237,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-25 01:37:19" itemprop="dateModified" datetime="2019-11-25T01:37:19-05:00">2019-11-25</time>
+                <time title="Modified: 2019-11-25 22:29:04" itemprop="dateModified" datetime="2019-11-25T22:29:04-05:00">2019-11-25</time>
               </span>
 
           
@@ -350,7 +350,7 @@
 <h4 id="publish"><a href="#publish" class="headerlink" title="publish"></a>publish</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure>
 <p>Publishes a draft. Move the file from draft to post folder. </p>
 <h3 id="Writing"><a href="#Writing" class="headerlink" title="Writing"></a>Writing</h3><p>To create a new post or a new page, you can run the following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure><br>post is the default layout, but you can supply your own. You can change the default layout by editing the default_layout setting in _config.yml.</p>
-<h4 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h4><p>There are three default layouts in Hexo: post, page and draft. Files created by each of them is saved to a different path. Newly created posts are saved to the source/_posts folder.<br>| Layout  |    Path|<br>|————-|——————-|<br>|post    |source/_posts|<br>|page|source|<br>|draft|<strong>source/_drafts</strong>|</p>
+<h4 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h4><p>There are three default layouts in Hexo: post, page and draft. Files created by each of them is saved to a different path. Newly created posts are saved to the source/_posts folder.<br>| Layout  |    Path|<br>| ————- | ——————- |<br>|post|source/_posts|<br>|page|source|<br>|draft|<strong>source/_drafts</strong>|</p>
 <h4 id="Filename"><a href="#Filename" class="headerlink" title="Filename"></a>Filename</h4><p>By default, Hexo uses the post title as its filename. You can edit the <strong>new_post_name</strong> seting in _config.yml to change the default filename.  For example, :year-:month-:day-:title.md will prefix filenames with the post creation date. You can use the following placeholders:<br>| Layout  |    Path|<br>|————-|——————-|<br>|:title      | Post title (lower case, with spaces replaced by hyphens)|<br>|:year      | Created year, e.g. 2015|<br>|:month      | Created month (leading zeros), e.g. 04|<br>|:i_month | Created month (no leading zeros), e.g. 4|<br>|:day      | Created day (leading zeros), e.g. 07|<br>|:i_day      | Created day (no leading zeros), e.g. 7|</p>
 <h4 id="Draft"><a href="#Draft" class="headerlink" title="Draft"></a>Draft</h4><p>Previously, we mentioned a special layout in Hexo: draft. Posts initialized with this layout are saved to the <strong>source/_drafts</strong> folder. You can use the publish command to move drafts to the source/_posts folder. publish works in a similar way to the new command.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo publish [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure><br>Drafts are not displayed by default. You can add the —draft option when running Hexo or enable the render_drafts setting in _config.yml to render drafts.</p>
 <h4 id="Scaffolds"><a href="#Scaffolds" class="headerlink" title="Scaffolds"></a>Scaffolds</h4><p>When creating posts, Hexo will build files based on the corresponding file in scaffolds folder. For example:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new photo <span class="string">"My Gallery"</span></span><br></pre></td></tr></table></figure><br>When you run this command, Hexo will try to find photo.md in the scaffolds folder and build the post based on it. The following placeholders are available in scaffolds:<br>| Layout  |    Path|<br>|————-|——————-|<br>|layout | Layout |<br>|title  | Title |<br>|date   | File created date |</p>
@@ -370,6 +370,7 @@
 <tr>
 <td>layout</td>
 <td>layout</td>
+<td></td>
 </tr>
 <tr>
 <td>title</td>
