@@ -46,18 +46,21 @@
   };
 </script>
 
-  <meta name="description" content="This is the place for Liang to make any notes if he feels like it">
-<meta name="keywords" content="home">
+  <meta name="description" content="Global Asset FolderAssets are non-post files in the source folder, such as images, CSS or JavaScript files. For instance, If you are only going to have a few images in the Hexo project, then the easie">
+<meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="staring">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;22&#x2F;staring&#x2F;index.html">
+<meta property="og:title" content="hexo_study">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;27&#x2F;hexo-study&#x2F;index.html">
 <meta property="og:site_name" content="Liang Xu">
-<meta property="og:description" content="This is the place for Liang to make any notes if he feels like it">
+<meta property="og:description" content="Global Asset FolderAssets are non-post files in the source folder, such as images, CSS or JavaScript files. For instance, If you are only going to have a few images in the Hexo project, then the easie">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-24T21:09:05.035Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;example.jpg">
+<meta property="og:updated_time" content="2019-11-27T06:05:27.000Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;image.jpg">
 
-<link rel="canonical" href="http://yoursite.com/2019/11/22/staring/">
+<link rel="canonical" href="http://yoursite.com/2019/11/27/hexo-study/">
 
 
 <script id="page-configurations">
@@ -71,7 +74,7 @@
   };
 </script>
 
-  <title>staring | Liang Xu</title>
+  <title>hexo_study | Liang Xu</title>
   
 
 
@@ -208,7 +211,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/22/staring/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/27/hexo-study/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -221,7 +224,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          staring
+          hexo_study
         </h1>
 
         <div class="post-meta">
@@ -231,25 +234,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2019-11-22 13:58:15" itemprop="dateCreated datePublished" datetime="2019-11-22T13:58:15-05:00">2019-11-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-24 16:09:05" itemprop="dateModified" datetime="2019-11-24T16:09:05-05:00">2019-11-24</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Liang/" itemprop="url" rel="index">
-                    <span itemprop="name">Liang</span>
-                  </a>
-                </span>
+              <time title="Created: 2019-11-27 01:05:27" itemprop="dateCreated datePublished" datetime="2019-11-27T01:05:27-05:00">2019-11-27</time>
             </span>
 
           
@@ -263,7 +248,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h3 id="Global-Asset-Folder"><a href="#Global-Asset-Folder" class="headerlink" title="Global Asset Folder"></a>Global Asset Folder</h3><p>Assets are non-post files in the source folder, such as images, CSS or JavaScript files. For instance, If you are only going to have a few images in the Hexo project, then the easiest way is to keep them in a source/images directory. Then, you can access them using something like <img src="/images/image.jpg" alt="">.</p>
+<h3 id="Post-Asset-Folder"><a href="#Post-Asset-Folder" class="headerlink" title="Post Asset Folder"></a>Post Asset Folder</h3><p>For users who expect to regularly serve images and/or other assets, and for those who prefer to separate their assets on a post-per-post basis, Hexo also provides a more organized way to manage assets.<br>his slightly more involved, but very convenient approach to asset management can be turned on by setting the post_asset_folder setting in _config.yml to true.<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">_config.yml</span></span><br><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure><br>With asset folder management enabled, Hexo will create a folder every time you make a new post with the hexo new [layout] <title> command.<br>This asset folder will have the same name as the markdown file associated with the post. Place all assets related to your post into the associated folder, and you will be able to reference them using a <strong>relative path</strong>, making for an easier and more convenient workflow. What is relative path? </p>
+<h3 id="Tag-Plugins-For-Relative-Path-Referencing"><a href="#Tag-Plugins-For-Relative-Path-Referencing" class="headerlink" title="Tag Plugins For Relative Path Referencing"></a>Tag Plugins For Relative Path Referencing</h3><p>Referencing images or other assets using normal markdown syntax and relative paths may lead to incorrect display on archive or index pages.<br>with the release of Hexo 3, several new tag plugins were added to core. These enable you to reference your assets more easily in posts:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_path slug %&#125;</span><br><span class="line">&#123;% asset_img slug [title] %&#125;</span><br><span class="line">&#123;% asset_link slug [title] %&#125;</span><br></pre></td></tr></table></figure><br>For example, with post asset folders enabled, if you place an image example.jpg into your asset folder, it will not appear on the index page if you reference it using a relative path with regular <img src="/example.jpg" alt=""> markdown syntax (however, it will work as expected in the post itself).<br>The correct way to reference the image will thus be using tag plugin syntax rather than markdown:<br><br></p>
+<p>This way, the image will appear both inside the post and on index and archive pages.</p>
+
     </div>
 
     
@@ -272,7 +261,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/home/" rel="tag"># home</a>
+              <a href="/tags/hexo/" rel="tag"># hexo</a>
           </div>
 
         
@@ -281,13 +270,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/11/22/testPost/" rel="prev" title="testPost">
-      <i class="fa fa-chevron-left"></i> testPost
+    <a href="/2019/11/24/hexoStudy/" rel="prev" title="hexoStudy_1">
+      <i class="fa fa-chevron-left"></i> hexoStudy_1
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2019/11/22/testImage/" rel="next" title="testImage">
-      testImage <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -325,6 +311,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Global-Asset-Folder"><span class="nav-number">1.</span> <span class="nav-text">Global Asset Folder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Post-Asset-Folder"><span class="nav-number">2.</span> <span class="nav-text">Post Asset Folder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tag-Plugins-For-Relative-Path-Referencing"><span class="nav-number">3.</span> <span class="nav-text">Tag Plugins For Relative Path Referencing</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

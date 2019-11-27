@@ -54,7 +54,7 @@
 <meta property="og:site_name" content="Liang Xu">
 <meta property="og:description" content="SetupOnce initialized, here’s what your project folder will look like:12345678.├── _config.yml├── package.json├── scaffolds├── source|   ├── _drafts|   └── _posts└── themes _config.ymlsite configurati">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-26T03:29:04.069Z">
+<meta property="og:updated_time" content="2019-11-26T03:47:50.155Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2019/11/24/hexoStudy/">
@@ -238,7 +238,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-25 22:29:04" itemprop="dateModified" datetime="2019-11-25T22:29:04-05:00">2019-11-25</time>
+                <time title="Modified: 2019-11-25 22:47:50" itemprop="dateModified" datetime="2019-11-25T22:47:50-05:00">2019-11-25</time>
               </span>
 
           
@@ -351,10 +351,94 @@
 <h4 id="publish"><a href="#publish" class="headerlink" title="publish"></a>publish</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure>
 <p>Publishes a draft. Move the file from draft to post folder. </p>
 <h3 id="Writing"><a href="#Writing" class="headerlink" title="Writing"></a>Writing</h3><p>To create a new post or a new page, you can run the following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure><br>post is the default layout, but you can supply your own. You can change the default layout by editing the default_layout setting in _config.yml.</p>
-<h4 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h4><p>There are three default layouts in Hexo: post, page and draft. Files created by each of them is saved to a different path. Newly created posts are saved to the source/_posts folder.<br>| Layout  |    Path|<br>| ————- | ——————- |<br>|post|source/_posts|<br>|page|source|<br>|draft|<strong>source/_drafts</strong>|</p>
-<h4 id="Filename"><a href="#Filename" class="headerlink" title="Filename"></a>Filename</h4><p>By default, Hexo uses the post title as its filename. You can edit the <strong>new_post_name</strong> seting in _config.yml to change the default filename.  For example, :year-:month-:day-:title.md will prefix filenames with the post creation date. You can use the following placeholders:<br>| Layout  |    Path|<br>|————-|——————-|<br>|:title      | Post title (lower case, with spaces replaced by hyphens)|<br>|:year      | Created year, e.g. 2015|<br>|:month      | Created month (leading zeros), e.g. 04|<br>|:i_month | Created month (no leading zeros), e.g. 4|<br>|:day      | Created day (leading zeros), e.g. 07|<br>|:i_day      | Created day (no leading zeros), e.g. 7|</p>
+<h4 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h4><p>There are three default layouts in Hexo: post, page and draft. Files created by each of them is saved to a different path. Newly created posts are saved to the source/_posts folder.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Layout</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>post</td>
+<td>source/_posts</td>
+</tr>
+<tr>
+<td>root</td>
+<td>source</td>
+</tr>
+<tr>
+<td>draft</td>
+<td>source/_drafts</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="Filename"><a href="#Filename" class="headerlink" title="Filename"></a>Filename</h4><p>By default, Hexo uses the post title as its filename. You can edit the <strong>new_post_name</strong> seting in _config.yml to change the default filename.  For example, :year-:month-:day-:title.md will prefix filenames with the post creation date. You can use the following placeholders:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Layout</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:title</td>
+<td>Post title (lower case, with spaces replaced by hyphens)</td>
+</tr>
+<tr>
+<td>:year</td>
+<td>Created year, e.g. 2015</td>
+</tr>
+<tr>
+<td>:month</td>
+<td>Created month (leading zeros), e.g. 04</td>
+</tr>
+<tr>
+<td>:i_month</td>
+<td>Created month (no leading zeros), e.g. 4</td>
+</tr>
+<tr>
+<td>:day</td>
+<td>Created day (leading zeros), e.g. 07</td>
+</tr>
+<tr>
+<td>:i_day</td>
+<td>Created day (no leading zeros), e.g. 7</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h4 id="Draft"><a href="#Draft" class="headerlink" title="Draft"></a>Draft</h4><p>Previously, we mentioned a special layout in Hexo: draft. Posts initialized with this layout are saved to the <strong>source/_drafts</strong> folder. You can use the publish command to move drafts to the source/_posts folder. publish works in a similar way to the new command.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo publish [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure><br>Drafts are not displayed by default. You can add the —draft option when running Hexo or enable the render_drafts setting in _config.yml to render drafts.</p>
-<h4 id="Scaffolds"><a href="#Scaffolds" class="headerlink" title="Scaffolds"></a>Scaffolds</h4><p>When creating posts, Hexo will build files based on the corresponding file in scaffolds folder. For example:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new photo <span class="string">"My Gallery"</span></span><br></pre></td></tr></table></figure><br>When you run this command, Hexo will try to find photo.md in the scaffolds folder and build the post based on it. The following placeholders are available in scaffolds:<br>| Layout  |    Path|<br>|————-|——————-|<br>|layout | Layout |<br>|title  | Title |<br>|date   | File created date |</p>
+<h4 id="Scaffolds"><a href="#Scaffolds" class="headerlink" title="Scaffolds"></a>Scaffolds</h4><p>When creating posts, Hexo will build files based on the corresponding file in scaffolds folder. For example:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new photo <span class="string">"My Gallery"</span></span><br></pre></td></tr></table></figure><br>When you run this command, Hexo will try to find photo.md in the scaffolds folder and build the post based on it. The following placeholders are available in scaffolds:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Layout</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>layout</td>
+<td>Layout</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Title</td>
+</tr>
+<tr>
+<td>date</td>
+<td>File created date</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h3 id="Front-matter"><a href="#Front-matter" class="headerlink" title="Front-matter"></a>Front-matter</h3><p>Front-matter is a block of YAML or JSON at the beginning of the file that is used to configure settings for your writings. Front-matter is terminated by three dashes when written in YAML or three semicolons when written in JSON.</p>
 <p>YAML<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">AML</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Hello</span> <span class="string">World</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2013</span><span class="string">/7/13</span> <span class="number">20</span><span class="string">:46:25</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">JSON</span><br><span class="line">"title": "Hello World",</span><br><span class="line">"date": "2013/7/13 20:46:25"</span><br><span class="line">;;;</span><br></pre></td></tr></table></figure>
@@ -401,14 +485,17 @@
 <tr>
 <td>categories</td>
 <td>Categories (Not available for pages)</td>
+<td></td>
 </tr>
 <tr>
 <td>permalink</td>
 <td>Overrides the default permalink of the post</td>
+<td></td>
 </tr>
 <tr>
 <td>keywords</td>
 <td>The keywords that only used in meta tag and Open Graph (not recommended</td>
+<td></td>
 </tr>
 <tr>
 <td>excerpt</td>
@@ -420,15 +507,20 @@
 <h4 id="Categories-amp-Tags"><a href="#Categories-amp-Tags" class="headerlink" title="Categories &amp; Tags"></a>Categories &amp; Tags</h4><p>Only posts support the use of categories and tags. </p>
 <ol>
 <li><strong>Categories</strong> apply to posts in order, resulting in a hierarchy of classifications and sub-classifications. </li>
-<li><strong>Tags</strong> are all defined on the same hierarchical level so the order in which they appear is not important.<br><strong>Example</strong><br>categories:</li>
+<li><strong>Tags</strong> are all defined on the same hierarchical level so the order in which they appear is not important.<br><strong>Example</strong></li>
 </ol>
+<p>categories:</p>
 <ul>
 <li>Sports</li>
-<li>Baseball<br>tags:</li>
+<li>Baseball</li>
+</ul>
+<p>tags:</p>
+<ul>
 <li>Injury</li>
 <li>Fight</li>
-<li>Shocking<br>If you want to apply multiple category hierarchies, use a list of names instead of a single name. If Hexo sees any categories defined this way on a post, it will treat each category for that post as its own independent hierarchy.<br><strong>Example</strong></li>
+<li>Shocking</li>
 </ul>
+<p>If you want to apply multiple category hierarchies, use a list of names instead of a single name. If Hexo sees any categories defined this way on a post, it will treat each category for that post as its own independent hierarchy.<br><strong>Example</strong></p>
 <p>categories:</p>
 <ul>
 <li>[Sports, Baseball]</li>
@@ -457,7 +549,10 @@
     <a href="/2019/11/24/hello-world/" rel="prev" title="Hello World">
       <i class="fa fa-chevron-left"></i> Hello World
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2019/11/27/hexo-study/" rel="next" title="hexo_study">
+      hexo_study <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -509,7 +604,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
