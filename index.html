@@ -206,6 +206,133 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/04/01-Coding-Performance/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Xu">
+      <meta itemprop="description" content="This is the place for Liang to make any notes if he feels like it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liang Xu">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/04/01-Coding-Performance/" class="post-title-link" itemprop="url">01 coding is inevitable performance is optional</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-04 22:38:40" itemprop="dateCreated datePublished" datetime="2019-12-04T22:38:40-05:00">2019-12-04</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Is this true? Certainly not. When we thinking about coding, performance is the most important concept in our minds.</p>
+<h2 id="Winning-depends-on-performance"><a href="#Winning-depends-on-performance" class="headerlink" title="Winning depends on performance"></a>Winning depends on performance</h2><p>Performance optimization and capacity efficiency are the most important topics for the IT company. It determines who can provide a better service.</p>
+<p>Thinking in performance not only means you need to think in terms of algorithm, but also you need to know how the system works and the system architecture. For example, SSD as a flash cache lets the system have another level of memory, what is memory mountain, what is cache-oblivious algorithm whey they are useful. </p>
+<p>All performance topics will be discussed in this TAG: HighPerformance. </p>
+<p>I used to do some research in this topic, graph computing. There will be some posts talk about graph computing also. Thanks for reading this. </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/04/01-Inception-Versions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Xu">
+      <meta itemprop="description" content="This is the place for Liang to make any notes if he feels like it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liang Xu">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/04/01-Inception-Versions/" class="post-title-link" itemprop="url">Inception Versions</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-04 16:03:38" itemprop="dateCreated datePublished" datetime="2019-12-04T16:03:38-05:00">2019-12-04</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Inception-versions"><a href="#Inception-versions" class="headerlink" title="Inception versions"></a>Inception versions</h3><p>In this section, I will compare the difference version of inception. Explain how they think, what kinds of problem they what to solve.</p>
+<h4 id="Inception-v1"><a href="#Inception-v1" class="headerlink" title="Inception v1"></a>Inception v1</h4><p>The first version of inception is based on the computation efficiency. As we know that, modern computing system are not good at sparse matrix computation, lost of the resource are wasted due to the sparsity. Also, our deep convolutional neural network are a sparse matrix multiplication. So the first idea is to approximate the dense matrix multiplication by using several convolutional together. The original words are “The main idea of the Inception architecture is based on finding out how an optimal local sparse structure in a convolutional vision network can be approximated and covered by readily available dense components”.<br>The original inception module are build based on several different convolutional filters 1x1, 3x3 ,5x5, and a pooling layer.<br><img src="images/01_inception_01.png" alt=""></p>
+<p>However, the number of 5x5 filters are very big compared with 3x3. Also, when adding the pooling units, the merging of their number of output filters equals to the number of filters in the previous stage. So, in the concatenation layer, the input size from the pooling layer concatenated convolutional layers make the output inevitable increase in the number of outputs form state to state. This is the reason they propose the second version. </p>
+<h5 id="Inception-V2"><a href="#Inception-V2" class="headerlink" title="Inception V2"></a>Inception V2</h5><p>Inception V2 module is with the demension reduction with 1X1 filter. 1x1 filter are applying dimension reductions and projections wherever the computational requeiremnts would increase too much otherwise. </p>
+<p><img src="images/01_inception_02.png" alt=""></p>
+<p>The 1x1 convolutions are used tp compute reductions before the expensive 3x3 and 5x5 convolutions. They also include the use of rectified linear activation which makes them dual purpose. </p>
+<h4 id="Inception-V3"><a href="#Inception-V3" class="headerlink" title="Inception V3"></a>Inception V3</h4><p>Inception V3 is proposed by another paper. It trying to reduce the filter form nxn to 1xn. In this module, they studied the relation of filter size and how to optimize them. For example, they trying to use 2 3x3 filters instead of 1 5*5. Like the filter below.<br><img src="images/01_inception_03.png" alt=""><br><img src="images/01_inception_03_2.png" alt=""></p>
+<h4 id="Inception-V4"><a href="#Inception-V4" class="headerlink" title="Inception V4"></a>Inception V4</h4><p>Inception V4 also proposed by another paper. The inception of v4’s idea came from ResNet. In that paper, they proposed lots of paper talked about different versions of the neural network connections, especially how to do something similar with the ResNet.<br><img src="images/01_inception_04.png" alt=""></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/03/smart-pointer-implementation-cpp-02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1091,7 +1218,7 @@ Compare with the previous version, the constructor construct a shared<em>conut. 
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1104,7 +1231,7 @@ Compare with the previous version, the constructor construct a shared<em>conut. 
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
