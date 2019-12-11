@@ -39,7 +39,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     sidebarPadding: 40
@@ -228,10 +228,10 @@
       <div class="post-body">
           <div class="tag-cloud">
             <div class="tag-cloud-title">
-              10 tags in total
+              16 tags in total
             </div>
             <div class="tag-cloud-tags">
-              <a href="/tags/CNN/" style="font-size: 12px; color: #ccc">CNN</a> <a href="/tags/CV-Paper/" style="font-size: 12px; color: #ccc">CV_Paper</a> <a href="/tags/Recognition/" style="font-size: 12px; color: #ccc">Recognition</a> <a href="/tags/c/" style="font-size: 12px; color: #ccc">c++</a> <a href="/tags/context/" style="font-size: 12px; color: #ccc">context</a> <a href="/tags/hexo/" style="font-size: 30px; color: #111">hexo</a> <a href="/tags/home/" style="font-size: 12px; color: #ccc">home</a> <a href="/tags/leetcode/" style="font-size: 12px; color: #ccc">leetcode</a> <a href="/tags/performance/" style="font-size: 30px; color: #111">performance</a> <a href="/tags/system/" style="font-size: 30px; color: #111">system</a>
+              <a href="/tags/Algorithm/" style="font-size: 12px; color: #ccc">Algorithm</a> <a href="/tags/CNN/" style="font-size: 12px; color: #ccc">CNN</a> <a href="/tags/CV-Paper/" style="font-size: 12px; color: #ccc">CV_Paper</a> <a href="/tags/Data-Structures-Fundamentals/" style="font-size: 12px; color: #ccc">Data Structures Fundamentals</a> <a href="/tags/DeepLearning/" style="font-size: 12px; color: #ccc">DeepLearning</a> <a href="/tags/EDX/" style="font-size: 12px; color: #ccc">EDX</a> <a href="/tags/Recognition/" style="font-size: 12px; color: #ccc">Recognition</a> <a href="/tags/SemiSupervised/" style="font-size: 12px; color: #ccc">SemiSupervised</a> <a href="/tags/VAE/" style="font-size: 12px; color: #ccc">VAE</a> <a href="/tags/c/" style="font-size: 12px; color: #ccc">c++</a> <a href="/tags/context/" style="font-size: 12px; color: #ccc">context</a> <a href="/tags/hexo/" style="font-size: 30px; color: #111">hexo</a> <a href="/tags/home/" style="font-size: 12px; color: #ccc">home</a> <a href="/tags/leetcode/" style="font-size: 12px; color: #ccc">leetcode</a> <a href="/tags/performance/" style="font-size: 30px; color: #111">performance</a> <a href="/tags/system/" style="font-size: 30px; color: #111">system</a>
             </div>
           </div>
         
@@ -250,6 +250,7 @@
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
         </div>
           
@@ -287,7 +288,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -300,7 +301,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -392,6 +393,26 @@
   
 
   
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '149ebf414bce9afa23bb',
+      clientSecret: '5184b7ef0e3ac34dbd679b6e16523efef720a670',
+      repo: 'http://abysmalocean.github.io',
+      owner: 'abysmalocean',
+      admin: ['abysmalocean'],
+      id: 'f47af1d1eda4d807b02bba32be15120b',
+        language: 'en',
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
 
 </body>
 </html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Liang Xu" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Semi-supervised Learning with Deep Generative ModelsThe increasing size of deep learning model with the difficulty if obtaining label information has made semi-supervised learning one of the problems">
+<meta name="keywords" content="VAE,DeepLearning,SemiSupervised">
+<meta property="og:type" content="article">
+<meta property="og:title" content="semi-supervised_Learning_Deep_Generative_Model">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;09&#x2F;semi-supervised-Learning-Deep-Generative-Model&#x2F;index.html">
+<meta property="og:site_name" content="Liang Xu">
+<meta property="og:description" content="Semi-supervised Learning with Deep Generative ModelsThe increasing size of deep learning model with the difficulty if obtaining label information has made semi-supervised learning one of the problems">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-12-09T22:38:20.000Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2019/12/09/semi-supervised-Learning-Deep-Generative-Model/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>semi-supervised_Learning_Deep_Generative_Model | Liang Xu</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Liang Xu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Liang Xu is a Computer Science guy</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/09/semi-supervised-Learning-Deep-Generative-Model/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Xu">
+      <meta itemprop="description" content="This is the place for Liang to make any notes if he feels like it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liang Xu">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          semi-supervised_Learning_Deep_Generative_Model
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-09 17:38:20" itemprop="dateCreated datePublished" datetime="2019-12-09T17:38:20-05:00">2019-12-09</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Semi-supervised-Learning-with-Deep-Generative-Models"><a href="#Semi-supervised-Learning-with-Deep-Generative-Models" class="headerlink" title="Semi-supervised Learning with Deep Generative Models"></a>Semi-supervised Learning with Deep Generative Models</h1><p>The increasing size of deep learning model with the difficulty if obtaining label information has made semi-supervised learning one of the problems of significant practical importance in modern data analysis.</p>
+<p>Generative approaches have thus far been either inflexible, inefficient or non-scalable. </p>
+<blockquote>
+<ul>
+<li>This paper describe a new framework for semi-supervised learning with generative models, employing rich parametric density estimators formed by the fusion of probabilistic modelling and deep neural networks.</li>
+<li>this paper show for the first time how variational inference can be brought to bear upon the problem of semi-supervised classification. In particular, we develop a stochastic variational inference algorithm that allows for joint optimization both model and variational parameters, and that is scalable to large datasets.</li>
+</ul>
+</blockquote>
+<h2 id="Deep-Generative-Models-for-Semi-supervised-Learning"><a href="#Deep-Generative-Models-for-Semi-supervised-Learning" class="headerlink" title="Deep Generative Models for Semi-supervised Learning"></a>Deep Generative Models for Semi-supervised Learning</h2><p>We are feaced with data that appear as pairs $(\mathbf{X}, \mathbf{Y}) = {(X_1, y_1), … , (X_N, y_N)}$, with the <em>i</em>-th observation $x_i \in \mathbb{R}$ and the corresponding class label $y_i \in {1, … , L}$. Observations will have corresponding latent variables, which we denote by $z_i$. In the semi-supervised learning classification, only a subset of the observations have corresponding class labels; we refer to the exmpirical distribution over the labelled and unlabelled subsets as $\widetilde{p_l}(\mathbf{x}, y)$ and $\widetilde{p_u}(\mathbf{x})$.</p>
+<p>We now develop models for semi-supervised learning that exploit generative descriptions of the data to improve upon the classification performance that would be obtained using the labelled data alone.</p>
+<h3 id="Latent-feature-discriminative-model-M1"><a href="#Latent-feature-discriminative-model-M1" class="headerlink" title="Latent-feature discriminative model(M1)"></a>Latent-feature discriminative model(M1)</h3><p>A commonly used approach is to construct a model that provides an embedding or feature representation of the data. Using those features, a separate classifier is thereafter trained. By assumption, the embeddings allows for a clustering of related observations in a latent feature space that allows for accurate classification, even with a limited number of labels. Deep generative model of the data can build more robust set of latent features. The generative model used is:</p>
+<script type="math/tex; mode=display">p(z) = \mathcal{N}(\mathbf{z}|\mathbf{0},\mathbf{I})</script><script type="math/tex; mode=display">p_\theta(z|x) = p(x; z, \mathbf{\theta})</script><p>$p_\theta(z|x)$ is a suitable likelihood function whose probability are formulated by nonlinear transformation with parameter $\theta$, and a set of latent variables z. This nonlinear model (parameterized by $\theta$) allows the higher moments of the data to be captured by the density model, and this nonlinear function has been chosen as deep neural networks.</p>
+<p>Approximated samples from the posterior distribution over the latent variables p(z|x) are used as features to train as a classifiers to predict the label y, such as a SVM. Using this approach, we can now perform classification in a lower dimensional space(This is very important). The reason for modern deep learning works, they can learn huge parameter space by large amount data. After reduce the dimensionality, during the supervised learning, we only focus on the small classifier parameters in a low dimensional space.</p>
+<h3 id="Generative-semi-supervised-model-M2"><a href="#Generative-semi-supervised-model-M2" class="headerlink" title="Generative semi-supervised model(M2)"></a>Generative semi-supervised model(M2)</h3><p>This is the most important model this paper has been proposed. They proposed a probabilistic model that describes the data as being generated by a latent class variable y in <strong>addition</strong> to a continuous latent variable z. The latent class variable y is also being generated. </p>
+<script type="math/tex; mode=display">p(y) = Cat(y|\pi)</script><script type="math/tex; mode=display">p(z) = \mathcal{N}(\mathbf{z}|\mathbf{0},\mathbf{I})</script><script type="math/tex; mode=display">p_{\theta}(\mathbf{x} | y,z) = f(\mathbf{x}; y, \mathbf{z},\mathbf{\theta})</script><p>where $Cat(y|\pi)$ is the multinomial distribution, the class labels $y$ are treated as latent variables if no class label is available and z are additional latent variables. The latent variables are marginally independent and allow us to separate the class specification. As before, $f(\mathbf{x}| y, \mathbf{z},\mathbf{\theta})$ is a suitable likelihood function, parameterised by a non-linear transformation of the latent variables (the decoder).</p>
+<blockquote>
+<p><strong>Since most labels <em>y</em> are unobserved, we integrate over the class of any unlabelled data during the inference process, thus performing classification as inference. Prediction for any missing labels are obtained from the inferred posterior distribution $p_{\theta}(y|\mathbf{x})$. This model can also be seen as a hybrid continuous-discrete mixture model where the different mixture components share parameters.</strong></p>
+</blockquote>
+<h3 id="Stacked-generative-semi-supervised-model-M1-M2"><a href="#Stacked-generative-semi-supervised-model-M1-M2" class="headerlink" title="Stacked generative semi-supervised model(M1 + M2)"></a>Stacked generative semi-supervised model(M1 + M2)</h3><p>We can combine these two approaches by first learning a new latent representation $z_1$ using the generative model from M1, and subsequently learning a generative semi-supervised model M2, using embeddings from $z_1$ instead of the raw data <strong>x</strong>.</p>
+<blockquote>
+<p><strong>The result is a deep generative model with tow layers of stochastic variables</strong></p>
+<script type="math/tex; mode=display">p_{\theta}(\mathbf{x}, y,\mathbf{z_{1}}, \mathbf{z_{2}}) = p(y)p(\mathbf{z_{2}})p_{\theta}(\mathbf{z_{1}}|y, \mathbf{z_{2}})p_{\theta}(\mathbf{x}|\mathbf{z_{1}})</script><p>where the priors <script type="math/tex">p(y)</script> and <script type="math/tex">p(z_{2})</script> equal those of y and z above,and both <script type="math/tex">p_{\theta}(\mathbf{x}|\mathbf{z_{1}})</script> and <script type="math/tex">p_{\theta}(\mathbf{z_{1}} | y, \mathbf{z_{2}})</script> are parameterized as deep neural networks. </p>
+</blockquote>
+<h2 id="3-Scalable-Variational-Inference"><a href="#3-Scalable-Variational-Inference" class="headerlink" title="3. Scalable Variational Inference"></a>3. Scalable Variational Inference</h2><h3 id="3-1-Lower-Bound-Objective"><a href="#3-1-Lower-Bound-Objective" class="headerlink" title="3.1 Lower Bound Objective"></a>3.1 Lower Bound Objective</h3><p>For all the models described, we introduce a fixed-form distribution $q_{\phi}(z|x)$ with parameters $\phi$ that approximates the true posterior distribution $p(z|x)$. We then follow the variational principle to derive a lower bound on the marginal likelihood of the model – this bound forms our objective function and ensures that our approximate posterior is as close as possible to the true posterior. </p>
+<p>We construct the approximate posterior distribution $q_{\phi}(.)$ as an inference or recognition model. Using an inference network, we avoid the need to compute per data point variational parameters, but can instead compute a set of global variational parameters $\phi$</p>
+<p>An inference network is introduced for all latent variables, and we parameterise them as deep neural networks whose outputs from the parameters of the distribution $q_{\phi}(.)$. </p>
+<blockquote>
+<ul>
+<li>For the latent-feature discriminative model (M1), we use a Gaussian inference network $q_{\phi}(\mathbf{z}|\mathbf{x})$ for the latent variable $\mathbf{z}$. </li>
+<li>For the generative semi-supervised model(M2), we introduce an inference model fro each of the latent variables $\mathbf{z}$ and $y$, which we assume has a factorised from:<br>$q<em>{\phi}(\mathbf{z}, y|\mathbf{x}) = q</em>{\phi}(\mathbf{z}|\mathbf{x})q_{\phi}(y|\mathbf{x})$ specified as Gaussian and multinomial distribution respectively. </li>
+</ul>
+</blockquote>
+<script type="math/tex; mode=display">M1: q_{\phi}(\mathbf{z}|\mathbf{x}) = \mathcal{N}(\mathbf{z}|\mathbf{\mu_{\phi}}(\mathbf{x}), diag(\mathbf{\sigma_{\phi}^{2}}(\mathbf{x}))),</script><script type="math/tex; mode=display">M2: q_{\phi}(\mathbf{z}|y, \mathbf{x}) = \mathcal{N}(\mathbf{z}|\mu_{\phi}(y, \mathbf{x}), diag() diag(\mathbf{\sigma_{\phi}^{2}}(\mathbf{x}));</script><script type="math/tex; mode=display">q_{\phi}(y|\mathbf{x}) = Cat(y|\mathbf{\pi}_{\phi}(\mathbf{x}))</script><p>where:</p>
+<blockquote>
+<p>$\mathbf{\sigma}<em>{\phi}(\mathbf{x})$ is a vector of standard deviations<br>$\mathbf{\pi}</em>{\phi}(\mathbf{x})$ is a probability vector</p>
+</blockquote>
+<h4 id="3-1-1-Latent-Feature-Discriminative-Model-Objective"><a href="#3-1-1-Latent-Feature-Discriminative-Model-Objective" class="headerlink" title="3.1.1 Latent Feature Discriminative Model Objective"></a>3.1.1 Latent Feature Discriminative Model Objective</h4><p>For this model, the variational bound $\mathcal{J}(x)$ on the marginal likelihood for a single data point is:</p>
+<script type="math/tex; mode=display">\log{p_{\theta}}(\mathbf{x}) \geq \mathbb{E}_{q_{\theta}(\mathbf{z}|\mathbf{x})}[\log{p_{\theta}(\mathbf{x}|\mathbf{z})}] - KL[q_{\phi}(\mathbf{z}|\mathbf{x})||p_{\theta}(\mathbf{z})] = -\mathcal{J}(x)</script><p>The inference M1 network is used during training of the model using both the labelled and unlabelled data set. This approximate posterior is then used as a feature extractor for the labelled data set, and the features used for training the classifier. </p>
+<h4 id="3-1-2-Generative-Semi-supervised-Model"><a href="#3-1-2-Generative-Semi-supervised-Model" class="headerlink" title="3.1.2 Generative Semi-supervised Model"></a>3.1.2 Generative Semi-supervised Model</h4><p>M2 model in our model. For this model, we have to cases to consider. In the first case, the label corresponding to a data point is observed and variational bounding is simply extension of previous loss function.</p>
+<script type="math/tex; mode=display">\log{p_{\theta}(\mathbf{x}, y)} \geq  \mathbb{E}_{q_{\theta}(\mathbf{z}|\mathbf{x}, y)}[\log{p_{\theta}}(\mathbf{x}|y, \mathbf{z}) + \log{p_{\theta}(y)}+\log{p(\mathbf{z})} - \log{q_{\phi}(\mathbf{z}|\mathbf{x}, y)}] = -\mathcal{L}(\mathbf{x}, y)</script><p>For the case where the label is missing, it is treated as a latent variable over which we perform posterior inference and the resulting bound for handling data points with an unobserved label $y$ is: </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\log{p_{\theta}(\mathbf{x}, y)} &\geq  \mathbb{E}_{q_{\theta}(\mathbf{z}, y|\mathbf{x})}[\log{p_{\theta}(\mathbf{x}|y, \mathbf{z}) + \log{p_{\theta}(y)}+\log{p(\mathbf{z})} - \log{q_{\phi}(\mathbf{z}|\mathbf{x}, y)}}] \\
+&= \sum_{y}q_{\phi}(y|\mathbf{x})(-\mathcal{L}(\mathbf{x}, y) + \mathcal{H}(q_{\phi}(y|\mathbf{x}))) \\
+&=-\mathcal{U}(x)
+\end{aligned}</script><p>The bound on the marginal likelihood for the entire data set is now: </p>
+<script type="math/tex; mode=display">
+\mathcal{J} = \sum_{(\mathbf{x}, y) \sim \widetilde{p_l}}\mathcal{L}(\mathbf{x},y) + \sum_{\mathbf{x} \sim \widetilde{p_u}} \mathcal{U}(\mathbf{x})</script>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/VAE/" rel="tag"># VAE</a>
+              <a href="/tags/DeepLearning/" rel="tag"># DeepLearning</a>
+              <a href="/tags/SemiSupervised/" rel="tag"># SemiSupervised</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/12/04/02-why-Do-We-need-Taking-Care-of-Performance/" rel="prev" title="02 Why do we care about performance?">
+      <i class="fa fa-chevron-left"></i> 02 Why do we care about performance?
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/12/09/leetcode-context166/" rel="next" title="leetcode_context166">
+      leetcode_context166 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Semi-supervised-Learning-with-Deep-Generative-Models"><span class="nav-number">1.</span> <span class="nav-text">Semi-supervised Learning with Deep Generative Models</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-Generative-Models-for-Semi-supervised-Learning"><span class="nav-number">1.1.</span> <span class="nav-text">Deep Generative Models for Semi-supervised Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Latent-feature-discriminative-model-M1"><span class="nav-number">1.1.1.</span> <span class="nav-text">Latent-feature discriminative model(M1)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generative-semi-supervised-model-M2"><span class="nav-number">1.1.2.</span> <span class="nav-text">Generative semi-supervised model(M2)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stacked-generative-semi-supervised-model-M1-M2"><span class="nav-number">1.1.3.</span> <span class="nav-text">Stacked generative semi-supervised model(M1 + M2)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Scalable-Variational-Inference"><span class="nav-number">1.2.</span> <span class="nav-text">3. Scalable Variational Inference</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-Lower-Bound-Objective"><span class="nav-number">1.2.1.</span> <span class="nav-text">3.1 Lower Bound Objective</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-1-Latent-Feature-Discriminative-Model-Objective"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">3.1.1 Latent Feature Discriminative Model Objective</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-2-Generative-Semi-supervised-Model"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">3.1.2 Generative Semi-supervised Model</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Liang Xu</p>
+  <div class="site-description" itemprop="description">This is the place for Liang to make any notes if he feels like it</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liang Xu</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<script type="text/x-mathjax-config">
+    MathJax.Ajax.config.path['mhchem'] = '//cdn.jsdelivr.net/npm/mathjax-mhchem@3';
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        extensions: ['[mhchem]/mhchem.js'],
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '149ebf414bce9afa23bb',
+      clientSecret: '5184b7ef0e3ac34dbd679b6e16523efef720a670',
+      repo: 'http://abysmalocean.github.io',
+      owner: 'abysmalocean',
+      admin: ['abysmalocean'],
+      id: '9c6034aa0c1588d0e21aea3e36345177',
+        language: 'en',
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+</body>
+</html>

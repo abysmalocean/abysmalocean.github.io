@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Liang Xu" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="BASIC DATA STRUCTURES1. Arrays and Linked Lists DefinitionArrayContiguous area of memory consisting of equal-size elements indexed by contiguous integers.  What is special about arrays? Constant time">
+<meta name="keywords" content="Algorithm,EDX,Data Structures Fundamentals">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Basic_Data_Structure_week1">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;index.html">
+<meta property="og:site_name" content="Liang Xu">
+<meta property="og:description" content="BASIC DATA STRUCTURES1. Arrays and Linked Lists DefinitionArrayContiguous area of memory consisting of equal-size elements indexed by contiguous integers.  What is special about arrays? Constant time">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;3.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;4.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;5.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;6.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;7.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;10.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;11.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;8.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;9.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;12.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;13.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;14.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;15.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;16.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;17.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;18.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;19.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;20.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;22.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;21.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;23.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;24.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;25.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;26.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;27.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;28.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;29.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;30.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;31.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;32.png">
+<meta property="og:updated_time" content="2019-12-10T17:47:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;1.png">
+
+<link rel="canonical" href="http://yoursite.com/2019/12/10/Basic-Data-Structure-week1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Basic_Data_Structure_week1 | Liang Xu</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Liang Xu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Liang Xu is a Computer Science guy</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/10/Basic-Data-Structure-week1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Xu">
+      <meta itemprop="description" content="This is the place for Liang to make any notes if he feels like it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liang Xu">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Basic_Data_Structure_week1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-10 12:47:13" itemprop="dateCreated datePublished" datetime="2019-12-10T12:47:13-05:00">2019-12-10</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="BASIC-DATA-STRUCTURES"><a href="#BASIC-DATA-STRUCTURES" class="headerlink" title="BASIC DATA STRUCTURES"></a>BASIC DATA STRUCTURES</h1><h2 id="1-Arrays-and-Linked-Lists"><a href="#1-Arrays-and-Linked-Lists" class="headerlink" title="1. Arrays and Linked Lists"></a>1. Arrays and Linked Lists</h2><blockquote>
+<p>Definition<br><strong>Array</strong><br><code>Contiguous area of memory consisting of equal-size elements indexed by contiguous integers.</code></p>
+</blockquote>
+<h3 id="What-is-special-about-arrays"><a href="#What-is-special-about-arrays" class="headerlink" title="What is special about arrays?"></a>What is special about arrays?</h3><ul>
+<li>Constant time access<br>Find the element by address <strong>array_addr + elem_size × (i − first_index)</strong> </li>
+</ul>
+<h3 id="Multi-Dimensional-Arrays"><a href="#Multi-Dimensional-Arrays" class="headerlink" title="Multi-Dimensional Arrays"></a>Multi-Dimensional Arrays</h3><p>Most of the language support multi dimension array. However, if the language does not support this, you can always create the array by only using one dimension and an equation. </p>
+<p align="center">
+  <img width="400" src="images_week1/1.png">
+</p>
+
+<p>According to the access pattern, the multi-dimension array can be saved as row major based or colum major based.</p>
+<p align="center">
+  <img width="400" src="images_week1/2.png">
+</p>
+
+<h3 id="Times-for-common-operations"><a href="#Times-for-common-operations" class="headerlink" title="Times for common operations"></a>Times for common operations</h3><p>Add and remove are tow common</p>
+<p align="center">
+  <img width="400" src="images_week1/3.png">
+</p>
+
+<ol>
+<li><p>add/remove to the beginning of the array need to move everything back by one, so ti is O(n) operation. Same like add in the middle of array. </p>
+</li>
+<li><p>add/remove from the end of the array are very easy, just move the pointer forward one step. </p>
+</li>
+</ol>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ol>
+<li><strong>Array:</strong> Contiguous area of memory consisting of equal-size elements indexed by contiguous integers. </li>
+<li>Constant-time access to any element. </li>
+<li>Constant time to add/remove at the end.</li>
+<li>Linear time to add/remove tat an arbitrary location.</li>
+</ol>
+<h2 id="Linked-Lists"><a href="#Linked-Lists" class="headerlink" title="Linked Lists"></a>Linked Lists</h2><p align="center">
+  <img width="400" src="images_week1/4.png">
+</p>
+
+<p>Linked Lists: </p>
+<ul>
+<li>keys</li>
+<li>Pointes</li>
+</ul>
+<h3 id="List-API"><a href="#List-API" class="headerlink" title="List API"></a>List API</h3><ul>
+<li><strong>PushFront(Key)</strong> : add to front</li>
+<li><strong>Key TopFront()</strong> : return front item</li>
+<li><strong>PopFront()</strong> : remove front item</li>
+<li><strong>PushBack(Key)</strong> : add to back</li>
+<li><strong>Key TopBack()</strong> : return back item</li>
+<li><strong>PopBack()</strong> : remove back item</li>
+<li><strong>Boolean Find(Key)</strong> : is key in list?</li>
+<li><strong>Erase(Key)</strong> : remove key from list</li>
+<li><strong>Boolean Empty()</strong> : empty list?</li>
+<li><strong>AddBefore(Node, Key)</strong> : adds key before node</li>
+<li><strong>AddAfter(Node, Key)</strong> : adds key after node</li>
+</ul>
+<h3 id="Times-for-some-Operations"><a href="#Times-for-some-Operations" class="headerlink" title="Times for some Operations"></a>Times for some Operations</h3><h4 id="Push-front"><a href="#Push-front" class="headerlink" title="Push_front"></a>Push_front</h4><p>Push front can be treated as reconnect the dummy head node.<br>Just remember do not lost your head any time. </p>
+<p align="center">
+  <img width="400" src="images_week1/5.png">
+</p>
+
+<p>Step1: Let the new node pointed to the current head. </p>
+<p align="center">
+  <img width="400" src="images_week1/6.png">
+</p>
+
+<p>Step2: Dummy head pointed to the new head. </p>
+<p align="center">
+  <img width="400" src="images_week1/7.png">
+</p>
+
+<p align="center">
+  <img width="400" src="images_week1/10.png">
+</p>
+
+<p align="center">
+  <img width="400" src="images_week1/11.png">
+</p>
+
+<p>For pop front, we need to think about the case when front is Empty.<br>So we need to check it first.<br>Time: O(1)</p>
+<h4 id="PushBack-no-tile-pointer"><a href="#PushBack-no-tile-pointer" class="headerlink" title="PushBack (no tile pointer)"></a>PushBack (no tile pointer)</h4><p align="center">
+  <img width="400" src="images_week1/8.png">
+</p>
+
+<p>This is o(n) operation, because we need to find the key first. </p>
+<h4 id="PushBack-with-tile-pointer"><a href="#PushBack-with-tile-pointer" class="headerlink" title="PushBack (with tile pointer)"></a>PushBack (with tile pointer)</h4><p align="center">
+  <img width="400" src="images_week1/9.png">
+</p>
+
+<p align="center">
+  <img width="400" src="images_week1/12.png">
+</p>
+
+<p>Check the tail.next is nullptr or not. </p>
+<h3 id="Summary-1"><a href="#Summary-1" class="headerlink" title="Summary"></a>Summary</h3><p align="center">
+  <img width="400" src="images_week1/13.png">
+</p>
+
+<h2 id="Doubly-Linked-List"><a href="#Doubly-Linked-List" class="headerlink" title="Doubly Linked List"></a>Doubly Linked List</h2><p align="center">
+  <img width="400" src="images_week1/14.png">
+</p>
+
+<p>Node Contains: </p>
+<ol>
+<li>key</li>
+<li>next pointer</li>
+<li>prev pointer</li>
+</ol>
+<h3 id="some-detailed"><a href="#some-detailed" class="headerlink" title="some detailed"></a>some detailed</h3><p align="center">
+  <img width="400" src="images_week1/15.png">
+</p>
+
+<p align="center">
+  <img width="400" src="images_week1/16.png">
+</p>
+
+<h3 id="Summary-2"><a href="#Summary-2" class="headerlink" title="Summary"></a>Summary</h3><ul>
+<li><p>Constant time to insert ar or remove from the front. </p>
+</li>
+<li><p>With tail and doubly-linked, constant time to insert at or remove from the back</p>
+</li>
+<li><p>o(n) time to find arbitrary element. (both index and content)</p>
+</li>
+<li><p>List elements need not be contiguous. (not good for sequence access, but good for dynamic memory operations).</p>
+</li>
+<li><p>With doubly-linked list, constant time to insert between nodes or remove a node. </p>
+</li>
+</ul>
+<h2 id="Stack-and-Queues"><a href="#Stack-and-Queues" class="headerlink" title="Stack and Queues"></a>Stack and Queues</h2><h3 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h3><blockquote>
+<p>Definitions:<br><strong>Stack</strong>: Abstract data type with the following opeartions</p>
+<ul>
+<li>Push(Key): adds key to collection</li>
+<li>Key Top(): returns most recently-added key</li>
+<li>Key Pop(): removes and returns most recently-added key</li>
+<li>Boolean Empty(): are there any elements?</li>
+</ul>
+</blockquote>
+<p align="center">
+  <img width="400" src="images_week1/17.png">
+</p>
+<p align="center">
+  <img width="400" src="images_week1/18.png">
+</p>
+
+<h4 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h4><p>Stack can be implemented as array or linked list. </p>
+<h4 id="Summary-3"><a href="#Summary-3" class="headerlink" title="Summary"></a>Summary</h4><ul>
+<li>Stacks can be implemented with either an array or a linked list.</li>
+<li>Each stack operation is O(1): Push, Pop, Top, Empty.</li>
+<li>Stacks are ocassionaly known as LIFO queues.</li>
+</ul>
+<h3 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h3><blockquote>
+<p>Definitions:<br><strong>Queue</strong>: Abstract data type with the following operations</p>
+<ul>
+<li>Enqueue(Key): adds key to collection </li>
+<li>Key Dequeue(): removes and returns least recently-added key</li>
+<li>Boolean Empty(): are there any elements?</li>
+</ul>
+</blockquote>
+<h4 id="With-linked-List"><a href="#With-linked-List" class="headerlink" title="With linked List"></a>With linked List</h4><p align="center">
+  <img width="400" src="images_week1/19.png">
+</p>
+
+<p align="center">
+  <img width="400" src="images_week1/20.png">
+</p>
+
+<h4 id="With-Array"><a href="#With-Array" class="headerlink" title="With Array"></a>With Array</h4><p>Using two Pointers</p>
+<p align="center">
+  <img width="400" src="images_week1/22.png">
+</p>
+
+<p align="center">
+  <img width="400" src="images_week1/21.png">
+</p>
+
+<p align="center">
+  <img width="400" src="images_week1/23.png">
+</p>
+
+<h4 id="Summary-4"><a href="#Summary-4" class="headerlink" title="Summary"></a>Summary</h4><ul>
+<li>Queues can be implemented with either a linked list (with tail pointer) or an array.</li>
+<li>Each queue operation is O(1): Enqueue, Dequeue, Empty.</li>
+</ul>
+<h2 id="Trees"><a href="#Trees" class="headerlink" title="Trees"></a>Trees</h2><blockquote>
+<p>Definition<br>A Tree is:</p>
+<ul>
+<li>empty, or</li>
+<li>a node with:<ul>
+<li>a key, and</li>
+<li>a list of child trees.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>Node contains:</p>
+<ul>
+<li>key</li>
+<li>children: list of children nodes</li>
+<li>(optional) parent</li>
+</ul>
+<p align="center">
+  <img width="400" src="images_week1/24.png">
+</p>
+
+<p align="center">
+  <img width="400" src="images_week1/25.png">
+</p>
+
+<h3 id="Walking-a-Tree"><a href="#Walking-a-Tree" class="headerlink" title="Walking a Tree"></a>Walking a Tree</h3><p>Often we want to visit the nodes of a tree in a particular order. </p>
+<ul>
+<li>Depth-first: We completely traverse one sub-tree before exploring a sibling sub-tree.</li>
+<li>Breadth-first: We traverse all nodes at one level before progressing to the next level.</li>
+</ul>
+<h4 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h4><h5 id="Inorder-Traversal"><a href="#Inorder-Traversal" class="headerlink" title="Inorder Traversal"></a>Inorder Traversal</h5><p align="center">
+  <img width="400" src="images_week1/26.png">
+</p>
+
+<p align="center">
+  <img width="400" src="images_week1/27.png">
+</p>
+
+<h5 id="PreOrder-Traversal"><a href="#PreOrder-Traversal" class="headerlink" title="PreOrder Traversal"></a>PreOrder Traversal</h5><p align="center">
+  <img width="400" src="images_week1/28.png">
+</p>
+
+<p align="center">
+  <img width="400" src="images_week1/29.png">
+</p>
+
+<h5 id="PostOrder-Traversal"><a href="#PostOrder-Traversal" class="headerlink" title="PostOrder Traversal"></a>PostOrder Traversal</h5><p align="center">
+  <img width="400" src="images_week1/30.png">
+</p>
+
+<p align="center">
+  <img width="400" src="images_week1/31.png">
+</p>
+
+<h4 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h4><p>Level order Traversal<br>Need to queue to keep track the element going to explore. </p>
+<p align="center">
+  <img width="400" src="images_week1/32.png">
+</p>
+
+<h3 id="Summary-5"><a href="#Summary-5" class="headerlink" title="Summary"></a>Summary</h3><ul>
+<li>Trees are used for lots of different things.</li>
+<li>Trees have a key and children.</li>
+<li>Tree walks: DFS (pre-order, in-order, post-order) and BFS.</li>
+<li>When working with a tree, recursive algorithms are common.</li>
+<li>In Computer Science, <strong>trees grow down</strong>!</li>
+</ul>
+<p>All the material in this post are come from EDX:Algorithms and Data Structures MicroMasters and Data Structures Fundamentals (Week1)[<a href="https://courses.edx.org/courses/course-v1:UCSanDiegoX+ALGS201x+1T2019/course/" target="_blank" rel="noopener">https://courses.edx.org/courses/course-v1:UCSanDiegoX+ALGS201x+1T2019/course/</a>] </p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+              <a href="/tags/EDX/" rel="tag"># EDX</a>
+              <a href="/tags/Data-Structures-Fundamentals/" rel="tag"># Data Structures Fundamentals</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/12/09/leetcode-context166/" rel="prev" title="leetcode_context166">
+      <i class="fa fa-chevron-left"></i> leetcode_context166
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BASIC-DATA-STRUCTURES"><span class="nav-number">1.</span> <span class="nav-text">BASIC DATA STRUCTURES</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Arrays-and-Linked-Lists"><span class="nav-number">1.1.</span> <span class="nav-text">1. Arrays and Linked Lists</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-special-about-arrays"><span class="nav-number">1.1.1.</span> <span class="nav-text">What is special about arrays?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-Dimensional-Arrays"><span class="nav-number">1.1.2.</span> <span class="nav-text">Multi-Dimensional Arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Times-for-common-operations"><span class="nav-number">1.1.3.</span> <span class="nav-text">Times for common operations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary"><span class="nav-number">1.1.4.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linked-Lists"><span class="nav-number">1.2.</span> <span class="nav-text">Linked Lists</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#List-API"><span class="nav-number">1.2.1.</span> <span class="nav-text">List API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Times-for-some-Operations"><span class="nav-number">1.2.2.</span> <span class="nav-text">Times for some Operations</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Push-front"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Push_front</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PushBack-no-tile-pointer"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">PushBack (no tile pointer)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PushBack-with-tile-pointer"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">PushBack (with tile pointer)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Doubly-Linked-List"><span class="nav-number">1.3.</span> <span class="nav-text">Doubly Linked List</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#some-detailed"><span class="nav-number">1.3.1.</span> <span class="nav-text">some detailed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stack-and-Queues"><span class="nav-number">1.4.</span> <span class="nav-text">Stack and Queues</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stack"><span class="nav-number">1.4.1.</span> <span class="nav-text">Stack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Implementation"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">Implementation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Summary-3"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Queue"><span class="nav-number">1.4.2.</span> <span class="nav-text">Queue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#With-linked-List"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">With linked List</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#With-Array"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">With Array</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Summary-4"><span class="nav-number">1.4.2.3.</span> <span class="nav-text">Summary</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Trees"><span class="nav-number">1.5.</span> <span class="nav-text">Trees</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Walking-a-Tree"><span class="nav-number">1.5.1.</span> <span class="nav-text">Walking a Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DFS"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">DFS</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Inorder-Traversal"><span class="nav-number">1.5.1.1.1.</span> <span class="nav-text">Inorder Traversal</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PreOrder-Traversal"><span class="nav-number">1.5.1.1.2.</span> <span class="nav-text">PreOrder Traversal</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PostOrder-Traversal"><span class="nav-number">1.5.1.1.3.</span> <span class="nav-text">PostOrder Traversal</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BFS"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">BFS</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary-5"><span class="nav-number">1.5.2.</span> <span class="nav-text">Summary</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Liang Xu</p>
+  <div class="site-description" itemprop="description">This is the place for Liang to make any notes if he feels like it</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liang Xu</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '149ebf414bce9afa23bb',
+      clientSecret: '5184b7ef0e3ac34dbd679b6e16523efef720a670',
+      repo: 'http://abysmalocean.github.io',
+      owner: 'abysmalocean',
+      admin: ['abysmalocean'],
+      id: '274f089e06dfe04bd2249552884ed7bd',
+        language: 'en',
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+</body>
+</html>

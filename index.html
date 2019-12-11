@@ -39,7 +39,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     sidebarPadding: 40
@@ -206,6 +206,312 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/10/Basic-Data-Structure-week1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Xu">
+      <meta itemprop="description" content="This is the place for Liang to make any notes if he feels like it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liang Xu">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/10/Basic-Data-Structure-week1/" class="post-title-link" itemprop="url">Basic_Data_Structure_week1</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-10 12:47:13" itemprop="dateCreated datePublished" datetime="2019-12-10T12:47:13-05:00">2019-12-10</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="BASIC-DATA-STRUCTURES"><a href="#BASIC-DATA-STRUCTURES" class="headerlink" title="BASIC DATA STRUCTURES"></a>BASIC DATA STRUCTURES</h1><h2 id="1-Arrays-and-Linked-Lists"><a href="#1-Arrays-and-Linked-Lists" class="headerlink" title="1. Arrays and Linked Lists"></a>1. Arrays and Linked Lists</h2><blockquote>
+<p>Definition<br><strong>Array</strong><br><code>Contiguous area of memory consisting of equal-size elements indexed by contiguous integers.</code></p>
+</blockquote>
+<h3 id="What-is-special-about-arrays"><a href="#What-is-special-about-arrays" class="headerlink" title="What is special about arrays?"></a>What is special about arrays?</h3><ul>
+<li>Constant time access<br>Find the element by address <strong>array_addr + elem_size × (i − first_index)</strong> </li>
+</ul>
+<h3 id="Multi-Dimensional-Arrays"><a href="#Multi-Dimensional-Arrays" class="headerlink" title="Multi-Dimensional Arrays"></a>Multi-Dimensional Arrays</h3><p>Most of the language support multi dimension array. However, if the language does not support this, you can always create the array by only using one dimension and an equation. </p>
+<p align="center">
+  <img width="400" src="images_week1/1.png">
+</p>
+
+<p>According to the access pattern, the multi-dimension array can be saved as row major based or colum major based.</p>
+<p align="center">
+  <img width="400" src="images_week1/2.png">
+</p>
+
+<h3 id="Times-for-common-operations"><a href="#Times-for-common-operations" class="headerlink" title="Times for common operations"></a>Times for common operations</h3><p>Add and remove are tow common</p>
+<p align="center">
+  <img width="400" src="images_week1/3.png">
+</p>
+
+<ol>
+<li><p>add/remove to the beginning of the array need to move everything back by one, so ti is O(n) operation. Same like add in the middle of array. </p>
+</li>
+<li><p>add/remove from the end of the array are very easy, just move the pointer forward one step. </p>
+</li>
+</ol>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ol>
+<li><strong>Array:</strong> Contiguous area of memory consisting of equal-size elements indexed by contiguous integers. </li>
+<li>Constant-time access to any element. </li>
+<li>Constant time to add/remove at the end.</li>
+<li>Linear time to add/remove tat an arbitrary location.</li>
+</ol>
+<h2 id="Linked-Lists"><a href="#Linked-Lists" class="headerlink" title="Linked Lists"></a>Linked Lists</h2><p align="center">
+  <img width="400" src="images_week1/4.png">
+</p>
+
+<p>Linked Lists: </p>
+<ul>
+<li>keys</li>
+<li>Pointes</li>
+</ul>
+<h3 id="List-API"><a href="#List-API" class="headerlink" title="List API"></a>List API</h3><ul>
+<li><strong>PushFront(Key)</strong> : add to front</li>
+<li><strong>Key TopFront()</strong> : return front item</li>
+<li><strong>PopFront()</strong> : remove front item</li>
+<li><strong>PushBack(Key)</strong> : add to back</li>
+<li><strong>Key TopBack()</strong> : return back item</li>
+<li><strong>PopBack()</strong> : remove back item</li>
+<li><strong>Boolean Find(Key)</strong> : is key in list?</li>
+<li><strong>Erase(Key)</strong> : remove key from list</li>
+<li><strong>Boolean Empty()</strong> : empty list?</li>
+<li><strong>AddBefore(Node, Key)</strong> : adds key before node</li>
+<li><strong>AddAfter(Node, Key)</strong> : adds key after node</li>
+</ul>
+<h3 id="Times-for-some-Operations"><a href="#Times-for-some-Operations" class="headerlink" title="Times for some Operations"></a>Times for some Operations</h3><h4 id="Push-front"><a href="#Push-front" class="headerlink" title="Push_front"></a>Push_front</h4><p>Push front can be treated as reconnect the dummy head node.<br>Just remember do not lost your head any time. </p>
+<p align="center">
+  <img width="400" src="images_week1/5.png">
+</p>
+
+<p>Step1: Let the new node pointed to the current head. </p>
+<p align="center">
+  <img width="400" src="images_week1/6.png">
+</p>
+
+<p>Step2: Dummy head pointed to the new head. </p>
+<p align="center">
+  <img width="400" src="images_week1/7.png">
+</p>
+
+<p align="center">
+  <img width="400" src="images_week1/10.png">
+</p>
+
+<p align="center">
+  <img width="400" src="images_week1/11.png">
+</p>
+
+<p>For pop front, we need to think about the case when front is Empty.<br>So we need to check it first.<br>Time: O(1)</p>
+<h4 id="PushBack-no-tile-pointer"><a href="#PushBack-no-tile-pointer" class="headerlink" title="PushBack (no tile pointer)"></a>PushBack (no tile pointer)</h4><p align="center">
+  <img width="400" src="images_week1/8.png">
+</p>
+
+<p>This is o(n) operation, because we need to find the key first. </p>
+<h4 id="PushBack-with-tile-pointer"><a href="#PushBack-with-tile-pointer" class="headerlink" title="PushBack (with tile pointer)"></a>PushBack (with tile pointer)</h4><p align="center">
+  <img width="400" src="images_week1/9.png">
+</p>
+
+<p align="center">
+  <img width="400" src="images_week1/12.png">
+</p>
+
+<p>Check the tail.next is nullptr or not. </p>
+<h3 id="Summary-1"><a href="#Summary-1" class="headerlink" title="Summary"></a>Summary</h3><p align="center">
+  <img width="400" src="images_week1/13.png">
+</p>
+
+<h2 id="Doubly-Linked-List"><a href="#Doubly-Linked-List" class="headerlink" title="Doubly Linked List"></a>Doubly Linked List</h2><p align="center">
+  <img width="400" src="images_week1/14.png">
+</p>
+
+<p>Node Contains: </p>
+<ol>
+<li>key</li>
+<li>next pointer</li>
+<li>prev pointer</li>
+</ol>
+<h3 id="some-detailed"><a href="#some-detailed" class="headerlink" title="some detailed"></a>some detailed</h3><p align="center">
+  <img width="400" src="images_week1/15.png">
+</p>
+
+<p align="center">
+  <img width="400" src="images_week1/16.png">
+</p>
+
+<h3 id="Summary-2"><a href="#Summary-2" class="headerlink" title="Summary"></a>Summary</h3><ul>
+<li><p>Constant time to insert ar or remove from the front. </p>
+</li>
+<li><p>With tail and doubly-linked, constant time to insert at or remove from the back</p>
+</li>
+<li><p>o(n) time to find arbitrary element. (both index and content)</p>
+</li>
+<li><p>List elements need not be contiguous. (not good for sequence access, but good for dynamic memory operations).</p>
+</li>
+<li><p>With doubly-linked list, constant time to insert between nodes or remove a node. </p>
+</li>
+</ul>
+<h2 id="Stack-and-Queues"><a href="#Stack-and-Queues" class="headerlink" title="Stack and Queues"></a>Stack and Queues</h2><h3 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h3><blockquote>
+<p>Definitions:<br><strong>Stack</strong>: Abstract data type with the following opeartions</p>
+<ul>
+<li>Push(Key): adds key to collection</li>
+<li>Key Top(): returns most recently-added key</li>
+<li>Key Pop(): removes and returns most recently-added key</li>
+<li>Boolean Empty(): are there any elements?</li>
+</ul>
+</blockquote>
+<p align="center">
+  <img width="400" src="images_week1/17.png">
+</p>
+<p align="center">
+  <img width="400" src="images_week1/18.png">
+</p>
+
+<h4 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h4><p>Stack can be implemented as array or linked list. </p>
+<h4 id="Summary-3"><a href="#Summary-3" class="headerlink" title="Summary"></a>Summary</h4><ul>
+<li>Stacks can be implemented with either an array or a linked list.</li>
+<li>Each stack operation is O(1): Push, Pop, Top, Empty.</li>
+<li>Stacks are ocassionaly known as LIFO queues.</li>
+</ul>
+<h3 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h3><blockquote>
+<p>Definitions:<br><strong>Queue</strong>: Abstract data type with the following operations</p>
+<ul>
+<li>Enqueue(Key): adds key to collection </li>
+<li>Key Dequeue(): removes and returns least recently-added key</li>
+<li>Boolean Empty(): are there any elements?</li>
+</ul>
+</blockquote>
+<h4 id="With-linked-List"><a href="#With-linked-List" class="headerlink" title="With linked List"></a>With linked List</h4><p align="center">
+  <img width="400" src="images_week1/19.png">
+</p>
+
+<p align="center">
+  <img width="400" src="images_week1/20.png">
+</p>
+
+<h4 id="With-Array"><a href="#With-Array" class="headerlink" title="With Array"></a>With Array</h4><p>Using two Pointers</p>
+<p align="center">
+  <img width="400" src="images_week1/22.png">
+</p>
+
+<p align="center">
+  <img width="400" src="images_week1/21.png">
+</p>
+
+<p align="center">
+  <img width="400" src="images_week1/23.png">
+</p>
+
+<h4 id="Summary-4"><a href="#Summary-4" class="headerlink" title="Summary"></a>Summary</h4><ul>
+<li>Queues can be implemented with either a linked list (with tail pointer) or an array.</li>
+<li>Each queue operation is O(1): Enqueue, Dequeue, Empty.</li>
+</ul>
+<h2 id="Trees"><a href="#Trees" class="headerlink" title="Trees"></a>Trees</h2><blockquote>
+<p>Definition<br>A Tree is:</p>
+<ul>
+<li>empty, or</li>
+<li>a node with:<ul>
+<li>a key, and</li>
+<li>a list of child trees.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>Node contains:</p>
+<ul>
+<li>key</li>
+<li>children: list of children nodes</li>
+<li>(optional) parent</li>
+</ul>
+<p align="center">
+  <img width="400" src="images_week1/24.png">
+</p>
+
+<p align="center">
+  <img width="400" src="images_week1/25.png">
+</p>
+
+<h3 id="Walking-a-Tree"><a href="#Walking-a-Tree" class="headerlink" title="Walking a Tree"></a>Walking a Tree</h3><p>Often we want to visit the nodes of a tree in a particular order. </p>
+<ul>
+<li>Depth-first: We completely traverse one sub-tree before exploring a sibling sub-tree.</li>
+<li>Breadth-first: We traverse all nodes at one level before progressing to the next level.</li>
+</ul>
+<h4 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h4><h5 id="Inorder-Traversal"><a href="#Inorder-Traversal" class="headerlink" title="Inorder Traversal"></a>Inorder Traversal</h5><p align="center">
+  <img width="400" src="images_week1/26.png">
+</p>
+
+<p align="center">
+  <img width="400" src="images_week1/27.png">
+</p>
+
+<h5 id="PreOrder-Traversal"><a href="#PreOrder-Traversal" class="headerlink" title="PreOrder Traversal"></a>PreOrder Traversal</h5><p align="center">
+  <img width="400" src="images_week1/28.png">
+</p>
+
+<p align="center">
+  <img width="400" src="images_week1/29.png">
+</p>
+
+<h5 id="PostOrder-Traversal"><a href="#PostOrder-Traversal" class="headerlink" title="PostOrder Traversal"></a>PostOrder Traversal</h5><p align="center">
+  <img width="400" src="images_week1/30.png">
+</p>
+
+<p align="center">
+  <img width="400" src="images_week1/31.png">
+</p>
+
+<h4 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h4><p>Level order Traversal<br>Need to queue to keep track the element going to explore. </p>
+<p align="center">
+  <img width="400" src="images_week1/32.png">
+</p>
+
+<h3 id="Summary-5"><a href="#Summary-5" class="headerlink" title="Summary"></a>Summary</h3><ul>
+<li>Trees are used for lots of different things.</li>
+<li>Trees have a key and children.</li>
+<li>Tree walks: DFS (pre-order, in-order, post-order) and BFS.</li>
+<li>When working with a tree, recursive algorithms are common.</li>
+<li>In Computer Science, <strong>trees grow down</strong>!</li>
+</ul>
+<p>All the material in this post are come from EDX:Algorithms and Data Structures MicroMasters and Data Structures Fundamentals (Week1)[<a href="https://courses.edx.org/courses/course-v1:UCSanDiegoX+ALGS201x+1T2019/course/" target="_blank" rel="noopener">https://courses.edx.org/courses/course-v1:UCSanDiegoX+ALGS201x+1T2019/course/</a>] </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/09/leetcode-context166/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -352,6 +658,110 @@ n is smaller than 500, I think we can create a matrix for that. However, there i
 <p>This is a NP-hard problem, I’d rather to build a memory table for soltuion. because the m and n only [1, 3]. However, we need to use the BFS to every condiction.</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="keyword">typedef</span> <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; matrix;</span><br><span class="line">    <span class="keyword">int</span> m, n; </span><br><span class="line">    <span class="built_in">map</span>&lt;matrix, <span class="keyword">int</span>&gt; table; </span><br><span class="line">    <span class="comment">// direction</span></span><br><span class="line">    <span class="keyword">int</span> dx[<span class="number">5</span>]&#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>&#125;; </span><br><span class="line">    <span class="keyword">int</span> dy[<span class="number">5</span>]&#123;<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;; </span><br><span class="line">    </span><br><span class="line">    <span class="built_in">vector</span>&lt;matrix&gt; get_neighbors(matrix&amp; mat)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;matrix&gt; res; </span><br><span class="line">        <span class="keyword">auto</span> isValid = [&amp;](<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> x &gt;= <span class="number">0</span> &amp;&amp; y &gt;= <span class="number">0</span> &amp;&amp; x &lt; n &amp;&amp; y &lt; m; </span><br><span class="line">        &#125;; </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                matrix tmpM = mat; </span><br><span class="line">                </span><br><span class="line">                <span class="comment">// flip</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> dir = <span class="number">0</span>; dir &lt; <span class="number">5</span>; ++dir)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">int</span> x = i + dx[dir];</span><br><span class="line">                    <span class="keyword">int</span> y = j + dy[dir]; </span><br><span class="line">                    <span class="keyword">if</span>(isValid(x,y))</span><br><span class="line">                    &#123;</span><br><span class="line">                        tmpM[x][y] = !mat[x][y];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                res.push_back(tmpM); </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res; </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">bfs</span><span class="params">(matrix&amp; mat)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> check = [&amp;](matrix mat)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">bool</span> good = <span class="number">1</span>; </span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;row : mat)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;num : row)</span><br><span class="line">                &#123;</span><br><span class="line">                    good &amp;= !num;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> good; </span><br><span class="line">        &#125;; </span><br><span class="line">        </span><br><span class="line">        <span class="built_in">queue</span>&lt;matrix&gt; q;</span><br><span class="line">        q.push(mat); </span><br><span class="line">        table[mat] = <span class="number">0</span>; </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(q.size())</span><br><span class="line">        &#123;</span><br><span class="line">            matrix mat = q.front(); </span><br><span class="line">            q.pop(); </span><br><span class="line">            </span><br><span class="line">            <span class="keyword">int</span> d = table[mat]; </span><br><span class="line">            <span class="keyword">if</span> (check(mat))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> d; </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="built_in">vector</span>&lt;matrix&gt; nextMat = get_neighbors(mat); </span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; matI : nextMat)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(!table.count(matI))</span><br><span class="line">                &#123;</span><br><span class="line">                    table[matI] = d + <span class="number">1</span>; </span><br><span class="line">                    q.push(matI); </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>; </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minFlips</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; mat)</span> </span>&#123;</span><br><span class="line">        n = mat.size();</span><br><span class="line">        m = mat[<span class="number">0</span>].size(); </span><br><span class="line">        <span class="keyword">return</span> bfs(mat); </span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/09/semi-supervised-Learning-Deep-Generative-Model/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Xu">
+      <meta itemprop="description" content="This is the place for Liang to make any notes if he feels like it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liang Xu">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/09/semi-supervised-Learning-Deep-Generative-Model/" class="post-title-link" itemprop="url">semi-supervised_Learning_Deep_Generative_Model</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-09 17:38:20" itemprop="dateCreated datePublished" datetime="2019-12-09T17:38:20-05:00">2019-12-09</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Semi-supervised-Learning-with-Deep-Generative-Models"><a href="#Semi-supervised-Learning-with-Deep-Generative-Models" class="headerlink" title="Semi-supervised Learning with Deep Generative Models"></a>Semi-supervised Learning with Deep Generative Models</h1><p>The increasing size of deep learning model with the difficulty if obtaining label information has made semi-supervised learning one of the problems of significant practical importance in modern data analysis.</p>
+<p>Generative approaches have thus far been either inflexible, inefficient or non-scalable. </p>
+<blockquote>
+<ul>
+<li>This paper describe a new framework for semi-supervised learning with generative models, employing rich parametric density estimators formed by the fusion of probabilistic modelling and deep neural networks.</li>
+<li>this paper show for the first time how variational inference can be brought to bear upon the problem of semi-supervised classification. In particular, we develop a stochastic variational inference algorithm that allows for joint optimization both model and variational parameters, and that is scalable to large datasets.</li>
+</ul>
+</blockquote>
+<h2 id="Deep-Generative-Models-for-Semi-supervised-Learning"><a href="#Deep-Generative-Models-for-Semi-supervised-Learning" class="headerlink" title="Deep Generative Models for Semi-supervised Learning"></a>Deep Generative Models for Semi-supervised Learning</h2><p>We are feaced with data that appear as pairs $(\mathbf{X}, \mathbf{Y}) = {(X_1, y_1), … , (X_N, y_N)}$, with the <em>i</em>-th observation $x_i \in \mathbb{R}$ and the corresponding class label $y_i \in {1, … , L}$. Observations will have corresponding latent variables, which we denote by $z_i$. In the semi-supervised learning classification, only a subset of the observations have corresponding class labels; we refer to the exmpirical distribution over the labelled and unlabelled subsets as $\widetilde{p_l}(\mathbf{x}, y)$ and $\widetilde{p_u}(\mathbf{x})$.</p>
+<p>We now develop models for semi-supervised learning that exploit generative descriptions of the data to improve upon the classification performance that would be obtained using the labelled data alone.</p>
+<h3 id="Latent-feature-discriminative-model-M1"><a href="#Latent-feature-discriminative-model-M1" class="headerlink" title="Latent-feature discriminative model(M1)"></a>Latent-feature discriminative model(M1)</h3><p>A commonly used approach is to construct a model that provides an embedding or feature representation of the data. Using those features, a separate classifier is thereafter trained. By assumption, the embeddings allows for a clustering of related observations in a latent feature space that allows for accurate classification, even with a limited number of labels. Deep generative model of the data can build more robust set of latent features. The generative model used is:</p>
+<script type="math/tex; mode=display">p(z) = \mathcal{N}(\mathbf{z}|\mathbf{0},\mathbf{I})</script><script type="math/tex; mode=display">p_\theta(z|x) = p(x; z, \mathbf{\theta})</script><p>$p_\theta(z|x)$ is a suitable likelihood function whose probability are formulated by nonlinear transformation with parameter $\theta$, and a set of latent variables z. This nonlinear model (parameterized by $\theta$) allows the higher moments of the data to be captured by the density model, and this nonlinear function has been chosen as deep neural networks.</p>
+<p>Approximated samples from the posterior distribution over the latent variables p(z|x) are used as features to train as a classifiers to predict the label y, such as a SVM. Using this approach, we can now perform classification in a lower dimensional space(This is very important). The reason for modern deep learning works, they can learn huge parameter space by large amount data. After reduce the dimensionality, during the supervised learning, we only focus on the small classifier parameters in a low dimensional space.</p>
+<h3 id="Generative-semi-supervised-model-M2"><a href="#Generative-semi-supervised-model-M2" class="headerlink" title="Generative semi-supervised model(M2)"></a>Generative semi-supervised model(M2)</h3><p>This is the most important model this paper has been proposed. They proposed a probabilistic model that describes the data as being generated by a latent class variable y in <strong>addition</strong> to a continuous latent variable z. The latent class variable y is also being generated. </p>
+<script type="math/tex; mode=display">p(y) = Cat(y|\pi)</script><script type="math/tex; mode=display">p(z) = \mathcal{N}(\mathbf{z}|\mathbf{0},\mathbf{I})</script><script type="math/tex; mode=display">p_{\theta}(\mathbf{x} | y,z) = f(\mathbf{x}; y, \mathbf{z},\mathbf{\theta})</script><p>where $Cat(y|\pi)$ is the multinomial distribution, the class labels $y$ are treated as latent variables if no class label is available and z are additional latent variables. The latent variables are marginally independent and allow us to separate the class specification. As before, $f(\mathbf{x}| y, \mathbf{z},\mathbf{\theta})$ is a suitable likelihood function, parameterised by a non-linear transformation of the latent variables (the decoder).</p>
+<blockquote>
+<p><strong>Since most labels <em>y</em> are unobserved, we integrate over the class of any unlabelled data during the inference process, thus performing classification as inference. Prediction for any missing labels are obtained from the inferred posterior distribution $p_{\theta}(y|\mathbf{x})$. This model can also be seen as a hybrid continuous-discrete mixture model where the different mixture components share parameters.</strong></p>
+</blockquote>
+<h3 id="Stacked-generative-semi-supervised-model-M1-M2"><a href="#Stacked-generative-semi-supervised-model-M1-M2" class="headerlink" title="Stacked generative semi-supervised model(M1 + M2)"></a>Stacked generative semi-supervised model(M1 + M2)</h3><p>We can combine these two approaches by first learning a new latent representation $z_1$ using the generative model from M1, and subsequently learning a generative semi-supervised model M2, using embeddings from $z_1$ instead of the raw data <strong>x</strong>.</p>
+<blockquote>
+<p><strong>The result is a deep generative model with tow layers of stochastic variables</strong></p>
+<script type="math/tex; mode=display">p_{\theta}(\mathbf{x}, y,\mathbf{z_{1}}, \mathbf{z_{2}}) = p(y)p(\mathbf{z_{2}})p_{\theta}(\mathbf{z_{1}}|y, \mathbf{z_{2}})p_{\theta}(\mathbf{x}|\mathbf{z_{1}})</script><p>where the priors <script type="math/tex">p(y)</script> and <script type="math/tex">p(z_{2})</script> equal those of y and z above,and both <script type="math/tex">p_{\theta}(\mathbf{x}|\mathbf{z_{1}})</script> and <script type="math/tex">p_{\theta}(\mathbf{z_{1}} | y, \mathbf{z_{2}})</script> are parameterized as deep neural networks. </p>
+</blockquote>
+<h2 id="3-Scalable-Variational-Inference"><a href="#3-Scalable-Variational-Inference" class="headerlink" title="3. Scalable Variational Inference"></a>3. Scalable Variational Inference</h2><h3 id="3-1-Lower-Bound-Objective"><a href="#3-1-Lower-Bound-Objective" class="headerlink" title="3.1 Lower Bound Objective"></a>3.1 Lower Bound Objective</h3><p>For all the models described, we introduce a fixed-form distribution $q_{\phi}(z|x)$ with parameters $\phi$ that approximates the true posterior distribution $p(z|x)$. We then follow the variational principle to derive a lower bound on the marginal likelihood of the model – this bound forms our objective function and ensures that our approximate posterior is as close as possible to the true posterior. </p>
+<p>We construct the approximate posterior distribution $q_{\phi}(.)$ as an inference or recognition model. Using an inference network, we avoid the need to compute per data point variational parameters, but can instead compute a set of global variational parameters $\phi$</p>
+<p>An inference network is introduced for all latent variables, and we parameterise them as deep neural networks whose outputs from the parameters of the distribution $q_{\phi}(.)$. </p>
+<blockquote>
+<ul>
+<li>For the latent-feature discriminative model (M1), we use a Gaussian inference network $q_{\phi}(\mathbf{z}|\mathbf{x})$ for the latent variable $\mathbf{z}$. </li>
+<li>For the generative semi-supervised model(M2), we introduce an inference model fro each of the latent variables $\mathbf{z}$ and $y$, which we assume has a factorised from:<br>$q<em>{\phi}(\mathbf{z}, y|\mathbf{x}) = q</em>{\phi}(\mathbf{z}|\mathbf{x})q_{\phi}(y|\mathbf{x})$ specified as Gaussian and multinomial distribution respectively. </li>
+</ul>
+</blockquote>
+<script type="math/tex; mode=display">M1: q_{\phi}(\mathbf{z}|\mathbf{x}) = \mathcal{N}(\mathbf{z}|\mathbf{\mu_{\phi}}(\mathbf{x}), diag(\mathbf{\sigma_{\phi}^{2}}(\mathbf{x}))),</script><script type="math/tex; mode=display">M2: q_{\phi}(\mathbf{z}|y, \mathbf{x}) = \mathcal{N}(\mathbf{z}|\mu_{\phi}(y, \mathbf{x}), diag() diag(\mathbf{\sigma_{\phi}^{2}}(\mathbf{x}));</script><script type="math/tex; mode=display">q_{\phi}(y|\mathbf{x}) = Cat(y|\mathbf{\pi}_{\phi}(\mathbf{x}))</script><p>where:</p>
+<blockquote>
+<p>$\mathbf{\sigma}<em>{\phi}(\mathbf{x})$ is a vector of standard deviations<br>$\mathbf{\pi}</em>{\phi}(\mathbf{x})$ is a probability vector</p>
+</blockquote>
+<h4 id="3-1-1-Latent-Feature-Discriminative-Model-Objective"><a href="#3-1-1-Latent-Feature-Discriminative-Model-Objective" class="headerlink" title="3.1.1 Latent Feature Discriminative Model Objective"></a>3.1.1 Latent Feature Discriminative Model Objective</h4><p>For this model, the variational bound $\mathcal{J}(x)$ on the marginal likelihood for a single data point is:</p>
+<script type="math/tex; mode=display">\log{p_{\theta}}(\mathbf{x}) \geq \mathbb{E}_{q_{\theta}(\mathbf{z}|\mathbf{x})}[\log{p_{\theta}(\mathbf{x}|\mathbf{z})}] - KL[q_{\phi}(\mathbf{z}|\mathbf{x})||p_{\theta}(\mathbf{z})] = -\mathcal{J}(x)</script><p>The inference M1 network is used during training of the model using both the labelled and unlabelled data set. This approximate posterior is then used as a feature extractor for the labelled data set, and the features used for training the classifier. </p>
+<h4 id="3-1-2-Generative-Semi-supervised-Model"><a href="#3-1-2-Generative-Semi-supervised-Model" class="headerlink" title="3.1.2 Generative Semi-supervised Model"></a>3.1.2 Generative Semi-supervised Model</h4><p>M2 model in our model. For this model, we have to cases to consider. In the first case, the label corresponding to a data point is observed and variational bounding is simply extension of previous loss function.</p>
+<script type="math/tex; mode=display">\log{p_{\theta}(\mathbf{x}, y)} \geq  \mathbb{E}_{q_{\theta}(\mathbf{z}|\mathbf{x}, y)}[\log{p_{\theta}}(\mathbf{x}|y, \mathbf{z}) + \log{p_{\theta}(y)}+\log{p(\mathbf{z})} - \log{q_{\phi}(\mathbf{z}|\mathbf{x}, y)}] = -\mathcal{L}(\mathbf{x}, y)</script><p>For the case where the label is missing, it is treated as a latent variable over which we perform posterior inference and the resulting bound for handling data points with an unobserved label $y$ is: </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\log{p_{\theta}(\mathbf{x}, y)} &\geq  \mathbb{E}_{q_{\theta}(\mathbf{z}, y|\mathbf{x})}[\log{p_{\theta}(\mathbf{x}|y, \mathbf{z}) + \log{p_{\theta}(y)}+\log{p(\mathbf{z})} - \log{q_{\phi}(\mathbf{z}|\mathbf{x}, y)}}] \\
+&= \sum_{y}q_{\phi}(y|\mathbf{x})(-\mathcal{L}(\mathbf{x}, y) + \mathcal{H}(q_{\phi}(y|\mathbf{x}))) \\
+&=-\mathcal{U}(x)
+\end{aligned}</script><p>The bound on the marginal likelihood for the entire data set is now: </p>
+<script type="math/tex; mode=display">
+\mathcal{J} = \sum_{(\mathbf{x}, y) \sim \widetilde{p_l}}\mathcal{L}(\mathbf{x},y) + \sum_{\mathbf{x} \sim \widetilde{p_u}} \mathcal{U}(\mathbf{x})</script>
       
     </div>
 
@@ -1151,129 +1561,6 @@ Compare with the previous version, the constructor construct a shared<em>conut. 
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/24/hello-world2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Liang Xu">
-      <meta itemprop="description" content="This is the place for Liang to make any notes if he feels like it">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Liang Xu">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/24/hello-world2/" class="post-title-link" itemprop="url">Hello World2</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-11-24 16:09:05" itemprop="dateCreated datePublished" datetime="2019-11-24T16:09:05-05:00">2019-11-24</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to my post, and this is a place for me to write anything I feed like. Making notes for what I have learn, sharing ideas with whoever reads it. </p>
-<h3 id="Test-post"><a href="#Test-post" class="headerlink" title="Test post"></a>Test post</h3><p><img src="/images/images.png" alt=""></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/22/testImage/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Liang Xu">
-      <meta itemprop="description" content="This is the place for Liang to make any notes if he feels like it">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Liang Xu">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/22/testImage/" class="post-title-link" itemprop="url">testImage</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-11-22 15:05:17" itemprop="dateCreated datePublished" datetime="2019-11-22T15:05:17-05:00">2019-11-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-24 16:09:05" itemprop="dateModified" datetime="2019-11-24T16:09:05-05:00">2019-11-24</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1322,7 +1609,7 @@ Compare with the previous version, the constructor construct a shared<em>conut. 
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1335,7 +1622,7 @@ Compare with the previous version, the constructor construct a shared<em>conut. 
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -1427,6 +1714,59 @@ Compare with the previous version, the constructor construct a shared<em>conut. 
   
 
   
+      
+<script type="text/x-mathjax-config">
+    MathJax.Ajax.config.path['mhchem'] = '//cdn.jsdelivr.net/npm/mathjax-mhchem@3';
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        extensions: ['[mhchem]/mhchem.js'],
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+
+  
+
 
 </body>
 </html>

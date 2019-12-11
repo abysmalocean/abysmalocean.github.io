@@ -39,7 +39,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     sidebarPadding: 40
@@ -377,10 +377,13 @@ n is smaller than 500, I think we can create a matrix for that. However, there i
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/12/04/02-why-Do-We-need-Taking-Care-of-Performance/" rel="prev" title="02 Why do we care about performance?">
-      <i class="fa fa-chevron-left"></i> 02 Why do we care about performance?
+    <a href="/2019/12/09/semi-supervised-Learning-Deep-Generative-Model/" rel="prev" title="semi-supervised_Learning_Deep_Generative_Model">
+      <i class="fa fa-chevron-left"></i> semi-supervised_Learning_Deep_Generative_Model
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2019/12/10/Basic-Data-Structure-week1/" rel="next" title="Basic_Data_Structure_week1">
+      Basic_Data_Structure_week1 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -394,6 +397,7 @@ n is smaller than 500, I think we can create a matrix for that. However, there i
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
         </div>
           
@@ -432,7 +436,7 @@ n is smaller than 500, I think we can create a matrix for that. However, there i
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -445,7 +449,7 @@ n is smaller than 500, I think we can create a matrix for that. However, there i
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -537,6 +541,26 @@ n is smaller than 500, I think we can create a matrix for that. However, there i
   
 
   
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '149ebf414bce9afa23bb',
+      clientSecret: '5184b7ef0e3ac34dbd679b6e16523efef720a670',
+      repo: 'http://abysmalocean.github.io',
+      owner: 'abysmalocean',
+      admin: ['abysmalocean'],
+      id: '46ec9acd22d8ea82f1cb8817492ca318',
+        language: 'en',
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
 
 </body>
 </html>
