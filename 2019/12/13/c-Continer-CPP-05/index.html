@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Liang Xu" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="This post will talk about the container. String members:  begin end empty size swap     Because string needs to compatible with C language, so begin point to the beginning of the char array, and end p">
+<meta name="keywords" content="c++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CPP_05 Container_01">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;13&#x2F;c-Continer-CPP-05&#x2F;index.html">
+<meta property="og:site_name" content="Liang Xu">
+<meta property="og:description" content="This post will talk about the container. String members:  begin end empty size swap     Because string needs to compatible with C language, so begin point to the beginning of the char array, and end p">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-12-13T05:37:27.000Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2019/12/13/c-Continer-CPP-05/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>CPP_05 Container_01 | Liang Xu</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Liang Xu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Liang Xu is a Computer Science guy</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/13/c-Continer-CPP-05/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Xu">
+      <meta itemprop="description" content="This is the place for Liang to make any notes if he feels like it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liang Xu">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CPP_05 Container_01
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-13 00:37:27" itemprop="dateCreated datePublished" datetime="2019-12-13T00:37:27-05:00">2019-12-13</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>This post will talk about the container.</p>
+<h2 id="String"><a class="header-anchor" href="#String"></a>String</h2>
+<p>members:</p>
+<ul>
+<li>begin</li>
+<li>end</li>
+<li>empty</li>
+<li>size</li>
+<li>swap</li>
+</ul>
+<p align = "center"> <img width = "500" src = "images/04_container_2019-12-12-22-31-16.png "> </p>
+<p>Because string needs to compatible with C language, so begin point to the beginning of the char array, and end pointed to the “\0” this is a bit different compared with the normal container. For most of the cast, end() will point a space.</p>
+<ul>
+<li>support + += operation</li>
+<li>find</li>
+<li>support <code>istream</code>(getline)</li>
+<li>support api who has const char* interface(c_str)</li>
+<li>to numbers <code>stoi</code> and <code>to_string</code></li>
+</ul>
+<blockquote>
+<p><strong>stoi</strong><br>
+Convert string to integer<br>
+int stoi (const string&amp; str, size_t* idx = 0, int base = 10);<br>
+<code>str</code>: String object with the representation of an integral number.<br>
+<code>idx</code>: Pointer to an object of type size_t, whose value is set by the function to position of the next character in str after the numerical value.</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// stoi example</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt; // std::cout</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt; // std::string, std::stoi</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="built_in">std</span>::<span class="built_in">string</span> str_dec = <span class="string">"2001, A Space Odyssey"</span>;</span><br><span class="line"> <span class="built_in">std</span>::<span class="built_in">string</span> str_hex = <span class="string">"40c3"</span>;</span><br><span class="line"> <span class="built_in">std</span>::<span class="built_in">string</span> str_bin = <span class="string">"-10010110001"</span>;</span><br><span class="line"> <span class="built_in">std</span>::<span class="built_in">string</span> str_auto = <span class="string">"0x7f"</span>;</span><br><span class="line"></span><br><span class="line"> <span class="built_in">std</span>::<span class="built_in">string</span>::size_type sz; <span class="comment">// alias of size_t</span></span><br><span class="line"></span><br><span class="line"> <span class="keyword">int</span> i_dec = <span class="built_in">std</span>::stoi (str_dec,&amp;sz);</span><br><span class="line"> <span class="keyword">int</span> i_hex = <span class="built_in">std</span>::stoi (str_hex,<span class="literal">nullptr</span>,<span class="number">16</span>);</span><br><span class="line"> <span class="keyword">int</span> i_bin = <span class="built_in">std</span>::stoi (str_bin,<span class="literal">nullptr</span>,<span class="number">2</span>);</span><br><span class="line"> <span class="keyword">int</span> i_auto = <span class="built_in">std</span>::stoi (str_auto,<span class="literal">nullptr</span>,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"> <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; str_dec &lt;&lt; <span class="string">": "</span> &lt;&lt; i_dec &lt;&lt; <span class="string">" and ["</span> &lt;&lt; str_dec.substr(sz) &lt;&lt; <span class="string">"]\n"</span>;</span><br><span class="line"> <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; str_hex &lt;&lt; <span class="string">": "</span> &lt;&lt; i_hex &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line"> <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; str_bin &lt;&lt; <span class="string">": "</span> &lt;&lt; i_bin &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line"> <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; str_auto &lt;&lt; <span class="string">": "</span> &lt;&lt; i_auto &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2001, A Space Odyssey: 2001 and [, A Space Odyssey]</span><br><span class="line">40c3: 16579</span><br><span class="line">-10010110001: -1201</span><br><span class="line">0x7f: 127</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">int</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">long</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">unsigned</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">unsigned</span> <span class="keyword">long</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">float</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">double</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">long</span> <span class="keyword">double</span> val)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>Not recommaned to use as a interface. for example</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span>* <span class="title">getChar</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; inString)</span></span>; </span><br><span class="line"><span class="function"><span class="keyword">void</span>* <span class="title">getChar</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* inString)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>Simple program</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> name;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"What's your name? "</span>;</span><br><span class="line">getline(<span class="built_in">cin</span>, name);</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"Nice to meet you, "</span> &lt;&lt; name</span><br><span class="line"> &lt;&lt; <span class="string">"!\n"</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="Vector"><a class="header-anchor" href="#Vector"></a>Vector</h2>
+<p>std::vector probability the most popular container.</p>
+<p align = "center"> <img width = "500" src = "images/04_container_2019-12-12-23-01-09.png "> </p>
+<p>The member function like the string.</p>
+<p><strong>Operations</strong></p>
+<ul>
+<li>[], access the array member.</li>
+<li>capacity, get the memory size.</li>
+<li>reserve to change the memory size.</li>
+<li>resize, change the size.</li>
+<li>pop_back, push_back</li>
+<li>insert (to any place)</li>
+<li>erase (any place)</li>
+<li>emplace (and place)</li>
+<li>empalce_back</li>
+</ul>
+<h3 id="capacity-change"><a class="header-anchor" href="#capacity-change"></a>capacity change</h3>
+<p>If a container has push and pop, it means the container has good performance doing it. As a vector, push_back, and pop_back are O(1) amortized.<br>
+However, when push_back, insert, reserve, resize will cause memory reallocation, the vector will ‘MOVE’ the old element to the new memory address. Vector needs to protect the exception, so it will use a constructor will not through the exception(a function using noexcept). So it will use a copy constructor. Therefore, for custom element types that cost more to use copy constructor, we should define a move constructor, and defined as <strong>noexcept</strong>, or we can only put the pointer. This is the reason we need to use the noexcept in the smart_ptr.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>; </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Obj1</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line"> Obj1()</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="built_in">cout</span> &lt;&lt; <span class="string">"Obj1() \n"</span>; </span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> Obj1(<span class="keyword">const</span> Obj1&amp;)</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="built_in">cout</span> &lt;&lt; <span class="string">"Obj1(const Obj1&amp;) \n"</span>; </span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> Obj1(Obj1&amp;&amp;)</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="built_in">cout</span> &lt;&lt; <span class="string">"Obj1(Obj1&amp;&amp;) \n"</span>; </span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Obj2</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line"> Obj2()</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="built_in">cout</span> &lt;&lt; <span class="string">"Obj2() \n"</span>; </span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> Obj2(<span class="keyword">const</span> Obj2&amp;)</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="built_in">cout</span> &lt;&lt; <span class="string">"Obj2(const Obj2&amp;) \n"</span>; </span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> Obj2(Obj2&amp;&amp;) <span class="keyword">noexcept</span></span><br><span class="line"> &#123;</span><br><span class="line"> <span class="built_in">cout</span> &lt;&lt; <span class="string">"Obj2(Obj2&amp;&amp;) \n"</span>; </span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Difference between the obj1 and obj2 is the move constructor has a noexcept, which means the move constructor will not cause an exception. </span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="built_in">vector</span>&lt;Obj1&gt; v1; </span><br><span class="line"> v1.reserve(<span class="number">2</span>); </span><br><span class="line"> v1.empalce_back(); </span><br><span class="line"> v1.empalce_back(); </span><br><span class="line"> v1.empalce_back(); </span><br><span class="line"></span><br><span class="line"> <span class="built_in">vector</span>&lt;Obj2&gt; v2; </span><br><span class="line"> v2.reserve(<span class="number">2</span>); </span><br><span class="line"> v2.emplace_back(); </span><br><span class="line"> v2.emplace_back(); </span><br><span class="line"> v2.emplace_back(); </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Out put of the previous program.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Obj1() </span><br><span class="line">Obj1() </span><br><span class="line">Obj1() </span><br><span class="line">Obj1(const Obj1&amp;) </span><br><span class="line">Obj1(const Obj1&amp;) </span><br><span class="line">Obj2() </span><br><span class="line">Obj2() </span><br><span class="line">Obj2() </span><br><span class="line">Obj2(Obj2&amp;&amp;)</span><br></pre></td></tr></table></figure>
+<h3 id="Difference-empalce-back-and-push-back"><a class="header-anchor" href="#Difference-empalce-back-and-push-back"></a>Difference empalce_back and push_back</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="built_in">vector</span>&lt;Obj1&gt; v1;</span><br><span class="line"> v1.reserve(<span class="number">10</span>); </span><br><span class="line"> <span class="built_in">cout</span> &lt;&lt; <span class="string">"Push Back"</span> &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line"> v1.push_back(Obj1()); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Push Back</span><br><span class="line">Obj1() </span><br><span class="line">Obj1(Obj1&amp;&amp;) </span><br><span class="line">Obj1(~Obj1()) </span><br><span class="line">Obj1(~Obj1())</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="built_in">vector</span>&lt;Obj1&gt; v1;</span><br><span class="line"> v1.reserve(<span class="number">10</span>); </span><br><span class="line"> <span class="built_in">cout</span> &lt;&lt; <span class="string">"emplace back"</span> &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line"> v1.emplace_back();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">emplace back</span><br><span class="line">Obj1() </span><br><span class="line">Obj1(~Obj1()</span><br></pre></td></tr></table></figure>
+<p>use reserve to reserve the size of a vector can increase the performance.</p>
+<h2 id="Deque"><a class="header-anchor" href="#Deque"></a>Deque</h2>
+<p>deque: double-ended queue. Can push_front and push_back.</p>
+<ul>
+<li>push_front, empalce_front, and pop_front.</li>
+<li><strong>do not have</strong> data, capacity, and reserve.</li>
+</ul>
+<p align = "center"> <img width = "500" src = "images/04_container_2019-12-13-00-11-51.png "> </p>
+<ul>
+<li>only part of the data are saved continuous.</li>
+<li>index[i / chunk_size][i % chunk_size]</li>
+</ul>
+<h2 id="List"><a class="header-anchor" href="#List"></a>List</h2>
+<p>the list is a <strong>doubly-linked list</strong>.</p>
+<ul>
+<li>insert any place O(1).</li>
+<li>can not randomly access.</li>
+<li>push_front, empalce_front, pop_front.</li>
+<li>no data, capacity, and reserve.</li>
+</ul>
+<p>Every element in the array are not continuous allocated.</p>
+<ul>
+<li>merge</li>
+<li>remove</li>
+<li>remove_if</li>
+<li>reverse</li>
+<li>sort (this is different with std::sort())</li>
+<li>unique</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sort(vec.begin(), vec.end()); <span class="comment">// OK</span></span><br><span class="line"><span class="comment">// sort(lst.begin(), lst.end()); // Error</span></span><br><span class="line">lst.sort(); <span class="comment">// OK</span></span><br></pre></td></tr></table></figure>
+<p>Sorting a list is different from sorting a verctor which is a random access data structure.</p>
+<h2 id="Forward-List"><a class="header-anchor" href="#Forward-List"></a>Forward List</h2>
+<p>The forward list is a single linked list.</p>
+<p align = "center"> <img width = "500" src = "images/04_container_2019-12-13-00-22-42.png "> </p>
+<p>To save memory space. However, it can support insert_after, can not support inset to a particular space. It does not have a backward pointer, so it can not connect to the previous node.</p>
+<h2 id="Queue"><a class="header-anchor" href="#Queue"></a>Queue</h2>
+<p>Abstract data structure. (container adaptor)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Container</span> = <span class="title">deque</span>&lt;T&gt; &gt; <span class="title">class</span> <span class="title">queue</span>;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>empty</li>
+<li>size</li>
+<li>front</li>
+<li>back</li>
+<li>push_back</li>
+<li>pop_front</li>
+</ul>
+<p align = "center"> <img width = "500" src = "images/04_container_2019-12-13-00-28-55.png "> </p>
+<ul>
+<li>empalce -&gt; emplace_back</li>
+<li>push -&gt; push_back</li>
+<li>pop -&gt; pop_front</li>
+</ul>
+<p>can not scan the queue, there is no begin() and end()</p>
+<h2 id="Stack"><a class="header-anchor" href="#Stack"></a>Stack</h2>
+<p>abstrct data type</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Container</span> = <span class="title">deque</span>&lt;T&gt; &gt; <span class="title">class</span> <span class="title">stack</span>;</span></span><br></pre></td></tr></table></figure>
+<p align = "center"> <img width = "500" src = "images/04_container_2019-12-13-00-31-35.png "> </p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/c/" rel="tag"># c++</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/12/12/DeepLearning-Nature/" rel="prev" title="DeepLearning_Nature">
+      <i class="fa fa-chevron-left"></i> DeepLearning_Nature
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/12/18/01-TwoSUM-LeetCode-100/" rel="next" title="01_TwoSUM_LeetCode_100">
+      01_TwoSUM_LeetCode_100 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#String"><span class="nav-number">1.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vector"><span class="nav-number">2.</span> <span class="nav-text">Vector</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#capacity-change"><span class="nav-number">2.1.</span> <span class="nav-text">capacity change</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Difference-empalce-back-and-push-back"><span class="nav-number">2.2.</span> <span class="nav-text">Difference empalce_back and push_back</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deque"><span class="nav-number">3.</span> <span class="nav-text">Deque</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List"><span class="nav-number">4.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Forward-List"><span class="nav-number">5.</span> <span class="nav-text">Forward List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Queue"><span class="nav-number">6.</span> <span class="nav-text">Queue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stack"><span class="nav-number">7.</span> <span class="nav-text">Stack</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Liang Xu</p>
+  <div class="site-description" itemprop="description">This is the place for Liang to make any notes if he feels like it</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liang Xu</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '149ebf414bce9afa23bb',
+      clientSecret: '5184b7ef0e3ac34dbd679b6e16523efef720a670',
+      repo: 'http://abysmalocean.github.io',
+      owner: 'abysmalocean',
+      admin: ['abysmalocean'],
+      id: '7f4fbff3366f76bafb62ff37b3c1f4bf',
+        language: 'en',
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+</body>
+</html>

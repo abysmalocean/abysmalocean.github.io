@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Liang Xu" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Deep Learning This paper is published in 2015 in Nature, and it is a very important work for deep learning. After this work, deep learning still has a huge improvement. For this paper, I will list all">
+<meta name="keywords" content="CV_Paper,CNN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DeepLearning_Nature">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;12&#x2F;DeepLearning-Nature&#x2F;index.html">
+<meta property="og:site_name" content="Liang Xu">
+<meta property="og:description" content="Deep Learning This paper is published in 2015 in Nature, and it is a very important work for deep learning. After this work, deep learning still has a huge improvement. For this paper, I will list all">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-12-12T19:03:58.000Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2019/12/12/DeepLearning-Nature/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>DeepLearning_Nature | Liang Xu</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Liang Xu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Liang Xu is a Computer Science guy</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/12/DeepLearning-Nature/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Xu">
+      <meta itemprop="description" content="This is the place for Liang to make any notes if he feels like it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liang Xu">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          DeepLearning_Nature
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-12 14:03:58" itemprop="dateCreated datePublished" datetime="2019-12-12T14:03:58-05:00">2019-12-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Deep-Learning"><a class="header-anchor" href="#Deep-Learning"></a>Deep Learning</h1>
+<p>This paper is published in 2015 in Nature, and it is a very important work for deep learning. After this work, deep learning still has a huge improvement. For this paper, I will list all the sentences I feel like to share with.</p>
+<h2 id="1-Introduction"><a class="header-anchor" href="#1-Introduction"></a>1. Introduction</h2>
+<blockquote>
+<p><strong>Deep learning</strong> allows <strong>computational models</strong> that are composed of <strong>multiple processing layers</strong> to learn <strong>representations</strong> of data with <strong>multiple levels</strong> of <strong>abstraction</strong>.</p>
+</blockquote>
+<p>First of all, the deep learning model is a computational model and is composed of multiple processing layers, which means whatever method they used they used it multiple times. And the model is a representation learning, so it will find a way to represent the data by multiple levels of abstraction.</p>
+<blockquote>
+<p>Deep learning discovers <strong>intricate structure</strong> in large data sets by using the <strong>backpropagation algorithm</strong> to indicate how a machine should change its internal parameters that are used to <strong>compute the representation in each layer</strong> from the <strong>representation in the previous layer</strong>.</p>
+</blockquote>
+<p>Backpropagation is the model that allows the model to change the internal parameters for each layer from the previous layer.</p>
+<p>Compare with the conventional machine learning techniques, deep learning can learn the data in their raw form by extracting features from the input and output relation. For deceases, constructing a machine learning algorithm requires careful engineering and considerable domain expertise to design a feature extractor than transformed the raw data into a suitable internal representation or feature vector.</p>
+<blockquote>
+<p>Representation learning is a set of methods that allows a machine to be fed with raw data and to <strong>automatically discover</strong> the <strong>representations</strong> needed for detection or classification. Deep learning methods are representation learning methods with multiple levels of representation, obtained by composing <strong>simple but non-linear modules</strong> that each transform the representation at one level (starting with the raw input) into a representation at a higher, slightly more abstract level.</p>
+</blockquote>
+<p>The key aspect of deep learning is that these layers of features are not designed by a human, instead, they are learned from data using a general-purpose learning procedure.</p>
+<h2 id="Supervised-Learning"><a class="header-anchor" href="#Supervised-Learning"></a>Supervised Learning</h2>
+<p>For typical supervised learning, the machine model used to have a fixed size input and fixed output. The input is raw data or hand made features vectors, and the model expected to find the relationship between the input and the output. For deep learning case, the machine modified its internal adjustable parameters to reduce the error score. These adjustable parameters, often called weights, are real numbers that can be seen as ‘knobs’ that define the input-output function of the machine.</p>
+<blockquote>
+<p>To properly <strong>adjust the weight vector</strong>, the learning algorithm computes a <strong>gradient vector</strong> that, for <em>each weight, indicates by what amount the error would increase or decrease if the weight was increased by a tiny amount</em>. The weight vector is then adjusted in the opposite direction to the gradient vector.</p>
+</blockquote>
+<p>This is how to adjust the weight vector by using the gradient method, but how many trainings are used to update the weight?</p>
+<blockquote>
+<p>The objective function averaged over all the training examples, can be seen as a kind of hilly landscape in the high-dimensional space of weight values. The negative gradient vector indicates the direction of steepest descent in this landscape, taking it closer to a minimum, where the output error is low on average.</p>
+</blockquote>
+<p>So it says using all the training data to find the steepest descent. However, this is not reality. Deep learning usually using a large amount of data, and using all the data to update is very inefficient and also memory size is limited.</p>
+<blockquote>
+<p>In practice, most practitioners use a procedure called stochastic gradient descent (SGD). This consists of showing the input vector for a few examples, computing the outputs and the errors, computing the average gradient for those examples, and adjusting the weights accordingly. The process is repeated for many small sets of examples from the training set until the average of the objective function stops decreasing. It is called stochastic because each small set of examples gives a noisy estimate of the average gradient overall examples.</p>
+</blockquote>
+<blockquote>
+<p><strong>selectivity–invariance dilemma</strong><br>
+One that produces representations that are selective to the aspects of the images that are important for discrimination, but that are invariant to irrelevant aspects such as the pose of the animal.</p>
+</blockquote>
+<blockquote>
+<p>A deep-learning architecture is a <strong>multilayer stack of simple modules</strong>, all (or most) of which are subject to learning, and many of which compute non-linear input-output mappings. <strong>Each module in the stack transforms its input to</strong> <strong>increase both the selectivity and the invariance of the representation</strong>. With multiple non-linear layers, say a depth of 5 to 20, a system can implement extremely intricate functions of its inputs that are simultaneously <strong>sensitive to minute details</strong> and <strong>insensitive to large irrelevant variations</strong> such as the background, pose, lighting and surrounding objects.</p>
+</blockquote>
+<h3 id="Backpropagation-to-train-multilayer-architectures"><a class="header-anchor" href="#Backpropagation-to-train-multilayer-architectures"></a>Backpropagation to train multilayer architectures</h3>
+<blockquote>
+<p>The backpropagation procedure to compute the gradient of an objective function with respect to the weights of a multilayer stack of modules is nothing more than a practical application of the chain rule for derivatives.</p>
+</blockquote>
+<p align = "center"> <img width = "500" src = "images/00_DeepLearning_2019-12-12-01-02-20.png "> </p>
+<p>Figure 1, Multilayer neural networks and backpropagation. <strong>a</strong>, A multi- layer neural network (shown by the connected dots) can distort the input space to make the classes of data (examples of which are on the red and blue lines) linearly separable.</p>
+<p align = "center"> <img width = "500" src = "images/00_DeepLearning_2019-12-12-01-02-50.png "> </p>
+<p><strong>b</strong>, b, The chain rule of derivatives tells us how two small effects (that of a small change of x on y, and that of y on z) are composed. A small change $\nabla x$ in $x$ gets transformed first into a small change $\Delta y$ in $y$ by getting multiplied by $\partial{y}/\partial{x}$. Similarly, the change of $\nabla y$ creates a change of $\nabla z$ in $z$. Substituting one equation into the other gives the chain rule of derivatives - how $\nabla x$ gets turned into $\nabla z$ through multiplication by the product of $\partial{y}/\partial{x}$ and $\partial{z}/\partial{x}$. It also works when $x$, $y$ and $z$ are vectors.</p>
+<p align = "center"> <img width = "500" src = "images/00_DeepLearning_2019-12-12-01-02-59.png "> </p>
+<p>This is one of the examples for forwarding computing. The equations used for computing the forward pass in a neural net with two hidden layers and one output layer, each constituting a module through which one can backpropagate gradients. At each layer, we first compute to total input $z$ to each unit, which is a weighted sum of the outputs of the units in the layer below. The nonlinear function $f(.)$ is applied to $z$ to get the output of the unit(For simplicity, we have omitted bias terms.<br>
+). The non-linear functions used in neural networks include the rectified linear unit (ReLU) $f(z) = max(0, z)$, commonly used in recent years, as well as the more conventional sigmoids, such as the hyperbolic tangent, $f(z) = (\exp(z) - \exp(-z)) / (\exp(z) + \exp(-z))$ and the logistic function logistic, $f(z) = 1/(1 + \exp(-z))$.</p>
+<p>Equation for the output.</p>
+<p>$$<br>
+\begin{aligned}<br>
+y_l &amp;= f(z_l) \<br>
+z_l &amp;= \sum_{k \in H_2}{w_{kl}y_{k}}<br>
+\end{aligned}<br>
+$$</p>
+<p>Equation for the Hidden units H2.</p>
+<p>$$<br>
+\begin{aligned}<br>
+y_k &amp;= f(z_k) \<br>
+z_k &amp;= \sum_{j \in H_1}{w_{jk}y_{j}}<br>
+\end{aligned}<br>
+$$</p>
+<p>Equation for the Hidden units H1.</p>
+<p>$$<br>
+\begin{aligned}<br>
+y_j &amp;= f(z_j) \<br>
+z_j &amp;= \sum_{i \in input}{w_{ij}x_{i}}<br>
+\end{aligned}<br>
+$$</p>
+<p align = "center"> <img width = "500" src = "images/00_DeepLearning_2019-12-12-01-03-10.png "> </p>
+<p><strong>d</strong>, The equations used for computing the backward pass. At each hidden layer, we compute the error derivative with respect to the output of each unit, which is a weighted sum of the error derivatives with respect to the total inputs to the units in the layers above. We then convert the error derivative with respect to the output into the error derivative with respect to the input by multiplying it by the gradient of $f(z)$. At the output layer, the error derivative with respect to the output of a unit is computed by differentiating the cost function. This gives $y_{l} - t_{l}$ if the cost function for unit l is $0.5(y_l - t_l)^2$, where $t_l$ is the target value. Once the $\partial{E}/\partial{z_k}$ is known, the error-derivative for the weight $w_{jk}$ on the connection form unit $j$ in the layer below is just $y_j \partial{E}/\partial{k}$. In this example:<br>
+Derivative for the output layer. The error function assumed as $0.5(y_l - t_l)^2$.</p>
+<p>$$<br>
+\begin{aligned}<br>
+\frac{\partial{E}}{\partial{y_l}} &amp;= y_l - t_l \<br>
+\frac{\partial{E}}{\partial{z_l}} &amp;= \frac{\partial{E}}{\partial{y_l}} \frac{\partial{y_l}}{\partial{z_l}}<br>
+\end{aligned}<br>
+$$</p>
+<p>The derivative for the Hidden 1. And every node affected by every node in the above layer.</p>
+<p>$$<br>
+\begin{aligned}<br>
+\frac{\partial{E}}{\partial{y_k}} &amp;= \sum_{I \in out}{w_{kl}\frac{\partial{E}}{\partial{z_l}}} \<br>
+\frac{\partial{E}}{\partial{z_k}} &amp;= \frac{\partial{E}}{\partial{y_k}} \frac{\partial{y_k}}{\partial{z_k}}<br>
+\end{aligned}<br>
+$$</p>
+<p>The backpropagation can give you all the gradient you need to know in order to change the weights.</p>
+<p>$$<br>
+\begin{aligned}<br>
+\frac{\partial{E}}{\partial{y_j}} &amp;= \sum_{k \in H2}{w_{jk}\frac{\partial{E}}{\partial{z_k}}} \<br>
+\frac{\partial{E}}{\partial{z_j}} &amp;= \frac{\partial{E}}{\partial{y_j}} \frac{\partial{y_j}}{\partial{z_j}}<br>
+\end{aligned}<br>
+$$</p>
+<blockquote>
+<p>The backpropagation equation can be applied repeatedly to propagate gradients through all modules, starting from the output at the top (where the network produces its prediction) all the way to the bottom (where the external input is fed). Once these gradients have been computed, it is straightforward to compute the gradients with respect to the weights of each module.</p>
+</blockquote>
+<h3 id="Local-Minima"><a class="header-anchor" href="#Local-Minima"></a>Local Minima</h3>
+<p>In particular, backpropagation was commonly thought that simple gradient descent would get trapped in <strong>poor local minima</strong> — weight configurations for which no small change would reduce the average error.</p>
+<p>In practice, poor local minima are rarely a problem with large networks. Regardless of the initial conditions, the system nearly always reaches solutions of very similar quality. Recent theoretical and empirical results strongly suggest that local minima are not a serious issue in general.</p>
+<p>Instead, the landscape is packed with a combinatorially large number of <strong>saddle points</strong> where the <strong>gradient</strong> is zero, and the <strong>surface curves up</strong> in most dimensions and <strong>curves down</strong> in the remainder. The analysis seems to show that saddle points with only a few downward curving directions are present in very large numbers, but almost all of them have very similar values of the objective function. Hence, it does not much matter which of these saddle points the algorithm gets stuck at.</p>
+<h2 id="Convolutional-neural-networks"><a class="header-anchor" href="#Convolutional-neural-networks"></a>Convolutional neural networks</h2>
+<p>ConvNets are designed to process data that come in the form of multiple arrays.<br>
+There are four key ideas behind ConvNets that take advantage of the properties of natural signals:</p>
+<ul>
+<li>local connections</li>
+<li>shared weights,</li>
+<li>pooling and the</li>
+<li>use of many layers.</li>
+</ul>
+<p align = "center"> <img width = "500" src = "images/00_DeepLearning_2019-12-12-01-11-14.png "> </p>
+<p>Figure2: Each rectangular image is a feature map corresponding to the output for one of the learned features, detected at each of the image positions. Information flows bottom-up, with lower-level features acting as oriented edge detectors, and a score is computed for each image class in output. ReLU, rectified linear unit.</p>
+<p>The first few stages are composed of two types of layers: <strong>convolutional layers</strong> and <strong>pooling layers</strong>. Units in a convolutional layer are organized in <strong>feature maps</strong>, within which <strong>each unit is connected to local patches</strong> in the feature maps of the previous layer through a set of weights called a <strong>filter bank</strong>. The result of this local weighted sum is then passed through a nonlinearity such as a ReLU. All units in a feature map share the same filter bank. Different feature maps in a layer use different filter banks. Two reasons:</p>
+<ul>
+<li>First, in array data such as images, local groups of values are often highly correlated, forming distinctive local motifs that are easily detected.</li>
+<li>Second, the local statistics of images and other signals are invariant to location. In other words, if a motif can appear in one part of the image, it could appear anywhere, hence the idea of units at different locations sharing the same weights and detecting the same pattern in different parts of the array.</li>
+</ul>
+<p>The role of the <strong>pooling layer</strong> is to <strong>merge</strong> <strong>semantically similar</strong> features into one. Because the relative positions of the features forming a motif can vary somewhat, reliably detecting the motif can be done by coarse-graining the position of each feature.</p>
+<p>Backpropagating gradients through a ConvNet is as simple as through a regular deep network, allowing all the weights in all the filter banks to be trained.</p>
+<h2 id="Image-understanding-with-deep-convolutional-networks"><a class="header-anchor" href="#Image-understanding-with-deep-convolutional-networks"></a>Image understanding with deep convolutional networks</h2>
+<p>A recent stunning demonstration combines ConvNets and recurrent net modules for the generation of image captions.</p>
+<p align = "center"> <img width = "500" src = "images/00_DeepLearning_2019-12-12-01-11-26.png "> </p>
+<p>Figure 3 | From image to text. Captions generated by a recurrent neural network(RNN) tanking as an extra input, the representation extracted by a deep convolution network (CNN) from a test image, with the RNN trained to ‘translate’ high-level representations of images into captions. When the RNN is given the ability to focus its attention on a different location in the input image as it generates each word</p>
+<h2 id="Distributed-representations-and-language-processing"><a class="header-anchor" href="#Distributed-representations-and-language-processing"></a>Distributed representations and language processing</h2>
+<p>Deep-learning theory shows that deep nets have two different exponential advantages over classical learning algorithms that do not use <strong>distributed representations</strong>. Both of these advantages arise from the power of composition and depend on the underlying data-generating distribution having an appropriate componential structure. Both of these advantages arise from the power of composition and depend on the underlying data-generating distribution having an appropriate componential structure.</p>
+<ul>
+<li>First, learning distributed representations enable generalization to new combinations of the values of learned features beyond those seen during training.</li>
+<li>Second, composing layers of representation in a deep net bring the potential for another exponential advantage.</li>
+</ul>
+<p align = "center"> <img width = "500" src = "images/00_DeepLearning_2019-12-12-13-49-10.png "> </p>
+<p align = "center"> <img width = "500" src = "images/00_DeepLearning_2019-12-12-13-46-30.png "> </p>
+<p align = "center"> <img width = "500" src = "images/00_DeepLearning_2019-12-12-13-46-45.png "> </p>
+<p>Figure 4 | Visualizing the learned word vectors.</p>
+<h2 id="Recurrent-neural-networks"><a class="header-anchor" href="#Recurrent-neural-networks"></a>Recurrent neural networks</h2>
+<p>RNNs process an input sequence one element at a time, maintaining in their hidden units a ‘state vector’ that implicitly contains information about the history of all the past elements of the sequence. When we consider the outputs of the hidden units at different discrete time steps as if they were the outputs of different neurons in a deep multilayer network (Fig. 5, right), it becomes clear how we can apply backpropagation to train RNNs.</p>
+<p align = "center"> <img width = "500" src = "images/00_DeepLearning_2019-12-12-01-11-41.png "> </p>
+<p>Figure 5. A recurrent neural network and the unfolding in time of the computation involved in its forward computation.</p>
+<p>RNNs are very powerful dynamic systems, but training them has proved to be problematic because the backpropagated gradients either <strong>grow or shrink</strong> at each time step, so over many time steps they typically <strong>explode or vanish</strong>.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CV-Paper/" rel="tag"># CV_Paper</a>
+              <a href="/tags/CNN/" rel="tag"># CNN</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/12/10/Basic-Data-Structure-week1/" rel="prev" title="Basic_Data_Structure_week1">
+      <i class="fa fa-chevron-left"></i> Basic_Data_Structure_week1
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/12/13/c-Continer-CPP-05/" rel="next" title="CPP_05 Container_01">
+      CPP_05 Container_01 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Deep-Learning"><span class="nav-number">1.</span> <span class="nav-text">Deep Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">1. Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Supervised-Learning"><span class="nav-number">1.2.</span> <span class="nav-text">Supervised Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Backpropagation-to-train-multilayer-architectures"><span class="nav-number">1.2.1.</span> <span class="nav-text">Backpropagation to train multilayer architectures</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Local-Minima"><span class="nav-number">1.2.2.</span> <span class="nav-text">Local Minima</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Convolutional-neural-networks"><span class="nav-number">1.3.</span> <span class="nav-text">Convolutional neural networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Image-understanding-with-deep-convolutional-networks"><span class="nav-number">1.4.</span> <span class="nav-text">Image understanding with deep convolutional networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Distributed-representations-and-language-processing"><span class="nav-number">1.5.</span> <span class="nav-text">Distributed representations and language processing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Recurrent-neural-networks"><span class="nav-number">1.6.</span> <span class="nav-text">Recurrent neural networks</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Liang Xu</p>
+  <div class="site-description" itemprop="description">This is the place for Liang to make any notes if he feels like it</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liang Xu</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '149ebf414bce9afa23bb',
+      clientSecret: '5184b7ef0e3ac34dbd679b6e16523efef720a670',
+      repo: 'http://abysmalocean.github.io',
+      owner: 'abysmalocean',
+      admin: ['abysmalocean'],
+      id: 'cccea6b86ef3df067bcd8ccad3fe3a9e',
+        language: 'en',
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+</body>
+</html>

@@ -46,13 +46,13 @@
   };
 </script>
 
-  <meta name="description" content="Semi-supervised Learning with Deep Generative ModelsThe increasing size of deep learning model with the difficulty if obtaining label information has made semi-supervised learning one of the problems">
+  <meta name="description" content="Semi-supervised Learning with Deep Generative Models The increasing size of deep learning model with the difficulty if obtaining label information has made semi-supervised learning one of the problems">
 <meta name="keywords" content="VAE,DeepLearning,SemiSupervised">
 <meta property="og:type" content="article">
 <meta property="og:title" content="semi-supervised_Learning_Deep_Generative_Model">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;09&#x2F;semi-supervised-Learning-Deep-Generative-Model&#x2F;index.html">
 <meta property="og:site_name" content="Liang Xu">
-<meta property="og:description" content="Semi-supervised Learning with Deep Generative ModelsThe increasing size of deep learning model with the difficulty if obtaining label information has made semi-supervised learning one of the problems">
+<meta property="og:description" content="Semi-supervised Learning with Deep Generative Models The increasing size of deep learning model with the difficulty if obtaining label information has made semi-supervised learning one of the problems">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2019-12-09T22:38:20.000Z">
 <meta name="twitter:card" content="summary">
@@ -245,54 +245,80 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Semi-supervised-Learning-with-Deep-Generative-Models"><a href="#Semi-supervised-Learning-with-Deep-Generative-Models" class="headerlink" title="Semi-supervised Learning with Deep Generative Models"></a>Semi-supervised Learning with Deep Generative Models</h1><p>The increasing size of deep learning model with the difficulty if obtaining label information has made semi-supervised learning one of the problems of significant practical importance in modern data analysis.</p>
-<p>Generative approaches have thus far been either inflexible, inefficient or non-scalable. </p>
+        <h1 id="Semi-supervised-Learning-with-Deep-Generative-Models"><a class="header-anchor" href="#Semi-supervised-Learning-with-Deep-Generative-Models"></a>Semi-supervised Learning with Deep Generative Models</h1>
+<p>The increasing size of deep learning model with the difficulty if obtaining label information has made semi-supervised learning one of the problems of significant practical importance in modern data analysis.</p>
+<p>Generative approaches have thus far been either inflexible, inefficient or non-scalable.</p>
 <blockquote>
 <ul>
 <li>This paper describe a new framework for semi-supervised learning with generative models, employing rich parametric density estimators formed by the fusion of probabilistic modelling and deep neural networks.</li>
 <li>this paper show for the first time how variational inference can be brought to bear upon the problem of semi-supervised classification. In particular, we develop a stochastic variational inference algorithm that allows for joint optimization both model and variational parameters, and that is scalable to large datasets.</li>
 </ul>
 </blockquote>
-<h2 id="Deep-Generative-Models-for-Semi-supervised-Learning"><a href="#Deep-Generative-Models-for-Semi-supervised-Learning" class="headerlink" title="Deep Generative Models for Semi-supervised Learning"></a>Deep Generative Models for Semi-supervised Learning</h2><p>We are feaced with data that appear as pairs $(\mathbf{X}, \mathbf{Y}) = {(X_1, y_1), … , (X_N, y_N)}$, with the <em>i</em>-th observation $x_i \in \mathbb{R}$ and the corresponding class label $y_i \in {1, … , L}$. Observations will have corresponding latent variables, which we denote by $z_i$. In the semi-supervised learning classification, only a subset of the observations have corresponding class labels; we refer to the exmpirical distribution over the labelled and unlabelled subsets as $\widetilde{p_l}(\mathbf{x}, y)$ and $\widetilde{p_u}(\mathbf{x})$.</p>
+<h2 id="Deep-Generative-Models-for-Semi-supervised-Learning"><a class="header-anchor" href="#Deep-Generative-Models-for-Semi-supervised-Learning"></a>Deep Generative Models for Semi-supervised Learning</h2>
+<p>We are feaced with data that appear as pairs $(\mathbf{X}, \mathbf{Y}) = {(X_1, y_1), … , (X_N, y_N)}$, with the <em>i</em>-th observation $x_i \in \mathbb{R}$ and the corresponding class label $y_i \in {1, … , L}$. Observations will have corresponding latent variables, which we denote by $z_i$. In the semi-supervised learning classification, only a subset of the observations have corresponding class labels; we refer to the exmpirical distribution over the labelled and unlabelled subsets as $\widetilde{p_l}(\mathbf{x}, y)$ and $\widetilde{p_u}(\mathbf{x})$.</p>
 <p>We now develop models for semi-supervised learning that exploit generative descriptions of the data to improve upon the classification performance that would be obtained using the labelled data alone.</p>
-<h3 id="Latent-feature-discriminative-model-M1"><a href="#Latent-feature-discriminative-model-M1" class="headerlink" title="Latent-feature discriminative model(M1)"></a>Latent-feature discriminative model(M1)</h3><p>A commonly used approach is to construct a model that provides an embedding or feature representation of the data. Using those features, a separate classifier is thereafter trained. By assumption, the embeddings allows for a clustering of related observations in a latent feature space that allows for accurate classification, even with a limited number of labels. Deep generative model of the data can build more robust set of latent features. The generative model used is:</p>
-<script type="math/tex; mode=display">p(z) = \mathcal{N}(\mathbf{z}|\mathbf{0},\mathbf{I})</script><script type="math/tex; mode=display">p_\theta(z|x) = p(x; z, \mathbf{\theta})</script><p>$p_\theta(z|x)$ is a suitable likelihood function whose probability are formulated by nonlinear transformation with parameter $\theta$, and a set of latent variables z. This nonlinear model (parameterized by $\theta$) allows the higher moments of the data to be captured by the density model, and this nonlinear function has been chosen as deep neural networks.</p>
+<h3 id="Latent-feature-discriminative-model-M1"><a class="header-anchor" href="#Latent-feature-discriminative-model-M1"></a>Latent-feature discriminative model(M1)</h3>
+<p>A commonly used approach is to construct a model that provides an embedding or feature representation of the data. Using those features, a separate classifier is thereafter trained. By assumption, the embeddings allows for a clustering of related observations in a latent feature space that allows for accurate classification, even with a limited number of labels. Deep generative model of the data can build more robust set of latent features. The generative model used is:</p>
+<p>$$ p(z) = \mathcal{N}(\mathbf{z}|\mathbf{0},\mathbf{I})$$<br>
+$$ p_\theta(z|x) = p(x; z, \mathbf{\theta})$$<br>
+$p_\theta(z|x)$ is a suitable likelihood function whose probability are formulated by nonlinear transformation with parameter $\theta$, and a set of latent variables z. This nonlinear model (parameterized by $\theta$) allows the higher moments of the data to be captured by the density model, and this nonlinear function has been chosen as deep neural networks.</p>
 <p>Approximated samples from the posterior distribution over the latent variables p(z|x) are used as features to train as a classifiers to predict the label y, such as a SVM. Using this approach, we can now perform classification in a lower dimensional space(This is very important). The reason for modern deep learning works, they can learn huge parameter space by large amount data. After reduce the dimensionality, during the supervised learning, we only focus on the small classifier parameters in a low dimensional space.</p>
-<h3 id="Generative-semi-supervised-model-M2"><a href="#Generative-semi-supervised-model-M2" class="headerlink" title="Generative semi-supervised model(M2)"></a>Generative semi-supervised model(M2)</h3><p>This is the most important model this paper has been proposed. They proposed a probabilistic model that describes the data as being generated by a latent class variable y in <strong>addition</strong> to a continuous latent variable z. The latent class variable y is also being generated. </p>
-<script type="math/tex; mode=display">p(y) = Cat(y|\pi)</script><script type="math/tex; mode=display">p(z) = \mathcal{N}(\mathbf{z}|\mathbf{0},\mathbf{I})</script><script type="math/tex; mode=display">p_{\theta}(\mathbf{x} | y,z) = f(\mathbf{x}; y, \mathbf{z},\mathbf{\theta})</script><p>where $Cat(y|\pi)$ is the multinomial distribution, the class labels $y$ are treated as latent variables if no class label is available and z are additional latent variables. The latent variables are marginally independent and allow us to separate the class specification. As before, $f(\mathbf{x}| y, \mathbf{z},\mathbf{\theta})$ is a suitable likelihood function, parameterised by a non-linear transformation of the latent variables (the decoder).</p>
+<h3 id="Generative-semi-supervised-model-M2"><a class="header-anchor" href="#Generative-semi-supervised-model-M2"></a>Generative semi-supervised model(M2)</h3>
+<p>This is the most important model this paper has been proposed. They proposed a probabilistic model that describes the data as being generated by a latent class variable y in <strong>addition</strong> to a continuous latent variable z. The latent class variable y is also being generated.<br>
+$$ p(y) = Cat(y|\pi)$$<br>
+$$ p(z) = \mathcal{N}(\mathbf{z}|\mathbf{0},\mathbf{I})$$<br>
+$$ p_{\theta}(\mathbf{x} | y,z) = f(\mathbf{x}; y, \mathbf{z},\mathbf{\theta})$$<br>
+where $Cat(y|\pi)$ is the multinomial distribution, the class labels $y$ are treated as latent variables if no class label is available and z are additional latent variables. The latent variables are marginally independent and allow us to separate the class specification. As before, $f(\mathbf{x}| y, \mathbf{z},\mathbf{\theta})$ is a suitable likelihood function, parameterised by a non-linear transformation of the latent variables (the decoder).</p>
 <blockquote>
 <p><strong>Since most labels <em>y</em> are unobserved, we integrate over the class of any unlabelled data during the inference process, thus performing classification as inference. Prediction for any missing labels are obtained from the inferred posterior distribution $p_{\theta}(y|\mathbf{x})$. This model can also be seen as a hybrid continuous-discrete mixture model where the different mixture components share parameters.</strong></p>
 </blockquote>
-<h3 id="Stacked-generative-semi-supervised-model-M1-M2"><a href="#Stacked-generative-semi-supervised-model-M1-M2" class="headerlink" title="Stacked generative semi-supervised model(M1 + M2)"></a>Stacked generative semi-supervised model(M1 + M2)</h3><p>We can combine these two approaches by first learning a new latent representation $z_1$ using the generative model from M1, and subsequently learning a generative semi-supervised model M2, using embeddings from $z_1$ instead of the raw data <strong>x</strong>.</p>
+<h3 id="Stacked-generative-semi-supervised-model-M1-M2"><a class="header-anchor" href="#Stacked-generative-semi-supervised-model-M1-M2"></a>Stacked generative semi-supervised model(M1 + M2)</h3>
+<p>We can combine these two approaches by first learning a new latent representation $z_1$ using the generative model from M1, and subsequently learning a generative semi-supervised model M2, using embeddings from $z_1$ instead of the raw data <strong>x</strong>.</p>
 <blockquote>
-<p><strong>The result is a deep generative model with tow layers of stochastic variables</strong></p>
-<script type="math/tex; mode=display">p_{\theta}(\mathbf{x}, y,\mathbf{z_{1}}, \mathbf{z_{2}}) = p(y)p(\mathbf{z_{2}})p_{\theta}(\mathbf{z_{1}}|y, \mathbf{z_{2}})p_{\theta}(\mathbf{x}|\mathbf{z_{1}})</script><p>where the priors <script type="math/tex">p(y)</script> and <script type="math/tex">p(z_{2})</script> equal those of y and z above,and both <script type="math/tex">p_{\theta}(\mathbf{x}|\mathbf{z_{1}})</script> and <script type="math/tex">p_{\theta}(\mathbf{z_{1}} | y, \mathbf{z_{2}})</script> are parameterized as deep neural networks. </p>
+<p><strong>The result is a deep generative model with tow layers of stochastic variables</strong><br>
+$$p_{\theta}(\mathbf{x}, y,\mathbf{z_{1}}, \mathbf{z_{2}}) = p(y)p(\mathbf{z_{2}})p_{\theta}(\mathbf{z_{1}}|y, \mathbf{z_{2}})p_{\theta}(\mathbf{x}|\mathbf{z_{1}})$$<br>
+where the priors $$p(y)$$ and $$p(z_{2})$$ equal those of y and z above,and both $$p_{\theta}(\mathbf{x}|\mathbf{z_{1}})$$ and $$p_{\theta}(\mathbf{z_{1}} | y, \mathbf{z_{2}})$$ are parameterized as deep neural networks.</p>
 </blockquote>
-<h2 id="3-Scalable-Variational-Inference"><a href="#3-Scalable-Variational-Inference" class="headerlink" title="3. Scalable Variational Inference"></a>3. Scalable Variational Inference</h2><h3 id="3-1-Lower-Bound-Objective"><a href="#3-1-Lower-Bound-Objective" class="headerlink" title="3.1 Lower Bound Objective"></a>3.1 Lower Bound Objective</h3><p>For all the models described, we introduce a fixed-form distribution $q_{\phi}(z|x)$ with parameters $\phi$ that approximates the true posterior distribution $p(z|x)$. We then follow the variational principle to derive a lower bound on the marginal likelihood of the model – this bound forms our objective function and ensures that our approximate posterior is as close as possible to the true posterior. </p>
+<h2 id="3-Scalable-Variational-Inference"><a class="header-anchor" href="#3-Scalable-Variational-Inference"></a>3. Scalable Variational Inference</h2>
+<h3 id="3-1-Lower-Bound-Objective"><a class="header-anchor" href="#3-1-Lower-Bound-Objective"></a>3.1 Lower Bound Objective</h3>
+<p>For all the models described, we introduce a fixed-form distribution $q_{\phi}(z|x)$ with parameters $\phi$ that approximates the true posterior distribution $p(z|x)$. We then follow the variational principle to derive a lower bound on the marginal likelihood of the model – this bound forms our objective function and ensures that our approximate posterior is as close as possible to the true posterior.</p>
 <p>We construct the approximate posterior distribution $q_{\phi}(.)$ as an inference or recognition model. Using an inference network, we avoid the need to compute per data point variational parameters, but can instead compute a set of global variational parameters $\phi$</p>
-<p>An inference network is introduced for all latent variables, and we parameterise them as deep neural networks whose outputs from the parameters of the distribution $q_{\phi}(.)$. </p>
+<p>An inference network is introduced for all latent variables, and we parameterise them as deep neural networks whose outputs from the parameters of the distribution $q_{\phi}(.)$.</p>
 <blockquote>
 <ul>
-<li>For the latent-feature discriminative model (M1), we use a Gaussian inference network $q_{\phi}(\mathbf{z}|\mathbf{x})$ for the latent variable $\mathbf{z}$. </li>
-<li>For the generative semi-supervised model(M2), we introduce an inference model fro each of the latent variables $\mathbf{z}$ and $y$, which we assume has a factorised from:<br>$q<em>{\phi}(\mathbf{z}, y|\mathbf{x}) = q</em>{\phi}(\mathbf{z}|\mathbf{x})q_{\phi}(y|\mathbf{x})$ specified as Gaussian and multinomial distribution respectively. </li>
+<li>For the latent-feature discriminative model (M1), we use a Gaussian inference network $q_{\phi}(\mathbf{z}|\mathbf{x})$ for the latent variable $\mathbf{z}$.</li>
+<li>For the generative semi-supervised model(M2), we introduce an inference model fro each of the latent variables $\mathbf{z}$ and $y$, which we assume has a factorised from:<br>
+$q_{\phi}(\mathbf{z}, y|\mathbf{x}) = q_{\phi}(\mathbf{z}|\mathbf{x})q_{\phi}(y|\mathbf{x})$ specified as Gaussian and multinomial distribution respectively.</li>
 </ul>
 </blockquote>
-<script type="math/tex; mode=display">M1: q_{\phi}(\mathbf{z}|\mathbf{x}) = \mathcal{N}(\mathbf{z}|\mathbf{\mu_{\phi}}(\mathbf{x}), diag(\mathbf{\sigma_{\phi}^{2}}(\mathbf{x}))),</script><script type="math/tex; mode=display">M2: q_{\phi}(\mathbf{z}|y, \mathbf{x}) = \mathcal{N}(\mathbf{z}|\mu_{\phi}(y, \mathbf{x}), diag() diag(\mathbf{\sigma_{\phi}^{2}}(\mathbf{x}));</script><script type="math/tex; mode=display">q_{\phi}(y|\mathbf{x}) = Cat(y|\mathbf{\pi}_{\phi}(\mathbf{x}))</script><p>where:</p>
+<p>$$M1: q_{\phi}(\mathbf{z}|\mathbf{x}) = \mathcal{N}(\mathbf{z}|\mathbf{\mu_{\phi}}(\mathbf{x}), diag(\mathbf{\sigma_{\phi}^{2}}(\mathbf{x}))),$$<br>
+$$M2: q_{\phi}(\mathbf{z}|y, \mathbf{x}) = \mathcal{N}(\mathbf{z}|\mu_{\phi}(y, \mathbf{x}), diag() diag(\mathbf{\sigma_{\phi}^{2}}(\mathbf{x}));$$<br>
+$$q_{\phi}(y|\mathbf{x}) = Cat(y|\mathbf{\pi}_{\phi}(\mathbf{x}))$$</p>
+<p>where:</p>
 <blockquote>
-<p>$\mathbf{\sigma}<em>{\phi}(\mathbf{x})$ is a vector of standard deviations<br>$\mathbf{\pi}</em>{\phi}(\mathbf{x})$ is a probability vector</p>
+<p>$\mathbf{\sigma}<em>{\phi}(\mathbf{x})$ is a vector of standard deviations<br>
+$\mathbf{\pi}</em>{\phi}(\mathbf{x})$ is a probability vector</p>
 </blockquote>
-<h4 id="3-1-1-Latent-Feature-Discriminative-Model-Objective"><a href="#3-1-1-Latent-Feature-Discriminative-Model-Objective" class="headerlink" title="3.1.1 Latent Feature Discriminative Model Objective"></a>3.1.1 Latent Feature Discriminative Model Objective</h4><p>For this model, the variational bound $\mathcal{J}(x)$ on the marginal likelihood for a single data point is:</p>
-<script type="math/tex; mode=display">\log{p_{\theta}}(\mathbf{x}) \geq \mathbb{E}_{q_{\theta}(\mathbf{z}|\mathbf{x})}[\log{p_{\theta}(\mathbf{x}|\mathbf{z})}] - KL[q_{\phi}(\mathbf{z}|\mathbf{x})||p_{\theta}(\mathbf{z})] = -\mathcal{J}(x)</script><p>The inference M1 network is used during training of the model using both the labelled and unlabelled data set. This approximate posterior is then used as a feature extractor for the labelled data set, and the features used for training the classifier. </p>
-<h4 id="3-1-2-Generative-Semi-supervised-Model"><a href="#3-1-2-Generative-Semi-supervised-Model" class="headerlink" title="3.1.2 Generative Semi-supervised Model"></a>3.1.2 Generative Semi-supervised Model</h4><p>M2 model in our model. For this model, we have to cases to consider. In the first case, the label corresponding to a data point is observed and variational bounding is simply extension of previous loss function.</p>
-<script type="math/tex; mode=display">\log{p_{\theta}(\mathbf{x}, y)} \geq  \mathbb{E}_{q_{\theta}(\mathbf{z}|\mathbf{x}, y)}[\log{p_{\theta}}(\mathbf{x}|y, \mathbf{z}) + \log{p_{\theta}(y)}+\log{p(\mathbf{z})} - \log{q_{\phi}(\mathbf{z}|\mathbf{x}, y)}] = -\mathcal{L}(\mathbf{x}, y)</script><p>For the case where the label is missing, it is treated as a latent variable over which we perform posterior inference and the resulting bound for handling data points with an unobserved label $y$ is: </p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\log{p_{\theta}(\mathbf{x}, y)} &\geq  \mathbb{E}_{q_{\theta}(\mathbf{z}, y|\mathbf{x})}[\log{p_{\theta}(\mathbf{x}|y, \mathbf{z}) + \log{p_{\theta}(y)}+\log{p(\mathbf{z})} - \log{q_{\phi}(\mathbf{z}|\mathbf{x}, y)}}] \\
-&= \sum_{y}q_{\phi}(y|\mathbf{x})(-\mathcal{L}(\mathbf{x}, y) + \mathcal{H}(q_{\phi}(y|\mathbf{x}))) \\
-&=-\mathcal{U}(x)
-\end{aligned}</script><p>The bound on the marginal likelihood for the entire data set is now: </p>
-<script type="math/tex; mode=display">
-\mathcal{J} = \sum_{(\mathbf{x}, y) \sim \widetilde{p_l}}\mathcal{L}(\mathbf{x},y) + \sum_{\mathbf{x} \sim \widetilde{p_u}} \mathcal{U}(\mathbf{x})</script>
+<h4 id="3-1-1-Latent-Feature-Discriminative-Model-Objective"><a class="header-anchor" href="#3-1-1-Latent-Feature-Discriminative-Model-Objective"></a>3.1.1 Latent Feature Discriminative Model Objective</h4>
+<p>For this model, the variational bound $\mathcal{J}(x)$ on the marginal likelihood for a single data point is:<br>
+$$\log{p_{\theta}}(\mathbf{x}) \geq \mathbb{E}<em>{q</em>{\theta}(\mathbf{z}|\mathbf{x})}[\log{p_{\theta}(\mathbf{x}|\mathbf{z})}] - KL[q_{\phi}(\mathbf{z}|\mathbf{x})||p_{\theta}(\mathbf{z})] = -\mathcal{J}(x)$$</p>
+<p>The inference M1 network is used during training of the model using both the labelled and unlabelled data set. This approximate posterior is then used as a feature extractor for the labelled data set, and the features used for training the classifier.</p>
+<h4 id="3-1-2-Generative-Semi-supervised-Model"><a class="header-anchor" href="#3-1-2-Generative-Semi-supervised-Model"></a>3.1.2 Generative Semi-supervised Model</h4>
+<p>M2 model in our model. For this model, we have to cases to consider. In the first case, the label corresponding to a data point is observed and variational bounding is simply extension of previous loss function.<br>
+$$\log{p_{\theta}(\mathbf{x}, y)} \geq  \mathbb{E}<em>{q</em>{\theta}(\mathbf{z}|\mathbf{x}, y)}[\log{p_{\theta}}(\mathbf{x}|y, \mathbf{z}) + \log{p_{\theta}(y)}+\log{p(\mathbf{z})} - \log{q_{\phi}(\mathbf{z}|\mathbf{x}, y)}] = -\mathcal{L}(\mathbf{x}, y)$$</p>
+<p>For the case where the label is missing, it is treated as a latent variable over which we perform posterior inference and the resulting bound for handling data points with an unobserved label $y$ is:</p>
+<p>$$<br>
+\begin{aligned}<br>
+\log{p_{\theta}(\mathbf{x}, y)} &amp;\geq  \mathbb{E}<em>{q</em>{\theta}(\mathbf{z}, y|\mathbf{x})}[\log{p_{\theta}(\mathbf{x}|y, \mathbf{z}) + \log{p_{\theta}(y)}+\log{p(\mathbf{z})} - \log{q_{\phi}(\mathbf{z}|\mathbf{x}, y)}}] \<br>
+&amp;= \sum_{y}q_{\phi}(y|\mathbf{x})(-\mathcal{L}(\mathbf{x}, y) + \mathcal{H}(q_{\phi}(y|\mathbf{x}))) \<br>
+&amp;=-\mathcal{U}(x)<br>
+\end{aligned}<br>
+$$</p>
+<p>The bound on the marginal likelihood for the entire data set is now:<br>
+$$<br>
+\mathcal{J} = \sum_{(\mathbf{x}, y) \sim \widetilde{p_l}}\mathcal{L}(\mathbf{x},y) + \sum_{\mathbf{x} \sim \widetilde{p_u}} \mathcal{U}(\mathbf{x})<br>
+$$</p>
+
     </div>
 
     
@@ -371,7 +397,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -384,7 +410,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -414,7 +440,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
