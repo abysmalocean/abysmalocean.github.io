@@ -46,13 +46,13 @@
   };
 </script>
 
-  <meta name="description" content="Inception versions In this section, I will compare the difference version of inception. Explain how they think, what kinds of problem they what to solve. Inception v1 The first version of inception is">
+  <meta name="description" content="Inception versionsIn this section, I will compare the difference version of inception. Explain how they think, what kinds of problem they what to solve. Inception v1The first version of inception is b">
 <meta name="keywords" content="CV_Paper,CNN,Recognition">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Inception Versions">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;04&#x2F;01-Inception-Versions&#x2F;index.html">
 <meta property="og:site_name" content="Liang Xu">
-<meta property="og:description" content="Inception versions In this section, I will compare the difference version of inception. Explain how they think, what kinds of problem they what to solve. Inception v1 The first version of inception is">
+<meta property="og:description" content="Inception versionsIn this section, I will compare the difference version of inception. Explain how they think, what kinds of problem they what to solve. Inception v1The first version of inception is b">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;04&#x2F;01-Inception-Versions&#x2F;images&#x2F;01_inception_01.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;04&#x2F;01-Inception-Versions&#x2F;images&#x2F;01_inception_02.png">
@@ -251,24 +251,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="Inception-versions"><a class="header-anchor" href="#Inception-versions"></a>Inception versions</h3>
-<p>In this section, I will compare the difference version of inception. Explain how they think, what kinds of problem they what to solve.</p>
-<h4 id="Inception-v1"><a class="header-anchor" href="#Inception-v1"></a>Inception v1</h4>
-<p>The first version of inception is based on the computation efficiency. As we know that, modern computing system are not good at sparse matrix computation, lost of the resource are wasted due to the sparsity. Also, our deep convolutional neural network are a sparse matrix multiplication. So the first idea is to approximate the dense matrix multiplication by using several convolutional together. The original words are “The main idea of the Inception architecture is based on finding out how an optimal local sparse structure in a convolutional vision network can be approximated and covered by readily available dense components”.<br>
-The original inception module are build based on several different convolutional filters 1x1, 3x3 ,5x5, and a pooling layer.<br>
-<img src="images/01_inception_01.png" alt=""></p>
-<p>However, the number of 5x5 filters are very big compared with 3x3. Also, when adding the pooling units, the merging of their number of output filters equals to the number of filters in the previous stage. So, in the concatenation layer, the input size from the pooling layer concatenated convolutional layers make the output inevitable increase in the number of outputs form state to state. This is the reason they propose the second version.</p>
-<h5 id="Inception-V2"><a class="header-anchor" href="#Inception-V2"></a>Inception V2</h5>
-<p>Inception V2 module is with the demension reduction with 1X1 filter. 1x1 filter are applying dimension reductions and projections wherever the computational requeiremnts would increase too much otherwise.</p>
+        <h3 id="Inception-versions"><a href="#Inception-versions" class="headerlink" title="Inception versions"></a>Inception versions</h3><p>In this section, I will compare the difference version of inception. Explain how they think, what kinds of problem they what to solve.</p>
+<h4 id="Inception-v1"><a href="#Inception-v1" class="headerlink" title="Inception v1"></a>Inception v1</h4><p>The first version of inception is based on the computation efficiency. As we know that, modern computing system are not good at sparse matrix computation, lost of the resource are wasted due to the sparsity. Also, our deep convolutional neural network are a sparse matrix multiplication. So the first idea is to approximate the dense matrix multiplication by using several convolutional together. The original words are “The main idea of the Inception architecture is based on finding out how an optimal local sparse structure in a convolutional vision network can be approximated and covered by readily available dense components”.<br>The original inception module are build based on several different convolutional filters 1x1, 3x3 ,5x5, and a pooling layer.<br><img src="images/01_inception_01.png" alt=""></p>
+<p>However, the number of 5x5 filters are very big compared with 3x3. Also, when adding the pooling units, the merging of their number of output filters equals to the number of filters in the previous stage. So, in the concatenation layer, the input size from the pooling layer concatenated convolutional layers make the output inevitable increase in the number of outputs form state to state. This is the reason they propose the second version. </p>
+<h5 id="Inception-V2"><a href="#Inception-V2" class="headerlink" title="Inception V2"></a>Inception V2</h5><p>Inception V2 module is with the demension reduction with 1X1 filter. 1x1 filter are applying dimension reductions and projections wherever the computational requeiremnts would increase too much otherwise. </p>
 <p><img src="images/01_inception_02.png" alt=""></p>
-<p>The 1x1 convolutions are used tp compute reductions before the expensive 3x3 and 5x5 convolutions. They also include the use of rectified linear activation which makes them dual purpose.</p>
-<h4 id="Inception-V3"><a class="header-anchor" href="#Inception-V3"></a>Inception V3</h4>
-<p>Inception V3 is proposed by another paper. It trying to reduce the filter form nxn to 1xn. In this module, they studied the relation of filter size and how to optimize them. For example, they trying to use 2 3x3 filters instead of 1 5*5. Like the filter below.<br>
-<img src="images/01_inception_03.png" alt=""><br>
-<img src="images/01_inception_03_2.png" alt=""></p>
-<h4 id="Inception-V4"><a class="header-anchor" href="#Inception-V4"></a>Inception V4</h4>
-<p>Inception V4 also proposed by another paper. The inception of v4’s idea came from ResNet. In that paper, they proposed lots of paper talked about different versions of the neural network connections, especially how to do something similar with the ResNet.<br>
-<img src="images/01_inception_04.png" alt=""></p>
+<p>The 1x1 convolutions are used tp compute reductions before the expensive 3x3 and 5x5 convolutions. They also include the use of rectified linear activation which makes them dual purpose. </p>
+<h4 id="Inception-V3"><a href="#Inception-V3" class="headerlink" title="Inception V3"></a>Inception V3</h4><p>Inception V3 is proposed by another paper. It trying to reduce the filter form nxn to 1xn. In this module, they studied the relation of filter size and how to optimize them. For example, they trying to use 2 3x3 filters instead of 1 5*5. Like the filter below.<br><img src="images/01_inception_03.png" alt=""><br><img src="images/01_inception_03_2.png" alt=""></p>
+<h4 id="Inception-V4"><a href="#Inception-V4" class="headerlink" title="Inception V4"></a>Inception V4</h4><p>Inception V4 also proposed by another paper. The inception of v4’s idea came from ResNet. In that paper, they proposed lots of paper talked about different versions of the neural network connections, especially how to do something similar with the ResNet.<br><img src="images/01_inception_04.png" alt=""></p>
 
     </div>
 

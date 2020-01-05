@@ -46,13 +46,13 @@
   };
 </script>
 
-  <meta name="description" content="Global Asset Folder Assets are non-post files in the source folder, such as images, CSS or JavaScript files. For instance, If you are only going to have a few images in the Hexo project, then the easi">
+  <meta name="description" content="Global Asset FolderAssets are non-post files in the source folder, such as images, CSS or JavaScript files. For instance, If you are only going to have a few images in the Hexo project, then the easie">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo_study2">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;27&#x2F;hexo-study&#x2F;index.html">
 <meta property="og:site_name" content="Liang Xu">
-<meta property="og:description" content="Global Asset Folder Assets are non-post files in the source folder, such as images, CSS or JavaScript files. For instance, If you are only going to have a few images in the Hexo project, then the easi">
+<meta property="og:description" content="Global Asset FolderAssets are non-post files in the source folder, such as images, CSS or JavaScript files. For instance, If you are only going to have a few images in the Hexo project, then the easie">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2019-11-27T06:05:27.000Z">
 <meta name="twitter:card" content="summary">
@@ -245,23 +245,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="Global-Asset-Folder"><a class="header-anchor" href="#Global-Asset-Folder"></a>Global Asset Folder</h3>
-<p>Assets are non-post files in the source folder, such as images, CSS or JavaScript files. For instance, If you are only going to have a few images in the Hexo project, then the easiest way is to keep them in a source/images directory. Then, you can access them using something like regular image called in MK.</p>
-<h3 id="Post-Asset-Folder"><a class="header-anchor" href="#Post-Asset-Folder"></a>Post Asset Folder</h3>
-<p>For users who expect to regularly serve images and/or other assets, and for those who prefer to separate their assets on a post-per-post basis, Hexo also provides a more organized way to manage assets.<br>
-his slightly more involved, but very convenient approach to asset management can be turned on by setting the post_asset_folder setting in _config.yml to true.</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">_config.yml</span></span><br><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>With asset folder management enabled, Hexo will create a folder every time you make a new post with the hexo new</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[layout] &lt;title&gt; command.</span><br></pre></td></tr></table></figure>
-<p>This asset folder will have the same name as the markdown file associated with the post. Place all assets related to your post into the associated folder, and you will be able to reference them using a <strong>relative path</strong>, making for an easier and more convenient workflow. What is relative path?</p>
-<h3 id="Tag-Plugins-For-Relative-Path-Referencing"><a class="header-anchor" href="#Tag-Plugins-For-Relative-Path-Referencing"></a>Tag Plugins For Relative Path Referencing</h3>
-<p>Referencing images or other assets using normal markdown syntax and relative paths may lead to incorrect display on archive or index pages.<br>
-with the release of Hexo 3, several new tag plugins were added to core. These enable you to reference your assets more easily in posts:</p>
+        <h3 id="Global-Asset-Folder"><a href="#Global-Asset-Folder" class="headerlink" title="Global Asset Folder"></a>Global Asset Folder</h3><p>Assets are non-post files in the source folder, such as images, CSS or JavaScript files. For instance, If you are only going to have a few images in the Hexo project, then the easiest way is to keep them in a source/images directory. Then, you can access them using something like regular image called in MK. </p>
+<h3 id="Post-Asset-Folder"><a href="#Post-Asset-Folder" class="headerlink" title="Post Asset Folder"></a>Post Asset Folder</h3><p>For users who expect to regularly serve images and/or other assets, and for those who prefer to separate their assets on a post-per-post basis, Hexo also provides a more organized way to manage assets.<br>his slightly more involved, but very convenient approach to asset management can be turned on by setting the post_asset_folder setting in _config.yml to true.<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">_config.yml</span></span><br><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
+<p>With asset folder management enabled, Hexo will create a folder every time you make a new post with the hexo new<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[layout] &lt;title&gt; command.</span><br></pre></td></tr></table></figure><br>This asset folder will have the same name as the markdown file associated with the post. Place all assets related to your post into the associated folder, and you will be able to reference them using a <strong>relative path</strong>, making for an easier and more convenient workflow. What is relative path? </p>
+<h3 id="Tag-Plugins-For-Relative-Path-Referencing"><a href="#Tag-Plugins-For-Relative-Path-Referencing" class="headerlink" title="Tag Plugins For Relative Path Referencing"></a>Tag Plugins For Relative Path Referencing</h3><p>Referencing images or other assets using normal markdown syntax and relative paths may lead to incorrect display on archive or index pages.<br>with the release of Hexo 3, several new tag plugins were added to core. These enable you to reference your assets more easily in posts:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_path slug %&#125;</span><br><span class="line">&#123;% asset_img slug [title] %&#125;</span><br><span class="line">&#123;% asset_link slug [title] %&#125;</span><br></pre></td></tr></table></figure>
-<p>For example, with post asset folders enabled, if you place an image example.jpg into your asset folder, it will not appear on the index page if you reference it using a relative path with regular ! [] (/example.jpg) markdown syntax (however, it will work as expected in the post itself).<br>
-The correct way to reference the image will thus be using tag plugin syntax rather than markdown:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img example.jpg This is an example image %&#125;</span><br><span class="line">&#123;% asset_img <span class="string">"spaced asset.png"</span> <span class="string">"spaced title"</span> %&#125;</span><br></pre></td></tr></table></figure>
-<p>This way, the image will appear both inside the post and on index and archive pages.</p>
+<p>For example, with post asset folders enabled, if you place an image example.jpg into your asset folder, it will not appear on the index page if you reference it using a relative path with regular ! [] (/example.jpg) markdown syntax (however, it will work as expected in the post itself).<br>The correct way to reference the image will thus be using tag plugin syntax rather than markdown:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img example.jpg This is an example image %&#125;</span><br><span class="line">&#123;% asset_img <span class="string">"spaced asset.png"</span> <span class="string">"spaced title"</span> %&#125;</span><br></pre></td></tr></table></figure><br>This way, the image will appear both inside the post and on index and archive pages.</p>
 
     </div>
 

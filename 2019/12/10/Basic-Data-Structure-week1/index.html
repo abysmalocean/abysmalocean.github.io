@@ -46,13 +46,13 @@
   };
 </script>
 
-  <meta name="description" content="BASIC DATA STRUCTURES 1. Arrays and Linked Lists  Definition Array Contiguous area of memory consisting of equal-size elements indexed by contiguous integers.  What is special about arrays?  Constant">
+  <meta name="description" content="BASIC DATA STRUCTURES1. Arrays and Linked Lists DefinitionArrayContiguous area of memory consisting of equal-size elements indexed by contiguous integers.  What is special about arrays? Constant time">
 <meta name="keywords" content="Algorithm,EDX,Data Structures Fundamentals">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Basic_Data_Structure_week1">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;index.html">
 <meta property="og:site_name" content="Liang Xu">
-<meta property="og:description" content="BASIC DATA STRUCTURES 1. Arrays and Linked Lists  Definition Array Contiguous area of memory consisting of equal-size elements indexed by contiguous integers.  What is special about arrays?  Constant">
+<meta property="og:description" content="BASIC DATA STRUCTURES1. Arrays and Linked Lists DefinitionArrayContiguous area of memory consisting of equal-size elements indexed by contiguous integers.  What is special about arrays? Constant time">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;1.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;Basic-Data-Structure-week1&#x2F;images_week1&#x2F;2.png">
@@ -278,58 +278,49 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="BASIC-DATA-STRUCTURES"><a class="header-anchor" href="#BASIC-DATA-STRUCTURES"></a>BASIC DATA STRUCTURES</h1>
-<h2 id="1-Arrays-and-Linked-Lists"><a class="header-anchor" href="#1-Arrays-and-Linked-Lists"></a>1. Arrays and Linked Lists</h2>
-<blockquote>
-<p>Definition<br>
-<strong>Array</strong><br>
-<code>Contiguous area of memory consisting of equal-size elements indexed by contiguous integers.</code></p>
+        <h1 id="BASIC-DATA-STRUCTURES"><a href="#BASIC-DATA-STRUCTURES" class="headerlink" title="BASIC DATA STRUCTURES"></a>BASIC DATA STRUCTURES</h1><h2 id="1-Arrays-and-Linked-Lists"><a href="#1-Arrays-and-Linked-Lists" class="headerlink" title="1. Arrays and Linked Lists"></a>1. Arrays and Linked Lists</h2><blockquote>
+<p>Definition<br><strong>Array</strong><br><code>Contiguous area of memory consisting of equal-size elements indexed by contiguous integers.</code></p>
 </blockquote>
-<h3 id="What-is-special-about-arrays"><a class="header-anchor" href="#What-is-special-about-arrays"></a>What is special about arrays?</h3>
-<ul>
-<li>Constant time access<br>
-Find the element by address <strong>array_addr + elem_size × (i − first_index)</strong></li>
+<h3 id="What-is-special-about-arrays"><a href="#What-is-special-about-arrays" class="headerlink" title="What is special about arrays?"></a>What is special about arrays?</h3><ul>
+<li>Constant time access<br>Find the element by address <strong>array_addr + elem_size × (i − first_index)</strong> </li>
 </ul>
-<h3 id="Multi-Dimensional-Arrays"><a class="header-anchor" href="#Multi-Dimensional-Arrays"></a>Multi-Dimensional Arrays</h3>
-<p>Most of the language support multi dimension array. However, if the language does not support this, you can always create the array by only using one dimension and an equation.</p>
+<h3 id="Multi-Dimensional-Arrays"><a href="#Multi-Dimensional-Arrays" class="headerlink" title="Multi-Dimensional Arrays"></a>Multi-Dimensional Arrays</h3><p>Most of the language support multi dimension array. However, if the language does not support this, you can always create the array by only using one dimension and an equation. </p>
 <p align="center">
   <img width="400" src="images_week1/1.png">
 </p>
+
 <p>According to the access pattern, the multi-dimension array can be saved as row major based or colum major based.</p>
 <p align="center">
   <img width="400" src="images_week1/2.png">
 </p>
-<h3 id="Times-for-common-operations"><a class="header-anchor" href="#Times-for-common-operations"></a>Times for common operations</h3>
-<p>Add and remove are tow common</p>
+
+<h3 id="Times-for-common-operations"><a href="#Times-for-common-operations" class="headerlink" title="Times for common operations"></a>Times for common operations</h3><p>Add and remove are tow common</p>
 <p align="center">
   <img width="400" src="images_week1/3.png">
 </p>
+
 <ol>
-<li>
-<p>add/remove to the beginning of the array need to move everything back by one, so ti is O(n) operation. Same like add in the middle of array.</p>
+<li><p>add/remove to the beginning of the array need to move everything back by one, so ti is O(n) operation. Same like add in the middle of array. </p>
 </li>
-<li>
-<p>add/remove from the end of the array are very easy, just move the pointer forward one step.</p>
+<li><p>add/remove from the end of the array are very easy, just move the pointer forward one step. </p>
 </li>
 </ol>
-<h3 id="Summary"><a class="header-anchor" href="#Summary"></a>Summary</h3>
-<ol>
-<li><strong>Array:</strong> Contiguous area of memory consisting of equal-size elements indexed by contiguous integers.</li>
-<li>Constant-time access to any element.</li>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ol>
+<li><strong>Array:</strong> Contiguous area of memory consisting of equal-size elements indexed by contiguous integers. </li>
+<li>Constant-time access to any element. </li>
 <li>Constant time to add/remove at the end.</li>
 <li>Linear time to add/remove tat an arbitrary location.</li>
 </ol>
-<h2 id="Linked-Lists"><a class="header-anchor" href="#Linked-Lists"></a>Linked Lists</h2>
-<p align="center">
+<h2 id="Linked-Lists"><a href="#Linked-Lists" class="headerlink" title="Linked Lists"></a>Linked Lists</h2><p align="center">
   <img width="400" src="images_week1/4.png">
 </p>
-<p>Linked Lists:</p>
+
+<p>Linked Lists: </p>
 <ul>
 <li>keys</li>
 <li>Pointes</li>
 </ul>
-<h3 id="List-API"><a class="header-anchor" href="#List-API"></a>List API</h3>
-<ul>
+<h3 id="List-API"><a href="#List-API" class="headerlink" title="List API"></a>List API</h3><ul>
 <li><strong>PushFront(Key)</strong> : add to front</li>
 <li><strong>Key TopFront()</strong> : return front item</li>
 <li><strong>PopFront()</strong> : remove front item</li>
@@ -342,87 +333,80 @@ Find the element by address <strong>array_addr + elem_size × (i − first_index
 <li><strong>AddBefore(Node, Key)</strong> : adds key before node</li>
 <li><strong>AddAfter(Node, Key)</strong> : adds key after node</li>
 </ul>
-<h3 id="Times-for-some-Operations"><a class="header-anchor" href="#Times-for-some-Operations"></a>Times for some Operations</h3>
-<h4 id="Push-front"><a class="header-anchor" href="#Push-front"></a>Push_front</h4>
-<p>Push front can be treated as reconnect the dummy head node.<br>
-Just remember do not lost your head any time.</p>
+<h3 id="Times-for-some-Operations"><a href="#Times-for-some-Operations" class="headerlink" title="Times for some Operations"></a>Times for some Operations</h3><h4 id="Push-front"><a href="#Push-front" class="headerlink" title="Push_front"></a>Push_front</h4><p>Push front can be treated as reconnect the dummy head node.<br>Just remember do not lost your head any time. </p>
 <p align="center">
   <img width="400" src="images_week1/5.png">
 </p>
-<p>Step1: Let the new node pointed to the current head.</p>
+
+<p>Step1: Let the new node pointed to the current head. </p>
 <p align="center">
   <img width="400" src="images_week1/6.png">
 </p>
-<p>Step2: Dummy head pointed to the new head.</p>
+
+<p>Step2: Dummy head pointed to the new head. </p>
 <p align="center">
   <img width="400" src="images_week1/7.png">
 </p>
+
 <p align="center">
   <img width="400" src="images_week1/10.png">
 </p>
+
 <p align="center">
   <img width="400" src="images_week1/11.png">
 </p>
-<p>For pop front, we need to think about the case when front is Empty.<br>
-So we need to check it first.<br>
-Time: O(1)</p>
-<h4 id="PushBack-no-tile-pointer"><a class="header-anchor" href="#PushBack-no-tile-pointer"></a>PushBack (no tile pointer)</h4>
-<p align="center">
+
+<p>For pop front, we need to think about the case when front is Empty.<br>So we need to check it first.<br>Time: O(1)</p>
+<h4 id="PushBack-no-tile-pointer"><a href="#PushBack-no-tile-pointer" class="headerlink" title="PushBack (no tile pointer)"></a>PushBack (no tile pointer)</h4><p align="center">
   <img width="400" src="images_week1/8.png">
 </p>
-<p>This is o(n) operation, because we need to find the key first.</p>
-<h4 id="PushBack-with-tile-pointer"><a class="header-anchor" href="#PushBack-with-tile-pointer"></a>PushBack (with tile pointer)</h4>
-<p align="center">
+
+<p>This is o(n) operation, because we need to find the key first. </p>
+<h4 id="PushBack-with-tile-pointer"><a href="#PushBack-with-tile-pointer" class="headerlink" title="PushBack (with tile pointer)"></a>PushBack (with tile pointer)</h4><p align="center">
   <img width="400" src="images_week1/9.png">
 </p>
+
 <p align="center">
   <img width="400" src="images_week1/12.png">
 </p>
-<p>Check the tail.next is nullptr or not.</p>
-<h3 id="Summary-v2"><a class="header-anchor" href="#Summary-v2"></a>Summary</h3>
-<p align="center">
+
+<p>Check the tail.next is nullptr or not. </p>
+<h3 id="Summary-1"><a href="#Summary-1" class="headerlink" title="Summary"></a>Summary</h3><p align="center">
   <img width="400" src="images_week1/13.png">
 </p>
-<h2 id="Doubly-Linked-List"><a class="header-anchor" href="#Doubly-Linked-List"></a>Doubly Linked List</h2>
-<p align="center">
+
+<h2 id="Doubly-Linked-List"><a href="#Doubly-Linked-List" class="headerlink" title="Doubly Linked List"></a>Doubly Linked List</h2><p align="center">
   <img width="400" src="images_week1/14.png">
 </p>
-<p>Node Contains:</p>
+
+<p>Node Contains: </p>
 <ol>
 <li>key</li>
 <li>next pointer</li>
 <li>prev pointer</li>
 </ol>
-<h3 id="some-detailed"><a class="header-anchor" href="#some-detailed"></a>some detailed</h3>
-<p align="center">
+<h3 id="some-detailed"><a href="#some-detailed" class="headerlink" title="some detailed"></a>some detailed</h3><p align="center">
   <img width="400" src="images_week1/15.png">
 </p>
+
 <p align="center">
   <img width="400" src="images_week1/16.png">
 </p>
-<h3 id="Summary-v3"><a class="header-anchor" href="#Summary-v3"></a>Summary</h3>
-<ul>
-<li>
-<p>Constant time to insert ar or remove from the front.</p>
+
+<h3 id="Summary-2"><a href="#Summary-2" class="headerlink" title="Summary"></a>Summary</h3><ul>
+<li><p>Constant time to insert ar or remove from the front. </p>
 </li>
-<li>
-<p>With tail and doubly-linked, constant time to insert at or remove from the back</p>
+<li><p>With tail and doubly-linked, constant time to insert at or remove from the back</p>
 </li>
-<li>
-<p>o(n) time to find arbitrary element. (both index and content)</p>
+<li><p>o(n) time to find arbitrary element. (both index and content)</p>
 </li>
-<li>
-<p>List elements need not be contiguous. (not good for sequence access, but good for dynamic memory operations).</p>
+<li><p>List elements need not be contiguous. (not good for sequence access, but good for dynamic memory operations).</p>
 </li>
-<li>
-<p>With doubly-linked list, constant time to insert between nodes or remove a node.</p>
+<li><p>With doubly-linked list, constant time to insert between nodes or remove a node. </p>
 </li>
 </ul>
-<h2 id="Stack-and-Queues"><a class="header-anchor" href="#Stack-and-Queues"></a>Stack and Queues</h2>
-<h3 id="Stack"><a class="header-anchor" href="#Stack"></a>Stack</h3>
-<blockquote>
-<p>Definitions:<br>
-<strong>Stack</strong>: Abstract data type with the following opeartions</p>
+<h2 id="Stack-and-Queues"><a href="#Stack-and-Queues" class="headerlink" title="Stack and Queues"></a>Stack and Queues</h2><h3 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h3><blockquote>
+<p>Definitions:<br><strong>Stack</strong>: Abstract data type with the following opeartions</p>
 <ul>
 <li>Push(Key): adds key to collection</li>
 <li>Key Top(): returns most recently-added key</li>
@@ -436,55 +420,51 @@ Time: O(1)</p>
 <p align="center">
   <img width="400" src="images_week1/18.png">
 </p>
-<h4 id="Implementation"><a class="header-anchor" href="#Implementation"></a>Implementation</h4>
-<p>Stack can be implemented as array or linked list.</p>
-<h4 id="Summary-v4"><a class="header-anchor" href="#Summary-v4"></a>Summary</h4>
-<ul>
+
+<h4 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h4><p>Stack can be implemented as array or linked list. </p>
+<h4 id="Summary-3"><a href="#Summary-3" class="headerlink" title="Summary"></a>Summary</h4><ul>
 <li>Stacks can be implemented with either an array or a linked list.</li>
 <li>Each stack operation is O(1): Push, Pop, Top, Empty.</li>
 <li>Stacks are ocassionaly known as LIFO queues.</li>
 </ul>
-<h3 id="Queue"><a class="header-anchor" href="#Queue"></a>Queue</h3>
-<blockquote>
-<p>Definitions:<br>
-<strong>Queue</strong>: Abstract data type with the following operations</p>
+<h3 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h3><blockquote>
+<p>Definitions:<br><strong>Queue</strong>: Abstract data type with the following operations</p>
 <ul>
-<li>Enqueue(Key): adds key to collection</li>
+<li>Enqueue(Key): adds key to collection </li>
 <li>Key Dequeue(): removes and returns least recently-added key</li>
 <li>Boolean Empty(): are there any elements?</li>
 </ul>
 </blockquote>
-<h4 id="With-linked-List"><a class="header-anchor" href="#With-linked-List"></a>With linked List</h4>
-<p align="center">
+<h4 id="With-linked-List"><a href="#With-linked-List" class="headerlink" title="With linked List"></a>With linked List</h4><p align="center">
   <img width="400" src="images_week1/19.png">
 </p>
+
 <p align="center">
   <img width="400" src="images_week1/20.png">
 </p>
-<h4 id="With-Array"><a class="header-anchor" href="#With-Array"></a>With Array</h4>
-<p>Using two Pointers</p>
+
+<h4 id="With-Array"><a href="#With-Array" class="headerlink" title="With Array"></a>With Array</h4><p>Using two Pointers</p>
 <p align="center">
   <img width="400" src="images_week1/22.png">
 </p>
+
 <p align="center">
   <img width="400" src="images_week1/21.png">
 </p>
+
 <p align="center">
   <img width="400" src="images_week1/23.png">
 </p>
-<h4 id="Summary-v5"><a class="header-anchor" href="#Summary-v5"></a>Summary</h4>
-<ul>
+
+<h4 id="Summary-4"><a href="#Summary-4" class="headerlink" title="Summary"></a>Summary</h4><ul>
 <li>Queues can be implemented with either a linked list (with tail pointer) or an array.</li>
 <li>Each queue operation is O(1): Enqueue, Dequeue, Empty.</li>
 </ul>
-<h2 id="Trees"><a class="header-anchor" href="#Trees"></a>Trees</h2>
-<blockquote>
-<p>Definition<br>
-A Tree is:</p>
+<h2 id="Trees"><a href="#Trees" class="headerlink" title="Trees"></a>Trees</h2><blockquote>
+<p>Definition<br>A Tree is:</p>
 <ul>
 <li>empty, or</li>
-<li>a node with:
-<ul>
+<li>a node with:<ul>
 <li>a key, and</li>
 <li>a list of child trees.</li>
 </ul>
@@ -500,52 +480,53 @@ A Tree is:</p>
 <p align="center">
   <img width="400" src="images_week1/24.png">
 </p>
+
 <p align="center">
   <img width="400" src="images_week1/25.png">
 </p>
-<h3 id="Walking-a-Tree"><a class="header-anchor" href="#Walking-a-Tree"></a>Walking a Tree</h3>
-<p>Often we want to visit the nodes of a tree in a particular order.</p>
+
+<h3 id="Walking-a-Tree"><a href="#Walking-a-Tree" class="headerlink" title="Walking a Tree"></a>Walking a Tree</h3><p>Often we want to visit the nodes of a tree in a particular order. </p>
 <ul>
 <li>Depth-first: We completely traverse one sub-tree before exploring a sibling sub-tree.</li>
 <li>Breadth-first: We traverse all nodes at one level before progressing to the next level.</li>
 </ul>
-<h4 id="DFS"><a class="header-anchor" href="#DFS"></a>DFS</h4>
-<h5 id="Inorder-Traversal"><a class="header-anchor" href="#Inorder-Traversal"></a>Inorder Traversal</h5>
-<p align="center">
+<h4 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h4><h5 id="Inorder-Traversal"><a href="#Inorder-Traversal" class="headerlink" title="Inorder Traversal"></a>Inorder Traversal</h5><p align="center">
   <img width="400" src="images_week1/26.png">
 </p>
+
 <p align="center">
   <img width="400" src="images_week1/27.png">
 </p>
-<h5 id="PreOrder-Traversal"><a class="header-anchor" href="#PreOrder-Traversal"></a>PreOrder Traversal</h5>
-<p align="center">
+
+<h5 id="PreOrder-Traversal"><a href="#PreOrder-Traversal" class="headerlink" title="PreOrder Traversal"></a>PreOrder Traversal</h5><p align="center">
   <img width="400" src="images_week1/28.png">
 </p>
+
 <p align="center">
   <img width="400" src="images_week1/29.png">
 </p>
-<h5 id="PostOrder-Traversal"><a class="header-anchor" href="#PostOrder-Traversal"></a>PostOrder Traversal</h5>
-<p align="center">
+
+<h5 id="PostOrder-Traversal"><a href="#PostOrder-Traversal" class="headerlink" title="PostOrder Traversal"></a>PostOrder Traversal</h5><p align="center">
   <img width="400" src="images_week1/30.png">
 </p>
+
 <p align="center">
   <img width="400" src="images_week1/31.png">
 </p>
-<h4 id="BFS"><a class="header-anchor" href="#BFS"></a>BFS</h4>
-<p>Level order Traversal<br>
-Need to queue to keep track the element going to explore.</p>
+
+<h4 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h4><p>Level order Traversal<br>Need to queue to keep track the element going to explore. </p>
 <p align="center">
   <img width="400" src="images_week1/32.png">
 </p>
-<h3 id="Summary-v6"><a class="header-anchor" href="#Summary-v6"></a>Summary</h3>
-<ul>
+
+<h3 id="Summary-5"><a href="#Summary-5" class="headerlink" title="Summary"></a>Summary</h3><ul>
 <li>Trees are used for lots of different things.</li>
 <li>Trees have a key and children.</li>
 <li>Tree walks: DFS (pre-order, in-order, post-order) and BFS.</li>
 <li>When working with a tree, recursive algorithms are common.</li>
 <li>In Computer Science, <strong>trees grow down</strong>!</li>
 </ul>
-<p>All the material in this post are come from EDX:Algorithms and Data Structures MicroMasters and Data Structures Fundamentals (Week1)[<a href="https://courses.edx.org/courses/course-v1:UCSanDiegoX+ALGS201x+1T2019/course/" target="_blank" rel="noopener">https://courses.edx.org/courses/course-v1:UCSanDiegoX+ALGS201x+1T2019/course/</a>]</p>
+<p>All the material in this post are come from EDX:Algorithms and Data Structures MicroMasters and Data Structures Fundamentals (Week1)[<a href="https://courses.edx.org/courses/course-v1:UCSanDiegoX+ALGS201x+1T2019/course/" target="_blank" rel="noopener">https://courses.edx.org/courses/course-v1:UCSanDiegoX+ALGS201x+1T2019/course/</a>] </p>
 
     </div>
 
@@ -611,7 +592,7 @@ Need to queue to keep track the element going to explore.</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BASIC-DATA-STRUCTURES"><span class="nav-number">1.</span> <span class="nav-text">BASIC DATA STRUCTURES</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Arrays-and-Linked-Lists"><span class="nav-number">1.1.</span> <span class="nav-text">1. Arrays and Linked Lists</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-special-about-arrays"><span class="nav-number">1.1.1.</span> <span class="nav-text">What is special about arrays?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-Dimensional-Arrays"><span class="nav-number">1.1.2.</span> <span class="nav-text">Multi-Dimensional Arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Times-for-common-operations"><span class="nav-number">1.1.3.</span> <span class="nav-text">Times for common operations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary"><span class="nav-number">1.1.4.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linked-Lists"><span class="nav-number">1.2.</span> <span class="nav-text">Linked Lists</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#List-API"><span class="nav-number">1.2.1.</span> <span class="nav-text">List API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Times-for-some-Operations"><span class="nav-number">1.2.2.</span> <span class="nav-text">Times for some Operations</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Push-front"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Push_front</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PushBack-no-tile-pointer"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">PushBack (no tile pointer)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PushBack-with-tile-pointer"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">PushBack (with tile pointer)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary-v2"><span class="nav-number">1.2.3.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Doubly-Linked-List"><span class="nav-number">1.3.</span> <span class="nav-text">Doubly Linked List</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#some-detailed"><span class="nav-number">1.3.1.</span> <span class="nav-text">some detailed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary-v3"><span class="nav-number">1.3.2.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stack-and-Queues"><span class="nav-number">1.4.</span> <span class="nav-text">Stack and Queues</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stack"><span class="nav-number">1.4.1.</span> <span class="nav-text">Stack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Implementation"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">Implementation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Summary-v4"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Queue"><span class="nav-number">1.4.2.</span> <span class="nav-text">Queue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#With-linked-List"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">With linked List</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#With-Array"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">With Array</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Summary-v5"><span class="nav-number">1.4.2.3.</span> <span class="nav-text">Summary</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Trees"><span class="nav-number">1.5.</span> <span class="nav-text">Trees</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Walking-a-Tree"><span class="nav-number">1.5.1.</span> <span class="nav-text">Walking a Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DFS"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">DFS</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Inorder-Traversal"><span class="nav-number">1.5.1.1.1.</span> <span class="nav-text">Inorder Traversal</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PreOrder-Traversal"><span class="nav-number">1.5.1.1.2.</span> <span class="nav-text">PreOrder Traversal</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PostOrder-Traversal"><span class="nav-number">1.5.1.1.3.</span> <span class="nav-text">PostOrder Traversal</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BFS"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">BFS</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary-v6"><span class="nav-number">1.5.2.</span> <span class="nav-text">Summary</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BASIC-DATA-STRUCTURES"><span class="nav-number">1.</span> <span class="nav-text">BASIC DATA STRUCTURES</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Arrays-and-Linked-Lists"><span class="nav-number">1.1.</span> <span class="nav-text">1. Arrays and Linked Lists</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-special-about-arrays"><span class="nav-number">1.1.1.</span> <span class="nav-text">What is special about arrays?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-Dimensional-Arrays"><span class="nav-number">1.1.2.</span> <span class="nav-text">Multi-Dimensional Arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Times-for-common-operations"><span class="nav-number">1.1.3.</span> <span class="nav-text">Times for common operations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary"><span class="nav-number">1.1.4.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linked-Lists"><span class="nav-number">1.2.</span> <span class="nav-text">Linked Lists</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#List-API"><span class="nav-number">1.2.1.</span> <span class="nav-text">List API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Times-for-some-Operations"><span class="nav-number">1.2.2.</span> <span class="nav-text">Times for some Operations</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Push-front"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Push_front</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PushBack-no-tile-pointer"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">PushBack (no tile pointer)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PushBack-with-tile-pointer"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">PushBack (with tile pointer)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Doubly-Linked-List"><span class="nav-number">1.3.</span> <span class="nav-text">Doubly Linked List</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#some-detailed"><span class="nav-number">1.3.1.</span> <span class="nav-text">some detailed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stack-and-Queues"><span class="nav-number">1.4.</span> <span class="nav-text">Stack and Queues</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stack"><span class="nav-number">1.4.1.</span> <span class="nav-text">Stack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Implementation"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">Implementation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Summary-3"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Queue"><span class="nav-number">1.4.2.</span> <span class="nav-text">Queue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#With-linked-List"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">With linked List</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#With-Array"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">With Array</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Summary-4"><span class="nav-number">1.4.2.3.</span> <span class="nav-text">Summary</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Trees"><span class="nav-number">1.5.</span> <span class="nav-text">Trees</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Walking-a-Tree"><span class="nav-number">1.5.1.</span> <span class="nav-text">Walking a Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DFS"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">DFS</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Inorder-Traversal"><span class="nav-number">1.5.1.1.1.</span> <span class="nav-text">Inorder Traversal</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PreOrder-Traversal"><span class="nav-number">1.5.1.1.2.</span> <span class="nav-text">PreOrder Traversal</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PostOrder-Traversal"><span class="nav-number">1.5.1.1.3.</span> <span class="nav-text">PostOrder Traversal</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BFS"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">BFS</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary-5"><span class="nav-number">1.5.2.</span> <span class="nav-text">Summary</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -46,13 +46,13 @@
   };
 </script>
 
-  <meta name="description" content="Software engineer or programmer? what is the difference? Performance optimization and capacity efficiency sounds very important, but why do I need to care about this? In this post, I will talk about w">
+  <meta name="description" content="Software engineer or programmer? what is the difference? Performance optimization and capacity efficiency sounds very important, but why do I need to care about this?In this post, I will talk about wh">
 <meta name="keywords" content="performance,system">
 <meta property="og:type" content="article">
 <meta property="og:title" content="02 Why do we care about performance?">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;04&#x2F;02-why-Do-We-need-Taking-Care-of-Performance&#x2F;index.html">
 <meta property="og:site_name" content="Liang Xu">
-<meta property="og:description" content="Software engineer or programmer? what is the difference? Performance optimization and capacity efficiency sounds very important, but why do I need to care about this? In this post, I will talk about w">
+<meta property="og:description" content="Software engineer or programmer? what is the difference? Performance optimization and capacity efficiency sounds very important, but why do I need to care about this?In this post, I will talk about wh">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2019-12-05T04:40:18.000Z">
 <meta name="twitter:card" content="summary">
@@ -245,18 +245,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Software engineer or programmer? what is the difference? Performance optimization and capacity efficiency sounds very important, but why do I need to care about this?<br>
-In this post, I will talk about why you need to care about performance when you called yourself a software engineer.</p>
-<h2 id="How-to-define-performance"><a class="header-anchor" href="#How-to-define-performance"></a>How to define performance</h2>
-<p>There are several indexs to measure the performance.</p>
+        <p>Software engineer or programmer? what is the difference? Performance optimization and capacity efficiency sounds very important, but why do I need to care about this?<br>In this post, I will talk about why you need to care about performance when you called yourself a software engineer. </p>
+<h2 id="How-to-define-performance"><a href="#How-to-define-performance" class="headerlink" title="How to define performance"></a>How to define performance</h2><p>There are several indexs to measure the performance. </p>
 <ul>
 <li>Throughput : throughput performance is often expressed as transactions per second, or TPS.</li>
 <li>Service latency : service latency is the delay between a client request and a cloud service provider’s response.</li>
 <li>Scalability: System easy to scale by adding more computing resources, for example adding more meory or CPUs.</li>
 <li>Resource Utilization: computing resource for a unit of request.(CPU memory).</li>
-<li>Reliability, not going to discussed int his serious.</li>
+<li>Reliability, not going to discussed int his serious. </li>
 </ul>
-<p>What we want are:</p>
+<p>What we want are: </p>
 <ul>
 <li>Throughput: High</li>
 <li>Service latency: Low</li>
@@ -266,7 +264,7 @@ In this post, I will talk about why you need to care about performance when you 
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i, j;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> x[<span class="number">4000</span>][<span class="number">4000</span>]; </span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">40000</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="number">4000</span>; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        x[j][i] = i + j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i, j;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> x[<span class="number">4000</span>][<span class="number">4000</span>]; </span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">40000</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="number">4000</span>; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        x[j][i] = i + j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Do you know the difference between those two coding styles? Which one is faster? It depends, depends on how the system saves the 2 dimension array. If this is c++ code(it is), the performance would make much difference because of the memory hierarchy.</p>
-<p>Ok, there will be several examples related to performance, I am not going to list everything, just let you know why you need to care about performance.</p>
+<p>Ok, there will be several examples related to performance, I am not going to list everything, just let you know why you need to care about performance. </p>
 
     </div>
 

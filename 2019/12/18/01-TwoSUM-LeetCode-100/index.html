@@ -46,13 +46,13 @@
   };
 </script>
 
-  <meta name="description" content="Two Sum  easy  Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not">
+  <meta name="description" content="Two Sum easy  Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not">
 <meta name="keywords" content="Leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="01_TwoSUM_LeetCode_100">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;18&#x2F;01-TwoSUM-LeetCode-100&#x2F;index.html">
 <meta property="og:site_name" content="Liang Xu">
-<meta property="og:description" content="Two Sum  easy  Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not">
+<meta property="og:description" content="Two Sum easy  Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2019-12-18T18:01:00.000Z">
 <meta name="twitter:card" content="summary">
@@ -245,62 +245,49 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Two-Sum"><a class="header-anchor" href="#Two-Sum"></a>Two Sum</h1>
-<blockquote>
+        <h1 id="Two-Sum"><a href="#Two-Sum" class="headerlink" title="Two Sum"></a>Two Sum</h1><blockquote>
 <p>easy</p>
 </blockquote>
 <p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
-<p>You may assume that each input would have<br>
-exactly one solution, and you may not use the same element twice.</p>
+<p>You may assume that each input would have<br> exactly one solution, and you may not use the same element twice.</p>
 <p align = "center"> <img width = "500" src = "images/01_Two_sum_2019-12-18-12-20-58.png "> </p>
-<h2 id="My-Solution"><a class="header-anchor" href="#My-Solution"></a>My Solution</h2>
-<p>This is a Hash table and scans the array.<br>
-Hash table keep the record [target-nums[i], i];</p>
+
+<h2 id="My-Solution"><a href="#My-Solution" class="headerlink" title="My Solution"></a>My Solution</h2><p>This is a Hash table and scans the array.<br>Hash table keep the record [target-nums[i], i]; </p>
 <blockquote>
-<p>runtime 8 ms<br>
-memory : 10.1 MB</p>
+<p>runtime 8 ms<br>memory : 10.1 MB</p>
 </blockquote>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(nums.size() &lt; <span class="number">2</span>) <span class="keyword">return</span> &#123;<span class="number">-1</span>,<span class="number">-1</span>&#125;; </span><br><span class="line">        </span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; <span class="built_in">map</span>; </span><br><span class="line">        <span class="built_in">map</span>[target-nums[<span class="number">0</span>]] = <span class="number">0</span>; </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">map</span>.count(nums[i]) &gt; <span class="number">0</span>) <span class="keyword">return</span> &#123;<span class="built_in">map</span>[nums[i]], i&#125;; </span><br><span class="line">            <span class="built_in">map</span>[target-nums[i]] = i; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="number">-1</span>,<span class="number">-1</span>&#125;; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>Time: O(n), just one scan, however, if you have a bad hash table, this turns too($n^2$)<br>
-Space O(n), the hash table needs to take one additional space.</p>
+<p>Time: O(n), just one scan, however, if you have a bad hash table, this turns too($n^2$)<br>Space O(n), the hash table needs to take one additional space. </p>
 </blockquote>
-<h2 id="C-language-things"><a class="header-anchor" href="#C-language-things"></a>C++ language things</h2>
-<blockquote>
-<p>find a key is the unordered_map using <code>map.count(key) &gt; 0</code>;<br>
-this is very important, will use it in the future.</p>
+<h2 id="C-language-things"><a href="#C-language-things" class="headerlink" title="C++ language things"></a>C++ language things</h2><blockquote>
+<p>find a key is the unordered_map using <code>map.count(key) &gt; 0</code>;<br>this is very important, will use it in the future.</p>
 </blockquote>
-<h2 id="Other-Methods"><a class="header-anchor" href="#Other-Methods"></a>Other Methods</h2>
-<h3 id="Approach-1-Brute-Force"><a class="header-anchor" href="#Approach-1-Brute-Force"></a>Approach 1, Brute Force.</h3>
-<p>This a very natural idea, and also very simple. A loop through element x and find if there is another value that equals to target - x.</p>
+<h2 id="Other-Methods"><a href="#Other-Methods" class="headerlink" title="Other Methods"></a>Other Methods</h2><h3 id="Approach-1-Brute-Force"><a href="#Approach-1-Brute-Force" class="headerlink" title="Approach 1, Brute Force."></a>Approach 1, Brute Force.</h3><p>This a very natural idea, and also very simple. A loop through element x and find if there is another value that equals to target - x. </p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums.size() &lt; <span class="number">2</span>) <span class="keyword">return</span>&#123;<span class="number">-1</span>,<span class="number">-1</span>&#125;; </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; nums.size(); ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[i] + nums[j] == target)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">return</span> &#123;i, j&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="number">-1</span>, <span class="number">-1</span>&#125;; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>Runtime 140 ms<br>
-Memory : 9.2 MB</p>
+<p>Runtime 140 ms<br>Memory : 9.2 MB</p>
 </blockquote>
-<p>However, this method seems time-consuming, However, in terms of space, it wins.</p>
+<p>However, this method seems time-consuming, However, in terms of space, it wins. </p>
 <blockquote>
-<p>Time O(n^2): need to scan the array for each element;<br>
-Space O(1): No need for additional space.</p>
+<p>Time O(n^2): need to scan the array for each element;<br>Space O(1): No need for additional space. </p>
 </blockquote>
-<h3 id="Approach-2-Two-pass-Hash-Table"><a class="header-anchor" href="#Approach-2-Two-pass-Hash-Table"></a>Approach 2: Two-pass Hash Table</h3>
-<p>For approach 1, the time-consuming part is the inner loop. It require O(n) for search the ‘whole array’ (not whole, starting from [i, len]);</p>
-<p>Idea is to use a hash table help to find the elements;</p>
+<h3 id="Approach-2-Two-pass-Hash-Table"><a href="#Approach-2-Two-pass-Hash-Table" class="headerlink" title="Approach 2: Two-pass Hash Table"></a>Approach 2: Two-pass Hash Table</h3><p>For approach 1, the time-consuming part is the inner loop. It require O(n) for search the ‘whole array’ (not whole, starting from [i, len]); </p>
+<p>Idea is to use a hash table help to find the elements; </p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums.size() &lt; <span class="number">2</span>) <span class="keyword">return</span> &#123;<span class="number">-1</span>, <span class="number">-1</span>&#125;; </span><br><span class="line">        </span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; <span class="built_in">map</span>; </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">            if(map.count(nums[i]) &gt; 0  &amp;&amp; nums[i] * 2 == target)</span></span><br><span class="line"><span class="comment">            &#123;</span></span><br><span class="line"><span class="comment">                return &#123;map[nums[i]], i&#125;;</span></span><br><span class="line"><span class="comment">            &#125;</span></span><br><span class="line"><span class="comment">            */</span></span><br><span class="line">            <span class="built_in">map</span>[target - nums[i]] = i; </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">map</span>.count(nums[i]) &gt; <span class="number">0</span> &amp;&amp; <span class="built_in">map</span>[nums[i]] != i)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> &#123;<span class="built_in">map</span>[nums[i]], i&#125;; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="number">-1</span>, <span class="number">-1</span> &#125;; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>This is more interesting compared with my solution in terms of analysis.</p>
 <ol>
 <li>scan the array and add the [target - x, i]</li>
-<li>scan the array the second time and find the nums[i] is in the map and find the index.</li>
+<li>scan the array the second time and find the nums[i] is in the map and find the index. </li>
 </ol>
-<p>Because the question tells us, there is exactly one solution, and can not use the same number twice.<br>
-In the beginning, I was thinking to find the same elements which the element * 2 == target.</p>
+<p>Because the question tells us, there is exactly one solution, and can not use the same number twice.<br>In the beginning, I was thinking to find the same elements which the element * 2 == target. </p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="built_in">map</span>.count(nums[i]) &gt; <span class="number">0</span> &amp;&amp; nums[i] * <span class="number">2</span> == target)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="built_in">map</span>[nums[i]], i&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>And this part is comment out. It is not necessary.</p>
 <ol>
-<li>If there are two same elements and they added to the target. When scanning the array in the second time, the first element will find the second index in the map, because they map to a different index.</li>
-<li>if there one element and *2 == target. The index is the same in this case.</li>
+<li>If there are two same elements and they added to the target. When scanning the array in the second time, the first element will find the second index in the map, because they map to a different index. </li>
+<li>if there one element and *2 == target. The index is the same in this case. </li>
 </ol>
-<p>So we only need to check if the element has the same index or not in the second scan.</p>
+<p>So we only need to check if the element has the same index or not in the second scan. </p>
 
     </div>
 

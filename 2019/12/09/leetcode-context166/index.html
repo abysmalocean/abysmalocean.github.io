@@ -46,13 +46,13 @@
   };
 </script>
 
-  <meta name="description" content="Question 1 : Leetcode 1281 Subtract the Product and Sum of Digits of an Integer  Easy Constraints:   1 &amp;lt;= n &amp;lt;= 10^5          This is a easy question, just need to extract the digits from an inte">
+  <meta name="description" content="Question 1 : Leetcode 1281 Subtract the Product and Sum of Digits of an Integer EasyConstraints:   1 &amp;lt;= n &amp;lt;= 10^5            This is a easy question, just need to extract the digits from an inte">
 <meta name="keywords" content="Leetcode,context">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode_context166">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;09&#x2F;leetcode-context166&#x2F;index.html">
 <meta property="og:site_name" content="Liang Xu">
-<meta property="og:description" content="Question 1 : Leetcode 1281 Subtract the Product and Sum of Digits of an Integer  Easy Constraints:   1 &amp;lt;= n &amp;lt;= 10^5          This is a easy question, just need to extract the digits from an inte">
+<meta property="og:description" content="Question 1 : Leetcode 1281 Subtract the Product and Sum of Digits of an Integer EasyConstraints:   1 &amp;lt;= n &amp;lt;= 10^5            This is a easy question, just need to extract the digits from an inte">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;09&#x2F;leetcode-context166&#x2F;images_leetcode&#x2F;1281_1.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;09&#x2F;leetcode-context166&#x2F;images_leetcode&#x2F;1281_2.png">
@@ -251,104 +251,103 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Question-1-Leetcode-1281-Subtract-the-Product-and-Sum-of-Digits-of-an-Integer"><a class="header-anchor" href="#Question-1-Leetcode-1281-Subtract-the-Product-and-Sum-of-Digits-of-an-Integer"></a>Question 1 : Leetcode 1281 Subtract the Product and Sum of Digits of an Integer</h2>
-<blockquote>
-<p>Easy<br>
-Constraints:</p>
-</blockquote>
+        <h2 id="Question-1-Leetcode-1281-Subtract-the-Product-and-Sum-of-Digits-of-an-Integer"><a href="#Question-1-Leetcode-1281-Subtract-the-Product-and-Sum-of-Digits-of-an-Integer" class="headerlink" title="Question 1 : Leetcode 1281 Subtract the Product and Sum of Digits of an Integer"></a>Question 1 : Leetcode 1281 Subtract the Product and Sum of Digits of an Integer</h2><blockquote>
+<p>Easy<br>Constraints: </p>
 <ul>
 <li>1 &lt;= n &lt;= 10^5</li>
 </ul>
+</blockquote>
 <p align="center"> 
 <img src="images_leetcode/1281_1.png">
 </p>
+
 <p align="center"> 
 <img src="images_leetcode/1281_2.png">
 </p>
 This is a easy question, just need to extract the digits from an integer number. The constrains are 1 <= n <= 10^5, so we do not need to consider the negative value case. Remember the code to decode the digit. 
+
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">subtractProductAndSum</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>, mul = <span class="number">1</span>;  </span><br><span class="line">        <span class="keyword">while</span>(n != <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> digit = n % <span class="number">10</span>; </span><br><span class="line">            sum += digit; </span><br><span class="line">            mul *= digit;</span><br><span class="line">            n = n / <span class="number">10</span>; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> mul - sum; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="Time-and-space"><a class="header-anchor" href="#Time-and-space"></a>Time and space</h3>
-<blockquote>
-<ul>
-<li>time is : log(n), or constant if n is only int type</li>
-<li>space   : constant</li>
-</ul>
-</blockquote>
-<h3 id="Special-case"><a class="header-anchor" href="#Special-case"></a>Special case</h3>
-<p>n = 1 is one of the special case</p>
+
+### Time and space
+> - time is : log(n), or constant if n is only int type
+> - space   : constant
+
+### Special case
+
+n = 1 is one of the special case
+
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. sum = 0, mul = 1; </span><br><span class="line">2. digit = 1 % 10 = 1; </span><br><span class="line">3. sum = sum + 1 = 0 + 1 = 1; </span><br><span class="line">4. mul = mul * 1 = 1 * 1 = 1; </span><br><span class="line">5. n = 1 / 10 = 0 // (<span class="built_in">break</span> <span class="keyword">in</span> the next loop)</span><br><span class="line">6. <span class="built_in">return</span> 0;</span><br></pre></td></tr></table></figure>
-<h3 id="Template"><a class="header-anchor" href="#Template"></a>Template</h3>
-<p>Need to remember the code can get the digits</p>
+
+### Template
+
+Need to remember the code can get the digits
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; getDigits(<span class="keyword">int</span> n)</span><br><span class="line">&#123; </span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; digits; <span class="comment">// can not know the size in the begining</span></span><br><span class="line">    <span class="keyword">while</span>(n != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> digit = n % <span class="number">10</span>; </span><br><span class="line">        digits.push_back(digit); </span><br><span class="line">        n = n / <span class="number">10</span>; <span class="comment">// remove the last digits</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> digits; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Question2-leetcode-1282-Group-the-People-Given-the-Group-Size-They-Belong-To"><a class="header-anchor" href="#Question2-leetcode-1282-Group-the-People-Given-the-Group-Size-They-Belong-To"></a>Question2: leetcode 1282. Group the People Given the Group Size They Belong To</h2>
-<p>There are <strong>n</strong> people whose IDs go <strong>from 0 to n - 1</strong> and each person belongs exactly to one group. Given the array groupSizes of length n telling the group size each person belongs to, return the groups there are and the people’s IDs each group includes.<br>
-You can return any solution in any order and the same applies for IDs. Also, it is guaranteed that there exists at least one solution.</p>
-<blockquote>
-<p>Medium</p>
-</blockquote>
-<h3 id="Constraints"><a class="header-anchor" href="#Constraints"></a>Constraints</h3>
-<p>groupSizes.length == n<br>
-1 &lt;= n &lt;= 500<br>
-1 &lt;= groupSizes[i] &lt;= n</p>
-<p>n is smaller than 500, I think we can create a matrix for that. However, there is a memory issue. I will list this issue, and see any can sovle this problem or not.</p>
+
+## Question2: leetcode 1282. Group the People Given the Group Size They Belong To
+
+There are **n** people whose IDs go **from 0 to n - 1** and each person belongs exactly to one group. Given the array groupSizes of length n telling the group size each person belongs to, return the groups there are and the people's IDs each group includes.
+You can return any solution in any order and the same applies for IDs. Also, it is guaranteed that there exists at least one solution.
+
+> Medium
+
+### Constraints
+
+groupSizes.length == n
+1 <= n <= 500
+1 <= groupSizes[i] <= n
+
+n is smaller than 500, I think we can create a matrix for that. However, there is a memory issue. I will list this issue, and see any can sovle this problem or not.
+
 <p align="center"> 
 <img src="images_leetcode/1282_1.png">
 </p>
-<p>This is a Hashmap problem, and the key value is the group size. We can scan the array, and push the according number’s index to an vector(we are more interested in the index). When the vector size reach to it key, this means the group is full, then we add this vector to the final result, and clear the vector.<br>
-However, we do not have to use a hash map, we can create a vector&lt;vector<int>&gt;, there is an issue with this solution.</p>
+
+<p>This is a Hashmap problem, and the key value is the group size. We can scan the array, and push the according number’s index to an vector(we are more interested in the index). When the vector size reach to it key, this means the group is full, then we add this vector to the final result, and clear the vector.<br>However, we do not have to use a hash map, we can create a vector<vector<int>&gt;, there is an issue with this solution. </p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; groupThePeople(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; groupSizes) &#123;</span><br><span class="line">        <span class="keyword">int</span> Gsize = groupSizes.size();         </span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; result; </span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="built_in">map</span>; </span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; Gsize; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">map</span>[groupSizes[i]].push_back(i);</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">map</span>[groupSizes[i]].size() == groupSizes[i])</span><br><span class="line">            &#123;</span><br><span class="line">                result.push_back(<span class="built_in">map</span>[groupSizes[i]]); </span><br><span class="line">                <span class="built_in">map</span>[groupSizes[i]].clear(); </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>This result is very slow, and I do not like the hash table in this small problem.</p>
+<p>This result is very slow, and I do not like the hash table in this small problem. </p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; groupThePeople(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; groupSizes) &#123;</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">int</span> Gsize = groupSizes.size(); </span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; result; </span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; table(Gsize+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; Gsize; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            table[groupSizes[i]].push_back(i); </span><br><span class="line">            <span class="keyword">if</span>(table[groupSizes[i]].size() == groupSizes[i])</span><br><span class="line">            &#123;</span><br><span class="line">                result.push_back(table[groupSizes[i]]); </span><br><span class="line">                table[groupSizes[i]] = <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(); </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Now I know the problem. When input is [1] or [2,2]. or [8,8,8,8,8,8,8,8] my code used to have problem. I found the reason is the table size was wrong. I used to have table(Gsize); This is not right, when [1] as input, Gsize is 1, and table in this case is 1, so it only have table[0]. This the main problem, need to be taken care of in the future.</p>
-<h3 id="Time-and-space-v2"><a class="header-anchor" href="#Time-and-space-v2"></a>Time and space</h3>
-<blockquote>
+<p>Now I know the problem. When input is [1] or [2,2]. or [8,8,8,8,8,8,8,8] my code used to have problem. I found the reason is the table size was wrong. I used to have table(Gsize); This is not right, when [1] as input, Gsize is 1, and table in this case is 1, so it only have table[0]. This the main problem, need to be taken care of in the future. </p>
+<h3 id="Time-and-space"><a href="#Time-and-space" class="headerlink" title="Time and space"></a>Time and space</h3><blockquote>
 <ul>
 <li>time is : O(n)</li>
 <li>space   : O(n^2), used for the table;</li>
 </ul>
 </blockquote>
-<h2 id="Question3-leetcode-1283-Find-the-Smallest-Divisor-Given-a-Threshold"><a class="header-anchor" href="#Question3-leetcode-1283-Find-the-Smallest-Divisor-Given-a-Threshold"></a>Question3: leetcode 1283. Find the Smallest Divisor Given a Threshold</h2>
-<p>Given <strong>an array</strong> of <strong>integers nums</strong> and <strong>an integer threshold</strong>, we will choose a <strong>positive integer divisor</strong> and divide all the array by it and sum the result of the division. Find the smallest divisor such that the result mentioned above is less than or equal to threshold.<br>
-Each result of division is rounded to the nearest integer greater than or equal to that element. (For example: 7/3 = 3 and 10/2 = 5).<br>
-It is guaranteed that there will be an answer.</p>
+<h2 id="Question3-leetcode-1283-Find-the-Smallest-Divisor-Given-a-Threshold"><a href="#Question3-leetcode-1283-Find-the-Smallest-Divisor-Given-a-Threshold" class="headerlink" title="Question3: leetcode 1283. Find the Smallest Divisor Given a Threshold"></a>Question3: leetcode 1283. Find the Smallest Divisor Given a Threshold</h2><p>Given <strong>an array</strong> of <strong>integers nums</strong> and <strong>an integer threshold</strong>, we will choose a <strong>positive integer divisor</strong> and divide all the array by it and sum the result of the division. Find the smallest divisor such that the result mentioned above is less than or equal to threshold.<br>Each result of division is rounded to the nearest integer greater than or equal to that element. (For example: 7/3 = 3 and 10/2 = 5).<br>It is guaranteed that there will be an answer.</p>
 <blockquote>
 <p>Medium</p>
 </blockquote>
-<h3 id="Constraints-v2"><a class="header-anchor" href="#Constraints-v2"></a>Constraints:</h3>
-<ul>
+<h3 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints:"></a>Constraints:</h3><ul>
 <li>1 &lt;= nums.length &lt;= 5 * 10^4</li>
 <li>1 &lt;= nums[i] &lt;= 10^6</li>
 <li>nums.length &lt;= threshold &lt;= 10^6</li>
 </ul>
-<p>Integer can do the job. And array is a big long.</p>
+<p>Integer can do the job. And array is a big long. </p>
 <p align="center"> 
 <img src="images_leetcode/1283_1.png">
 </p>
-<p>This is a binary search question. From the constrain, we know the range of nums[i], so we can search from 1 to 10^6.<br>
-This code are borrow from <a href="https://zxi.mytechroad.com/blog/category/algorithms/" target="_blank" rel="noopener">Huahua</a>.</p>
+
+<p>This is a binary search question. From the constrain, we know the range of nums[i], so we can search from 1 to 10^6.<br>This code are borrow from <a href="https://zxi.mytechroad.com/blog/category/algorithms/" target="_blank" rel="noopener">Huahua</a>. </p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">smallestDivisor</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> threshold)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> sums = [&amp;](<span class="keyword">int</span> d)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> sum = <span class="number">0</span>; </span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> n : nums)</span><br><span class="line">            &#123;</span><br><span class="line">                sum += (n + d - <span class="number">1</span>) / d;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> sum;</span><br><span class="line">        &#125;; <span class="comment">// lambda function</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">1</span>; </span><br><span class="line">        <span class="keyword">int</span> right = <span class="number">1e6</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(left &lt;= right)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>; </span><br><span class="line">            <span class="keyword">if</span> (sums(mid) &lt;= threshold)</span><br><span class="line">            &#123;</span><br><span class="line">                right = mid - <span class="number">1</span>; </span><br><span class="line">            &#125; <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> left; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="Time-and-space-v3"><a class="header-anchor" href="#Time-and-space-v3"></a>Time and space</h3>
-<blockquote>
+<h3 id="Time-and-space-1"><a href="#Time-and-space-1" class="headerlink" title="Time and space"></a>Time and space</h3><blockquote>
 <ul>
-<li>time is : O(nlogk), n is the nums length, and k is 1 to 10^6.</li>
+<li>time is : O(nlogk), n is the nums length, and k is 1 to 10^6. </li>
 <li>space   : O(1);</li>
 </ul>
 </blockquote>
 <p>There is a small lambda funciton in the code</p>
-<h3 id="Lambda-expressions"><a class="header-anchor" href="#Lambda-expressions"></a>Lambda expressions</h3>
-<p>Constructs a closure: an unnamed function object capable of capturing variables in scope.</p>
+<h3 id="Lambda-expressions"><a href="#Lambda-expressions" class="headerlink" title="Lambda expressions"></a>Lambda expressions</h3><p>Constructs a closure: an unnamed function object capable of capturing variables in scope.</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[ captures ] ( params ) -&gt; ret &#123; body &#125;</span><br><span class="line">[ captures ] ( params ) &#123; body &#125;</span><br><span class="line">[ captures ] &#123; body &#125;</span><br></pre></td></tr></table></figure>
-<p>use <em>auto</em> to capture the return type, otherwise the lambda is a complicated type. The concept of the whole idea will be discussed in the following post.</p>
-<h2 id="Question-4-Leetcode-1284-Minimum-Number-of-Flips-to-Convert-Binary-Matrix-to-Zero-Matrix"><a class="header-anchor" href="#Question-4-Leetcode-1284-Minimum-Number-of-Flips-to-Convert-Binary-Matrix-to-Zero-Matrix"></a>Question 4 : Leetcode 1284. Minimum Number of Flips to Convert Binary Matrix to Zero Matrix</h2>
-<p>Given a m x n binary matrix mat. In one step, you can choose one cell and flip it and all the four neighbours of it if they exist (Flip is changing 1 to 0 and 0 to 1). A pair of cells are called neighboors if they share one edge.</p>
+<p>use <em>auto</em> to capture the return type, otherwise the lambda is a complicated type. The concept of the whole idea will be discussed in the following post. </p>
+<h2 id="Question-4-Leetcode-1284-Minimum-Number-of-Flips-to-Convert-Binary-Matrix-to-Zero-Matrix"><a href="#Question-4-Leetcode-1284-Minimum-Number-of-Flips-to-Convert-Binary-Matrix-to-Zero-Matrix" class="headerlink" title="Question 4 : Leetcode 1284. Minimum Number of Flips to Convert Binary Matrix to Zero Matrix"></a>Question 4 : Leetcode 1284. Minimum Number of Flips to Convert Binary Matrix to Zero Matrix</h2><p>Given a m x n binary matrix mat. In one step, you can choose one cell and flip it and all the four neighbours of it if they exist (Flip is changing 1 to 0 and 0 to 1). A pair of cells are called neighboors if they share one edge.</p>
 <p>Return the minimum number of steps required to convert mat to a zero matrix or -1 if you cannot.</p>
 <p>Binary matrix is a matrix with all cells equal to 0 or 1 only.</p>
 <p>Zero matrix is a matrix with all cells equal to 0.</p>
 <p align="center"> 
 <img src="images_leetcode/1284_1.png">
 </p>
-<h3 id="Constraints-v3"><a class="header-anchor" href="#Constraints-v3"></a>Constraints:</h3>
-<blockquote>
+
+<h3 id="Constraints-1"><a href="#Constraints-1" class="headerlink" title="Constraints:"></a>Constraints:</h3><blockquote>
 <ul>
 <li>m == mat.length</li>
 <li>n == mat[0].length</li>
@@ -423,7 +422,7 @@ This code are borrow from <a href="https://zxi.mytechroad.com/blog/category/algo
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Question-1-Leetcode-1281-Subtract-the-Product-and-Sum-of-Digits-of-an-Integer"><span class="nav-number">1.</span> <span class="nav-text">Question 1 : Leetcode 1281 Subtract the Product and Sum of Digits of an Integer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Time-and-space"><span class="nav-number">1.1.</span> <span class="nav-text">Time and space</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Special-case"><span class="nav-number">1.2.</span> <span class="nav-text">Special case</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Template"><span class="nav-number">1.3.</span> <span class="nav-text">Template</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Question2-leetcode-1282-Group-the-People-Given-the-Group-Size-They-Belong-To"><span class="nav-number">2.</span> <span class="nav-text">Question2: leetcode 1282. Group the People Given the Group Size They Belong To</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Constraints"><span class="nav-number">2.1.</span> <span class="nav-text">Constraints</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Time-and-space-v2"><span class="nav-number">2.2.</span> <span class="nav-text">Time and space</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Question3-leetcode-1283-Find-the-Smallest-Divisor-Given-a-Threshold"><span class="nav-number">3.</span> <span class="nav-text">Question3: leetcode 1283. Find the Smallest Divisor Given a Threshold</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Constraints-v2"><span class="nav-number">3.1.</span> <span class="nav-text">Constraints:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Time-and-space-v3"><span class="nav-number">3.2.</span> <span class="nav-text">Time and space</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lambda-expressions"><span class="nav-number">3.3.</span> <span class="nav-text">Lambda expressions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Question-4-Leetcode-1284-Minimum-Number-of-Flips-to-Convert-Binary-Matrix-to-Zero-Matrix"><span class="nav-number">4.</span> <span class="nav-text">Question 4 : Leetcode 1284. Minimum Number of Flips to Convert Binary Matrix to Zero Matrix</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Constraints-v3"><span class="nav-number">4.1.</span> <span class="nav-text">Constraints:</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Question-1-Leetcode-1281-Subtract-the-Product-and-Sum-of-Digits-of-an-Integer"><span class="nav-number">1.</span> <span class="nav-text">Question 1 : Leetcode 1281 Subtract the Product and Sum of Digits of an Integer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Time-and-space"><span class="nav-number">1.1.</span> <span class="nav-text">Time and space</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Question3-leetcode-1283-Find-the-Smallest-Divisor-Given-a-Threshold"><span class="nav-number">2.</span> <span class="nav-text">Question3: leetcode 1283. Find the Smallest Divisor Given a Threshold</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Constraints"><span class="nav-number">2.1.</span> <span class="nav-text">Constraints:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Time-and-space-1"><span class="nav-number">2.2.</span> <span class="nav-text">Time and space</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lambda-expressions"><span class="nav-number">2.3.</span> <span class="nav-text">Lambda expressions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Question-4-Leetcode-1284-Minimum-Number-of-Flips-to-Convert-Binary-Matrix-to-Zero-Matrix"><span class="nav-number">3.</span> <span class="nav-text">Question 4 : Leetcode 1284. Minimum Number of Flips to Convert Binary Matrix to Zero Matrix</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Constraints-1"><span class="nav-number">3.1.</span> <span class="nav-text">Constraints:</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
