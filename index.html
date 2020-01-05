@@ -206,6 +206,82 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/05/leetcode-100-09-3SUM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Xu">
+      <meta itemprop="description" content="This is the place for Liang to make any notes if he feels like it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liang Xu">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/05/leetcode-100-09-3SUM/" class="post-title-link" itemprop="url">leetcode-100-09-3SUM</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-05 17:42:59" itemprop="dateCreated datePublished" datetime="2020-01-05T17:42:59-05:00">2020-01-05</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="3-Sum"><a class="header-anchor" href="#3-Sum"></a>3 Sum</h1>
+<p>Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.</p>
+<p align = "center">   <img width = "500" src = "images/10_3SUM_2020-01-05-17-26-33.png "> </p>
+<p>This is a very typical question, and we are going to solve it by 2 methods;</p>
+<h2 id="Sorted-array"><a class="header-anchor" href="#Sorted-array"></a>Sorted array</h2>
+<p>The most difficult is how can we find the answer without the duplicated element in the result.</p>
+<h2 id="First-Method"><a class="header-anchor" href="#First-Method"></a>First Method</h2>
+<p>Sorted array and two pointers.</p>
+<p>Using a sorted array, keep track what is the duplicated elements.<br>
+First, we select which element must be in the result, and keep this element fix. One pointer point to the next element, and one pointer point to the end of array. Sum all the pointer pointed elements. There will be 3 cases:</p>
+<ol>
+<li>sum == 0; push the element to the answer.</li>
+<li>sum &lt; 0; means, we need more power, so we move the smaller pointer.</li>
+<li>sum &gt; 0: this mean, the current number to big, move back the bigger pointer.</li>
+</ol>
+<p>Because the pointer is exclusive, which means the pointed elements are used/using. So the stopping condiction is left == right.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; threeSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res; </span><br><span class="line">        <span class="keyword">if</span> (nums.size() == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        </span><br><span class="line">        sort(nums.begin(), nums.end()); </span><br><span class="line"> </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size() - <span class="number">1</span>; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> ((i&gt;<span class="number">0</span>) &amp;&amp; (nums[i]==nums[i<span class="number">-1</span>]))</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">int</span> left = i + <span class="number">1</span>; </span><br><span class="line">            <span class="keyword">int</span> right = nums.size() - <span class="number">1</span>; </span><br><span class="line">            </span><br><span class="line">            <span class="keyword">while</span>(left &lt; right)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> sum = nums[left] + nums[right] + nums[i]; </span><br><span class="line">                <span class="keyword">if</span>(sum == <span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    res.push_back(&#123;nums[left] , nums[right] , nums[i]&#125;);</span><br><span class="line">                    ++left;</span><br><span class="line">                    --right; </span><br><span class="line">                    <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[left] == nums[left - <span class="number">1</span>]) ++left; </span><br><span class="line">                    <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[right] == nums[right + <span class="number">1</span>]) --right; </span><br><span class="line">                    </span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> ( sum &gt; <span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    --right; </span><br><span class="line">                &#125; <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    ++left; </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res; </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(n^2)<br>
+Space: O(n) &lt;- used in the sorting / o(1) depends what sorting algoritm used.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/04/leetcode-100-09-Valid-Prentheses/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1218,331 +1294,6 @@ There are four key ideas behind ConvNets that take advantage of the properties o
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/10/Basic-Data-Structure-week1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Liang Xu">
-      <meta itemprop="description" content="This is the place for Liang to make any notes if he feels like it">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Liang Xu">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/10/Basic-Data-Structure-week1/" class="post-title-link" itemprop="url">Basic_Data_Structure_week1</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-10 12:47:13" itemprop="dateCreated datePublished" datetime="2019-12-10T12:47:13-05:00">2019-12-10</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="BASIC-DATA-STRUCTURES"><a class="header-anchor" href="#BASIC-DATA-STRUCTURES"></a>BASIC DATA STRUCTURES</h1>
-<h2 id="1-Arrays-and-Linked-Lists"><a class="header-anchor" href="#1-Arrays-and-Linked-Lists"></a>1. Arrays and Linked Lists</h2>
-<blockquote>
-<p>Definition<br>
-<strong>Array</strong><br>
-<code>Contiguous area of memory consisting of equal-size elements indexed by contiguous integers.</code></p>
-</blockquote>
-<h3 id="What-is-special-about-arrays"><a class="header-anchor" href="#What-is-special-about-arrays"></a>What is special about arrays?</h3>
-<ul>
-<li>Constant time access<br>
-Find the element by address <strong>array_addr + elem_size × (i − first_index)</strong></li>
-</ul>
-<h3 id="Multi-Dimensional-Arrays"><a class="header-anchor" href="#Multi-Dimensional-Arrays"></a>Multi-Dimensional Arrays</h3>
-<p>Most of the language support multi dimension array. However, if the language does not support this, you can always create the array by only using one dimension and an equation.</p>
-<p align="center">
-  <img width="400" src="images_week1/1.png">
-</p>
-<p>According to the access pattern, the multi-dimension array can be saved as row major based or colum major based.</p>
-<p align="center">
-  <img width="400" src="images_week1/2.png">
-</p>
-<h3 id="Times-for-common-operations"><a class="header-anchor" href="#Times-for-common-operations"></a>Times for common operations</h3>
-<p>Add and remove are tow common</p>
-<p align="center">
-  <img width="400" src="images_week1/3.png">
-</p>
-<ol>
-<li>
-<p>add/remove to the beginning of the array need to move everything back by one, so ti is O(n) operation. Same like add in the middle of array.</p>
-</li>
-<li>
-<p>add/remove from the end of the array are very easy, just move the pointer forward one step.</p>
-</li>
-</ol>
-<h3 id="Summary"><a class="header-anchor" href="#Summary"></a>Summary</h3>
-<ol>
-<li><strong>Array:</strong> Contiguous area of memory consisting of equal-size elements indexed by contiguous integers.</li>
-<li>Constant-time access to any element.</li>
-<li>Constant time to add/remove at the end.</li>
-<li>Linear time to add/remove tat an arbitrary location.</li>
-</ol>
-<h2 id="Linked-Lists"><a class="header-anchor" href="#Linked-Lists"></a>Linked Lists</h2>
-<p align="center">
-  <img width="400" src="images_week1/4.png">
-</p>
-<p>Linked Lists:</p>
-<ul>
-<li>keys</li>
-<li>Pointes</li>
-</ul>
-<h3 id="List-API"><a class="header-anchor" href="#List-API"></a>List API</h3>
-<ul>
-<li><strong>PushFront(Key)</strong> : add to front</li>
-<li><strong>Key TopFront()</strong> : return front item</li>
-<li><strong>PopFront()</strong> : remove front item</li>
-<li><strong>PushBack(Key)</strong> : add to back</li>
-<li><strong>Key TopBack()</strong> : return back item</li>
-<li><strong>PopBack()</strong> : remove back item</li>
-<li><strong>Boolean Find(Key)</strong> : is key in list?</li>
-<li><strong>Erase(Key)</strong> : remove key from list</li>
-<li><strong>Boolean Empty()</strong> : empty list?</li>
-<li><strong>AddBefore(Node, Key)</strong> : adds key before node</li>
-<li><strong>AddAfter(Node, Key)</strong> : adds key after node</li>
-</ul>
-<h3 id="Times-for-some-Operations"><a class="header-anchor" href="#Times-for-some-Operations"></a>Times for some Operations</h3>
-<h4 id="Push-front"><a class="header-anchor" href="#Push-front"></a>Push_front</h4>
-<p>Push front can be treated as reconnect the dummy head node.<br>
-Just remember do not lost your head any time.</p>
-<p align="center">
-  <img width="400" src="images_week1/5.png">
-</p>
-<p>Step1: Let the new node pointed to the current head.</p>
-<p align="center">
-  <img width="400" src="images_week1/6.png">
-</p>
-<p>Step2: Dummy head pointed to the new head.</p>
-<p align="center">
-  <img width="400" src="images_week1/7.png">
-</p>
-<p align="center">
-  <img width="400" src="images_week1/10.png">
-</p>
-<p align="center">
-  <img width="400" src="images_week1/11.png">
-</p>
-<p>For pop front, we need to think about the case when front is Empty.<br>
-So we need to check it first.<br>
-Time: O(1)</p>
-<h4 id="PushBack-no-tile-pointer"><a class="header-anchor" href="#PushBack-no-tile-pointer"></a>PushBack (no tile pointer)</h4>
-<p align="center">
-  <img width="400" src="images_week1/8.png">
-</p>
-<p>This is o(n) operation, because we need to find the key first.</p>
-<h4 id="PushBack-with-tile-pointer"><a class="header-anchor" href="#PushBack-with-tile-pointer"></a>PushBack (with tile pointer)</h4>
-<p align="center">
-  <img width="400" src="images_week1/9.png">
-</p>
-<p align="center">
-  <img width="400" src="images_week1/12.png">
-</p>
-<p>Check the tail.next is nullptr or not.</p>
-<h3 id="Summary-v2"><a class="header-anchor" href="#Summary-v2"></a>Summary</h3>
-<p align="center">
-  <img width="400" src="images_week1/13.png">
-</p>
-<h2 id="Doubly-Linked-List"><a class="header-anchor" href="#Doubly-Linked-List"></a>Doubly Linked List</h2>
-<p align="center">
-  <img width="400" src="images_week1/14.png">
-</p>
-<p>Node Contains:</p>
-<ol>
-<li>key</li>
-<li>next pointer</li>
-<li>prev pointer</li>
-</ol>
-<h3 id="some-detailed"><a class="header-anchor" href="#some-detailed"></a>some detailed</h3>
-<p align="center">
-  <img width="400" src="images_week1/15.png">
-</p>
-<p align="center">
-  <img width="400" src="images_week1/16.png">
-</p>
-<h3 id="Summary-v3"><a class="header-anchor" href="#Summary-v3"></a>Summary</h3>
-<ul>
-<li>
-<p>Constant time to insert ar or remove from the front.</p>
-</li>
-<li>
-<p>With tail and doubly-linked, constant time to insert at or remove from the back</p>
-</li>
-<li>
-<p>o(n) time to find arbitrary element. (both index and content)</p>
-</li>
-<li>
-<p>List elements need not be contiguous. (not good for sequence access, but good for dynamic memory operations).</p>
-</li>
-<li>
-<p>With doubly-linked list, constant time to insert between nodes or remove a node.</p>
-</li>
-</ul>
-<h2 id="Stack-and-Queues"><a class="header-anchor" href="#Stack-and-Queues"></a>Stack and Queues</h2>
-<h3 id="Stack"><a class="header-anchor" href="#Stack"></a>Stack</h3>
-<blockquote>
-<p>Definitions:<br>
-<strong>Stack</strong>: Abstract data type with the following opeartions</p>
-<ul>
-<li>Push(Key): adds key to collection</li>
-<li>Key Top(): returns most recently-added key</li>
-<li>Key Pop(): removes and returns most recently-added key</li>
-<li>Boolean Empty(): are there any elements?</li>
-</ul>
-</blockquote>
-<p align="center">
-  <img width="400" src="images_week1/17.png">
-</p>
-<p align="center">
-  <img width="400" src="images_week1/18.png">
-</p>
-<h4 id="Implementation"><a class="header-anchor" href="#Implementation"></a>Implementation</h4>
-<p>Stack can be implemented as array or linked list.</p>
-<h4 id="Summary-v4"><a class="header-anchor" href="#Summary-v4"></a>Summary</h4>
-<ul>
-<li>Stacks can be implemented with either an array or a linked list.</li>
-<li>Each stack operation is O(1): Push, Pop, Top, Empty.</li>
-<li>Stacks are ocassionaly known as LIFO queues.</li>
-</ul>
-<h3 id="Queue"><a class="header-anchor" href="#Queue"></a>Queue</h3>
-<blockquote>
-<p>Definitions:<br>
-<strong>Queue</strong>: Abstract data type with the following operations</p>
-<ul>
-<li>Enqueue(Key): adds key to collection</li>
-<li>Key Dequeue(): removes and returns least recently-added key</li>
-<li>Boolean Empty(): are there any elements?</li>
-</ul>
-</blockquote>
-<h4 id="With-linked-List"><a class="header-anchor" href="#With-linked-List"></a>With linked List</h4>
-<p align="center">
-  <img width="400" src="images_week1/19.png">
-</p>
-<p align="center">
-  <img width="400" src="images_week1/20.png">
-</p>
-<h4 id="With-Array"><a class="header-anchor" href="#With-Array"></a>With Array</h4>
-<p>Using two Pointers</p>
-<p align="center">
-  <img width="400" src="images_week1/22.png">
-</p>
-<p align="center">
-  <img width="400" src="images_week1/21.png">
-</p>
-<p align="center">
-  <img width="400" src="images_week1/23.png">
-</p>
-<h4 id="Summary-v5"><a class="header-anchor" href="#Summary-v5"></a>Summary</h4>
-<ul>
-<li>Queues can be implemented with either a linked list (with tail pointer) or an array.</li>
-<li>Each queue operation is O(1): Enqueue, Dequeue, Empty.</li>
-</ul>
-<h2 id="Trees"><a class="header-anchor" href="#Trees"></a>Trees</h2>
-<blockquote>
-<p>Definition<br>
-A Tree is:</p>
-<ul>
-<li>empty, or</li>
-<li>a node with:
-<ul>
-<li>a key, and</li>
-<li>a list of child trees.</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<p>Node contains:</p>
-<ul>
-<li>key</li>
-<li>children: list of children nodes</li>
-<li>(optional) parent</li>
-</ul>
-<p align="center">
-  <img width="400" src="images_week1/24.png">
-</p>
-<p align="center">
-  <img width="400" src="images_week1/25.png">
-</p>
-<h3 id="Walking-a-Tree"><a class="header-anchor" href="#Walking-a-Tree"></a>Walking a Tree</h3>
-<p>Often we want to visit the nodes of a tree in a particular order.</p>
-<ul>
-<li>Depth-first: We completely traverse one sub-tree before exploring a sibling sub-tree.</li>
-<li>Breadth-first: We traverse all nodes at one level before progressing to the next level.</li>
-</ul>
-<h4 id="DFS"><a class="header-anchor" href="#DFS"></a>DFS</h4>
-<h5 id="Inorder-Traversal"><a class="header-anchor" href="#Inorder-Traversal"></a>Inorder Traversal</h5>
-<p align="center">
-  <img width="400" src="images_week1/26.png">
-</p>
-<p align="center">
-  <img width="400" src="images_week1/27.png">
-</p>
-<h5 id="PreOrder-Traversal"><a class="header-anchor" href="#PreOrder-Traversal"></a>PreOrder Traversal</h5>
-<p align="center">
-  <img width="400" src="images_week1/28.png">
-</p>
-<p align="center">
-  <img width="400" src="images_week1/29.png">
-</p>
-<h5 id="PostOrder-Traversal"><a class="header-anchor" href="#PostOrder-Traversal"></a>PostOrder Traversal</h5>
-<p align="center">
-  <img width="400" src="images_week1/30.png">
-</p>
-<p align="center">
-  <img width="400" src="images_week1/31.png">
-</p>
-<h4 id="BFS"><a class="header-anchor" href="#BFS"></a>BFS</h4>
-<p>Level order Traversal<br>
-Need to queue to keep track the element going to explore.</p>
-<p align="center">
-  <img width="400" src="images_week1/32.png">
-</p>
-<h3 id="Summary-v6"><a class="header-anchor" href="#Summary-v6"></a>Summary</h3>
-<ul>
-<li>Trees are used for lots of different things.</li>
-<li>Trees have a key and children.</li>
-<li>Tree walks: DFS (pre-order, in-order, post-order) and BFS.</li>
-<li>When working with a tree, recursive algorithms are common.</li>
-<li>In Computer Science, <strong>trees grow down</strong>!</li>
-</ul>
-<p>All the material in this post are come from EDX:Algorithms and Data Structures MicroMasters and Data Structures Fundamentals (Week1)[<a href="https://courses.edx.org/courses/course-v1:UCSanDiegoX+ALGS201x+1T2019/course/" target="_blank" rel="noopener">https://courses.edx.org/courses/course-v1:UCSanDiegoX+ALGS201x+1T2019/course/</a>]</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1591,7 +1342,7 @@ Need to queue to keep track the element going to explore.</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

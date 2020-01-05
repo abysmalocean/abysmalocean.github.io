@@ -46,18 +46,18 @@
   };
 </script>
 
-  <meta name="description" content="TODO list for 2020  publish 3 papers (Semi-supervised Learning, single object tracking, multi object tracking) C++ Nano degree, finished Sensor Fusion Nano Degree Internship in summer GT AOS GT RL Eme">
-<meta name="keywords" content="myself">
+  <meta name="description" content="3 Sum Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.      This is a very typical ques">
+<meta name="keywords" content="Leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="What_I_Want_In_2020">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;31&#x2F;what-I-Want-2020&#x2F;index.html">
+<meta property="og:title" content="leetcode-100-09-3SUM">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;05&#x2F;leetcode-100-09-3SUM&#x2F;index.html">
 <meta property="og:site_name" content="Liang Xu">
-<meta property="og:description" content="TODO list for 2020  publish 3 papers (Semi-supervised Learning, single object tracking, multi object tracking) C++ Nano degree, finished Sensor Fusion Nano Degree Internship in summer GT AOS GT RL Eme">
+<meta property="og:description" content="3 Sum Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.      This is a very typical ques">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-31T20:00:53.000Z">
+<meta property="og:updated_time" content="2020-01-05T22:42:59.000Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2019/12/31/what-I-Want-2020/">
+<link rel="canonical" href="http://yoursite.com/2020/01/05/leetcode-100-09-3SUM/">
 
 
 <script id="page-configurations">
@@ -71,7 +71,7 @@
   };
 </script>
 
-  <title>What_I_Want_In_2020 | Liang Xu</title>
+  <title>leetcode-100-09-3SUM | Liang Xu</title>
   
 
 
@@ -208,7 +208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/what-I-Want-2020/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/05/leetcode-100-09-3SUM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -221,7 +221,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          What_I_Want_In_2020
+          leetcode-100-09-3SUM
         </h1>
 
         <div class="post-meta">
@@ -231,7 +231,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2019-12-31 15:00:53" itemprop="dateCreated datePublished" datetime="2019-12-31T15:00:53-05:00">2019-12-31</time>
+              <time title="Created: 2020-01-05 17:42:59" itemprop="dateCreated datePublished" datetime="2020-01-05T17:42:59-05:00">2020-01-05</time>
             </span>
 
           
@@ -245,29 +245,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="TODO-list-for-2020"><a class="header-anchor" href="#TODO-list-for-2020"></a>TODO list for 2020</h1>
-<ul>
-<li><input type="checkbox" id="checkbox0"><label for="checkbox0">publish 3 papers (Semi-supervised Learning, single object tracking, multi object tracking)</label></li>
-<li><input type="checkbox" id="checkbox1"><label for="checkbox1">C++ Nano degree, finished</label></li>
-<li><input type="checkbox" id="checkbox2"><label for="checkbox2">Sensor Fusion Nano Degree</label></li>
-<li><input type="checkbox" id="checkbox3"><label for="checkbox3">Internship in summer</label></li>
-<li><input type="checkbox" id="checkbox4"><label for="checkbox4">GT AOS</label></li>
-<li><input type="checkbox" id="checkbox5"><label for="checkbox5">GT RL</label></li>
-<li><input type="checkbox" id="checkbox6"><label for="checkbox6">Emerging Automotive Technologies</label></li>
-<li><input type="checkbox" id="checkbox7"><label for="checkbox7">Leetcode 100 blog</label></li>
-<li><input type="checkbox" id="checkbox8"><label for="checkbox8">Leetcode 500 questions</label></li>
-<li><input type="checkbox" id="checkbox9"><label for="checkbox9">Geek Time</label>
-<ul>
-<li><input type="checkbox" id="checkbox10"><label for="checkbox10">C++</label></li>
-<li><input type="checkbox" id="checkbox11"><label for="checkbox11">Design pattern</label></li>
-<li><input type="checkbox" id="checkbox12"><label for="checkbox12">Performance</label></li>
-<li><input type="checkbox" id="checkbox13"><label for="checkbox13">Linux Performance</label></li>
-<li><input type="checkbox" id="checkbox14"><label for="checkbox14">OS</label></li>
-<li><input type="checkbox" id="checkbox15"><label for="checkbox15">Algorithm</label></li>
-</ul>
-</li>
-</ul>
-<p>I will do a summarization in every month. Hope everything will works out. Trying to look for jobs in 2021, keep finger crossed.</p>
+        <h1 id="3-Sum"><a class="header-anchor" href="#3-Sum"></a>3 Sum</h1>
+<p>Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.</p>
+<p align = "center">   <img width = "500" src = "images/10_3SUM_2020-01-05-17-26-33.png "> </p>
+<p>This is a very typical question, and we are going to solve it by 2 methods;</p>
+<h2 id="Sorted-array"><a class="header-anchor" href="#Sorted-array"></a>Sorted array</h2>
+<p>The most difficult is how can we find the answer without the duplicated element in the result.</p>
+<h2 id="First-Method"><a class="header-anchor" href="#First-Method"></a>First Method</h2>
+<p>Sorted array and two pointers.</p>
+<p>Using a sorted array, keep track what is the duplicated elements.<br>
+First, we select which element must be in the result, and keep this element fix. One pointer point to the next element, and one pointer point to the end of array. Sum all the pointer pointed elements. There will be 3 cases:</p>
+<ol>
+<li>sum == 0; push the element to the answer.</li>
+<li>sum &lt; 0; means, we need more power, so we move the smaller pointer.</li>
+<li>sum &gt; 0: this mean, the current number to big, move back the bigger pointer.</li>
+</ol>
+<p>Because the pointer is exclusive, which means the pointed elements are used/using. So the stopping condiction is left == right.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; threeSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res; </span><br><span class="line">        <span class="keyword">if</span> (nums.size() == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        </span><br><span class="line">        sort(nums.begin(), nums.end()); </span><br><span class="line"> </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size() - <span class="number">1</span>; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> ((i&gt;<span class="number">0</span>) &amp;&amp; (nums[i]==nums[i<span class="number">-1</span>]))</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">int</span> left = i + <span class="number">1</span>; </span><br><span class="line">            <span class="keyword">int</span> right = nums.size() - <span class="number">1</span>; </span><br><span class="line">            </span><br><span class="line">            <span class="keyword">while</span>(left &lt; right)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> sum = nums[left] + nums[right] + nums[i]; </span><br><span class="line">                <span class="keyword">if</span>(sum == <span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    res.push_back(&#123;nums[left] , nums[right] , nums[i]&#125;);</span><br><span class="line">                    ++left;</span><br><span class="line">                    --right; </span><br><span class="line">                    <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[left] == nums[left - <span class="number">1</span>]) ++left; </span><br><span class="line">                    <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[right] == nums[right + <span class="number">1</span>]) --right; </span><br><span class="line">                    </span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> ( sum &gt; <span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    --right; </span><br><span class="line">                &#125; <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    ++left; </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res; </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time: O(n^2)<br>
+Space: O(n) &lt;- used in the sorting / o(1) depends what sorting algoritm used.</p>
 
     </div>
 
@@ -277,7 +273,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/myself/" rel="tag"># myself</a>
+              <a href="/tags/Leetcode/" rel="tag"># Leetcode</a>
           </div>
 
         
@@ -286,13 +282,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/12/31/leetcode-100-6-Longest-Substring-Without-Repeating-Characters-md/" rel="prev" title="leetcode-100-6-Longest-Substring-Without-Repeating-Characters.md">
-      <i class="fa fa-chevron-left"></i> leetcode-100-6-Longest-Substring-Without-Repeating-Characters.md
+    <a href="/2020/01/04/leetcode-100-09-Valid-Prentheses/" rel="prev" title="leetcode-100-09-Valid-Prentheses">
+      <i class="fa fa-chevron-left"></i> leetcode-100-09-Valid-Prentheses
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/01/02/leetcode-100-08-Merge-Two-Sorted-Lists/" rel="next" title="leetcode-100-08-Merge-Two-Sorted-Lists">
-      leetcode-100-08-Merge-Two-Sorted-Lists <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -331,7 +324,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TODO-list-for-2020"><span class="nav-number">1.</span> <span class="nav-text">TODO list for 2020</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Sum"><span class="nav-number">1.</span> <span class="nav-text">3 Sum</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sorted-array"><span class="nav-number">1.1.</span> <span class="nav-text">Sorted array</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#First-Method"><span class="nav-number">1.2.</span> <span class="nav-text">First Method</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -463,7 +456,7 @@
       repo: 'http://abysmalocean.github.io',
       owner: 'abysmalocean',
       admin: ['abysmalocean'],
-      id: '770675f38f723ebb3cad094074359c99',
+      id: 'e6fe5447d34ed63c0a487388d3e42599',
         language: 'en',
       distractionFreeMode: 'true'
     });
