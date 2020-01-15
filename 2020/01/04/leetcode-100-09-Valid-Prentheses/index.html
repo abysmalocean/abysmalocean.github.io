@@ -46,13 +46,13 @@
   };
 </script>
 
-  <meta name="description" content="20. Valid ParenthesesGiven a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid. An input string is valid if:  Open brackets must be closed b">
+  <meta name="description" content="20. Valid Parentheses Given a string containing just the characters ‘(’, ‘)’, ‘{’, ‘}’, ‘[’ and ‘]’, determine if the input string is valid. An input string is valid if:  Open brackets must be closed">
 <meta name="keywords" content="Leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode-100-09-Valid-Prentheses">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;04&#x2F;leetcode-100-09-Valid-Prentheses&#x2F;index.html">
 <meta property="og:site_name" content="Liang Xu">
-<meta property="og:description" content="20. Valid ParenthesesGiven a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid. An input string is valid if:  Open brackets must be closed b">
+<meta property="og:description" content="20. Valid Parentheses Given a string containing just the characters ‘(’, ‘)’, ‘{’, ‘}’, ‘[’ and ‘]’, determine if the input string is valid. An input string is valid if:  Open brackets must be closed">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2020-01-04T05:35:52.000Z">
 <meta name="twitter:card" content="summary">
@@ -245,17 +245,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="20-Valid-Parentheses"><a href="#20-Valid-Parentheses" class="headerlink" title="20. Valid Parentheses"></a>20. Valid Parentheses</h1><p>Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.</p>
+        <h1 id="20-Valid-Parentheses"><a class="header-anchor" href="#20-Valid-Parentheses"></a>20. Valid Parentheses</h1>
+<p>Given a string containing just the characters ‘(’, ‘)’, ‘{’, ‘}’, ‘[’ and ‘]’, determine if the input string is valid.</p>
 <p>An input string is valid if:</p>
 <ul>
 <li>Open brackets must be closed by the same type of brackets.</li>
-<li>Open brackets must be closed in the correct order.<br>Note that an empty string is also considered valid.</li>
+<li>Open brackets must be closed in the correct order.<br>
+Note that an empty string is also considered valid.</li>
 </ul>
 <p align = "center">   <img width = "500" src = "images/09_Valid_Prentheses_2020-01-04-00-32-25.png "> </p>
-
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isValid</span><span class="params">(<span class="built_in">string</span> s)</span> </span></span><br><span class="line"><span class="function">    </span>&#123;   </span><br><span class="line">        <span class="keyword">int</span> len = s.length();</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; T; </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i] == <span class="string">'('</span> || s[i] == <span class="string">'['</span> || s[i] == <span class="string">'&#123;'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                T.push(s[i]); </span><br><span class="line">            &#125; <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(!T.empty() &amp;&amp; </span><br><span class="line">                   ((s[i] == <span class="string">')'</span> &amp;&amp; T.top() == <span class="string">'('</span>) ||</span><br><span class="line">                   (s[i] == <span class="string">']'</span> &amp;&amp; T.top() == <span class="string">'['</span>) ||</span><br><span class="line">                   (s[i] == <span class="string">'&#125;'</span> &amp;&amp; T.top() == <span class="string">'&#123;'</span>)))</span><br><span class="line">                &#123;</span><br><span class="line">                    T.pop();</span><br><span class="line">                &#125; <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>; </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> T.empty() ? <span class="literal">true</span> : <span class="literal">false</span>; </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>This is a very typical stack question. </p>
-<p>This is a very typical stack question.<br>Just do not forget to check the stack empty before access the top value.</p>
+<p>This is a very typical stack question.</p>
+<p>This is a very typical stack question.<br>
+Just do not forget to check the stack empty before access the top value.</p>
 
     </div>
 
@@ -333,7 +335,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -346,7 +348,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Liang Xu" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Contest 170 1309. Decrypt String from Alphabet to Integer Mapping Given a string s formed by digits (‘0’ - ‘9’) and ‘#’ . We want to map s to English lowercase characters as follows: Characters (‘a’ t">
+<meta name="keywords" content="Leetcode,contest">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode_contest_170">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;leetcode-contest-170&#x2F;index.html">
+<meta property="og:site_name" content="Liang Xu">
+<meta property="og:description" content="Contest 170 1309. Decrypt String from Alphabet to Integer Mapping Given a string s formed by digits (‘0’ - ‘9’) and ‘#’ . We want to map s to English lowercase characters as follows: Characters (‘a’ t">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-01-07T19:27:36.000Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/01/07/leetcode-contest-170/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>leetcode_contest_170 | Liang Xu</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Liang Xu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Liang Xu is a Computer Science guy</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/07/leetcode-contest-170/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Xu">
+      <meta itemprop="description" content="This is the place for Liang to make any notes if he feels like it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liang Xu">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          leetcode_contest_170
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-07 14:27:36" itemprop="dateCreated datePublished" datetime="2020-01-07T14:27:36-05:00">2020-01-07</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Contest-170"><a class="header-anchor" href="#Contest-170"></a>Contest 170</h1>
+<h2 id="1309-Decrypt-String-from-Alphabet-to-Integer-Mapping"><a class="header-anchor" href="#1309-Decrypt-String-from-Alphabet-to-Integer-Mapping"></a>1309. Decrypt String from Alphabet to Integer Mapping</h2>
+<p>Given a string s formed by digits (‘0’ - ‘9’) and ‘#’ . We want to map s to English lowercase characters as follows:</p>
+<p>Characters (‘a’ to ‘i’) are represented by (‘1’ to ‘9’) respectively.<br>
+Characters (‘j’ to ‘z’) are represented by (‘10#’ to ‘26#’) respectively.<br>
+Return the string formed after mapping.</p>
+<p>It’s guaranteed that a unique mapping will always exist.</p>
+<p align = "center">   <img width = "500" src = "images/170th_Contest_2020-01-06-23-14-54.png "> </p>
+<h3 id="Constraints"><a class="header-anchor" href="#Constraints"></a>Constraints</h3>
+<ul>
+<li>1 &lt;= s.length &lt;= 1000</li>
+<li>s[i] only contains digits letters (‘0’-‘9’) and ‘#’ letter.</li>
+<li>s will be valid string such that mapping is always possible.</li>
+</ul>
+<h3 id="idea"><a class="header-anchor" href="#idea"></a>idea</h3>
+<p>There will be 2 cases:</p>
+<ol>
+<li>10# - 26#</li>
+<li>1 - 9</li>
+</ol>
+<p>So our program is going to check which case is above first then figure out the offset.</p>
+<ol>
+<li>10# to 26#</li>
+</ol>
+<p>i &lt;= s.length() - 3 &amp;&amp;<br>
+(s[i] == ‘1’ || s[i] == ‘2’) &amp;&amp;<br>
+s[i+2] == ‘#’</p>
+<p>The first condiction will make sure the s[i+2] not got an address access correct.</p>
+<ol start="2">
+<li>else is 1 - 9</li>
+</ol>
+<h3 id="offest"><a class="header-anchor" href="#offest"></a>offest</h3>
+<ul>
+<li>10# - 26# -&gt; 10 * (s[i] - ‘0’) + s[i + 1] - ‘1’ + ‘a’;</li>
+<li>1 - 9 -&gt; s[i] - ‘1’ + ‘a’;</li>
+</ul>
+<h3 id="code"><a class="header-anchor" href="#code"></a>code</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">freqAlphabets</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> result; </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">char</span> ch; </span><br><span class="line">            <span class="keyword">if</span> (i &lt;= s.length() - <span class="number">3</span> &amp;&amp; (s[i] == <span class="string">'1'</span> || s[i] == <span class="string">'2'</span>) &amp;&amp; s[i+<span class="number">2</span>] == <span class="string">'#'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                ch = <span class="number">10</span> * (s[i] - <span class="string">'0'</span>) + s[i+<span class="number">1</span>] - <span class="string">'1'</span> + <span class="string">'a'</span>; </span><br><span class="line">                i += <span class="number">2</span>; </span><br><span class="line">                </span><br><span class="line">            &#125; <span class="keyword">else</span> </span><br><span class="line">            &#123;</span><br><span class="line">                ch = s[i] - <span class="string">'1'</span> + <span class="string">'a'</span>; </span><br><span class="line">            &#125;</span><br><span class="line">            result += ch; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result; </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="1310-XOR-Queries-of-a-Subarray"><a class="header-anchor" href="#1310-XOR-Queries-of-a-Subarray"></a>1310. XOR Queries of a Subarray</h2>
+<p>Given the array arr of positive integers and the array queries where queries[i] = [Li, Ri], for each query i compute the XOR of elements from Li to Ri (that is, arr[Li] xor arr[Li+1] xor … xor arr[Ri] ). Return an array containing the result for the given queries.</p>
+<p align = "center">   <img width = "500" src = "images/170th_Contest_2020-01-07-13-40-58.png "> </p>
+<p>Constraints:</p>
+<ul>
+<li>1 &lt;= arr.length &lt;= 3 * 10^4</li>
+<li>1 &lt;= arr[i] &lt;= 10^9</li>
+<li>1 &lt;= queries.length &lt;= 3 * 10^4</li>
+<li>queries[i].length == 2</li>
+<li>0 &lt;= queries[i][0] &lt;= queries[i][1] &lt; arr.length</li>
+</ul>
+<h3 id="Initial-Idea"><a class="header-anchor" href="#Initial-Idea"></a>Initial Idea</h3>
+<p>According to the constraints, the question has a very large input size. The algorithm complexity should constraints from O(1) to O(nlogn).</p>
+<p>Also this question very similarly with the prefix sum question. I just need to find out a way for the XOR edition.</p>
+<blockquote>
+<p>a XOR b = c, and c XOR b = a and c XOR a = b;<br>
+a XOR a = 0;</p>
+</blockquote>
+<p>So, what we can do is to build a prefix XOR with size arr.size() + 1. Because the queries include both of the ends, and both of the ends can be equal. So if the queries are [0, 9], we need to access the element previous than pos 0. For the simplest solution just create an array with the size len + 1.</p>
+<p>So when we query the XOR, we search Table[first] - Table[Second+1];</p>
+<h3 id="Code"><a class="header-anchor" href="#Code"></a>Code</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; xorQueries(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; queries) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">int</span> len = arr.size(); </span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; table(len+<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">        table[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len+<span class="number">1</span>; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            table[i] = table[i<span class="number">-1</span>] ^ arr[i<span class="number">-1</span>]; </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res(queries.size(), <span class="number">0</span>); </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; queries.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            res[i] = (table[queries[i][<span class="number">0</span>]] ^ table[queries[i][<span class="number">1</span>]+<span class="number">1</span>]); </span><br><span class="line">        &#125;    </span><br><span class="line">        <span class="keyword">return</span> res; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="Time-Complexity"><a class="header-anchor" href="#Time-Complexity"></a>Time Complexity</h3>
+<p>If we are not using the prefix XOR, our algorithm is O(M*N), for each of the queries we need to scan the array once.</p>
+<p>Space :O(n) need a place to save all the prefix XOR.</p>
+<h2 id="1311-Get-Watched-Videos-by-Your-Friends"><a class="header-anchor" href="#1311-Get-Watched-Videos-by-Your-Friends"></a>1311. Get Watched Videos by Your Friends</h2>
+<p>There are n people, each person has a unique id between 0 and n-1. Given the arrays watchedVideos and friends, where watchedVideos[i] and friends[i] contain the list of watched videos and the list of friends respectively for the person with id = i.</p>
+<p>Level 1 of videos are all watched videos by your friends, level 2 of videos are all watched videos by the friends of your friends and so on. In general, the level k of videos are all watched videos by people with the shortest path equal to k with you. Given your id and the level of videos, return the list of videos ordered by their frequencies (increasing). For videos with the same frequency order them alphabetically from least to greatest.</p>
+<p align = "center">   <img width = "500" src = "images/170th_Contest_2020-01-07-13-59-02.png "> </p>
+<p align = "center">   <img width = "500" src = "images/170th_Contest_2020-01-07-13-59-16.png "> </p>
+<p>Constraints:</p>
+<ul>
+<li>n == watchedVideos.length == friends.length</li>
+<li>2 &lt;= n &lt;= 100</li>
+<li>1 &lt;= watchedVideos[i].length &lt;= 100</li>
+<li>1 &lt;= watchedVideos[i][j].length &lt;= 8</li>
+<li>0 &lt;= friends[i].length &lt; n</li>
+<li>0 &lt;= friends[i][j] &lt; n</li>
+<li>0 &lt;= id &lt; n</li>
+<li>1 &lt;= level &lt; n</li>
+<li>if friends[i] contains j, then friends[j] contains i</li>
+</ul>
+<h3 id="Initial-Idea-v2"><a class="header-anchor" href="#Initial-Idea-v2"></a>Initial Idea</h3>
+<p>Using the BFS to get that level, and use a counting sort to sort the Movies. The idea is quite simple, just the coding without error.</p>
+<p>At the contest, I have some stupid mistakes about the BFS, and I am going to summarize it here to do it again.</p>
+<h3 id="Coding"><a class="header-anchor" href="#Coding"></a>Coding</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q; </span><br><span class="line">q.push(id);</span><br><span class="line"><span class="built_in">unordered_set</span>&lt;<span class="keyword">int</span>&gt; visited; </span><br><span class="line"></span><br><span class="line">visited.insert(id); </span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> currentLevel = <span class="number">0</span>; </span><br><span class="line"><span class="keyword">while</span>(currentLevel != level)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> size = q.size(); </span><br><span class="line">    <span class="keyword">while</span>(size--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> currentNode = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; num : friends[currentNode])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (visited.count(num) == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                visited.insert(num);</span><br><span class="line">                q.push(num); </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ++currentLevel; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Define the current level: the current element will be released.</p>
+<blockquote>
+<p>Very important thing is the visited set. This visited set add a new element when reaching to a new node, not at the time when push out the node from a queue.</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> pair&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; lhs, <span class="keyword">const</span> pair&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt;rhs)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (rhs.second == lhs.second)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> lhs.first &lt; rhs.first; </span><br><span class="line">    &#125; <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> lhs.second &lt; rhs.second; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">auto</span> cmpL = [](<span class="keyword">const</span> pair&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; lhs, <span class="keyword">const</span> pair&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt;rhs)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (rhs.second == lhs.second)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> lhs.first &lt; rhs.first; </span><br><span class="line">    &#125; <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> lhs.second &lt; rhs.second; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>A compare function, I think this can be done by using the lambda function.</p>
+<p>Counting sort</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> size = q.size(); </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> currentNode = q.front(); </span><br><span class="line">            q.pop(); </span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">string</span>&amp; name : watchedVideos[currentNode])</span><br><span class="line">            &#123;</span><br><span class="line">                table[name]++; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">vector</span>&lt;pair&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt;&gt; rank; </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> ele : table)</span><br><span class="line">        &#123;   </span><br><span class="line">            rank.push_back(ele); </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        sort(rank.begin(), rank.end(), cmpL); </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> ele : rank)</span><br><span class="line">        &#123;</span><br><span class="line">            </span><br><span class="line">            res.push_back(ele.first); </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p>First count how many same element in the current level.<br>
+Then sort the element according to the counting.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> pair&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; lhs, <span class="keyword">const</span> pair&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt;rhs)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (rhs.second == lhs.second)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> lhs.first &lt; rhs.first; </span><br><span class="line">        &#125; <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> lhs.second &lt; rhs.second; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; watchedVideosByFriends(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt;&amp; watchedVideos, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; friends, <span class="keyword">int</span> id, <span class="keyword">int</span> level) </span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">auto</span> cmpL = [](<span class="keyword">const</span> pair&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; lhs, <span class="keyword">const</span> pair&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt;rhs)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (rhs.second == lhs.second)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> lhs.first &lt; rhs.first; </span><br><span class="line">            &#125; <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> lhs.second &lt; rhs.second; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q; </span><br><span class="line">        q.push(id);</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; table; </span><br><span class="line">        </span><br><span class="line">        <span class="built_in">unordered_set</span>&lt;<span class="keyword">int</span>&gt; visited; </span><br><span class="line">        visited.insert(id); </span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; res; </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> currentLevel = <span class="number">0</span>; </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(currentLevel != level)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> size = q.size(); </span><br><span class="line">            <span class="keyword">while</span>(size--)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> currentNode = q.front();</span><br><span class="line">                q.pop();</span><br><span class="line">                </span><br><span class="line">                </span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; num : friends[currentNode])</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (visited.count(num) == <span class="number">0</span>)</span><br><span class="line">                    &#123;</span><br><span class="line">                        visited.insert(num);</span><br><span class="line">                        q.push(num); </span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ++currentLevel; </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> size = q.size(); </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> currentNode = q.front(); </span><br><span class="line">            q.pop(); </span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">string</span>&amp; name : watchedVideos[currentNode])</span><br><span class="line">            &#123;</span><br><span class="line">                table[name]++; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">vector</span>&lt;pair&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt;&gt; rank; </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> ele : table)</span><br><span class="line">        &#123;   </span><br><span class="line">            rank.push_back(ele); </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        sort(rank.begin(), rank.end(), cmpL); </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> ele : rank)</span><br><span class="line">        &#123;</span><br><span class="line">            </span><br><span class="line">            res.push_back(ele.first); </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res; </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="1312-Minimum-Insertion-Steps-to-Make-a-String-Palindrome"><a class="header-anchor" href="#1312-Minimum-Insertion-Steps-to-Make-a-String-Palindrome"></a>1312. Minimum Insertion Steps to Make a String Palindrome</h2>
+<p>Given a string s. In one step you can insert any character at any index of the string.</p>
+<p>Return the minimum number of steps to make s palindrome.</p>
+<p>A <strong>Palindrome String</strong> is one that reads the same backward as well as forward.</p>
+<p align = "center">   <img width = "500" src = "images/170th_Contest_2020-01-07-14-16-18.png "> </p>
+<p>Constraints:</p>
+<ul>
+<li>1 &lt;= s.length &lt;= 500</li>
+<li>All characters of s are lower case English letters.</li>
+</ul>
+<h3 id="initial-idea"><a class="header-anchor" href="#initial-idea"></a>initial idea.</h3>
+<p>This is the same with edit distance question.</p>
+<p>the smallest case is only have one letter.</p>
+<p>then two letter</p>
+<ol>
+<li>if the letter is the same. Then the edit distance is the same with the [i+1, j-1];</li>
+<li>if not same, we can add a letter which can be equal to any of the two candidate, and the edit distance is min(T[i+1, j], T[i,j-1]) + 1;</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minInsertions</span><span class="params">(<span class="built_in">string</span> s)</span> </span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; table(s.length(), <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(s.length(), <span class="number">0</span>));</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = s.length() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; s.length(); ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (s[i] == s[j])</span><br><span class="line">                &#123;</span><br><span class="line">                    table[i][j] = table[i+<span class="number">1</span>][j<span class="number">-1</span>]; </span><br><span class="line">                &#125; <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    table[i][j] = min(table[i][j<span class="number">-1</span>], table[i+<span class="number">1</span>][j]) + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> table[<span class="number">0</span>][s.length() <span class="number">-1</span> ]; </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Those 4 questions are very good I think, ready for the next one in next Saturday.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Leetcode/" rel="tag"># Leetcode</a>
+              <a href="/tags/contest/" rel="tag"># contest</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/07/leetcode-100-12-Product-of-Array-Except-Self/" rel="prev" title="leetcode-100-12-Product_of_Array_Except_Self">
+      <i class="fa fa-chevron-left"></i> leetcode-100-12-Product_of_Array_Except_Self
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/01/08/leetcode-100-13-KWay-merge/" rel="next" title="leetcode-100-13-KWay_merge">
+      leetcode-100-13-KWay_merge <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Contest-170"><span class="nav-number">1.</span> <span class="nav-text">Contest 170</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1309-Decrypt-String-from-Alphabet-to-Integer-Mapping"><span class="nav-number">1.1.</span> <span class="nav-text">1309. Decrypt String from Alphabet to Integer Mapping</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Constraints"><span class="nav-number">1.1.1.</span> <span class="nav-text">Constraints</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#idea"><span class="nav-number">1.1.2.</span> <span class="nav-text">idea</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#offest"><span class="nav-number">1.1.3.</span> <span class="nav-text">offest</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code"><span class="nav-number">1.1.4.</span> <span class="nav-text">code</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1310-XOR-Queries-of-a-Subarray"><span class="nav-number">1.2.</span> <span class="nav-text">1310. XOR Queries of a Subarray</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Initial-Idea"><span class="nav-number">1.2.1.</span> <span class="nav-text">Initial Idea</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code"><span class="nav-number">1.2.2.</span> <span class="nav-text">Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Time-Complexity"><span class="nav-number">1.2.3.</span> <span class="nav-text">Time Complexity</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1311-Get-Watched-Videos-by-Your-Friends"><span class="nav-number">1.3.</span> <span class="nav-text">1311. Get Watched Videos by Your Friends</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Initial-Idea-v2"><span class="nav-number">1.3.1.</span> <span class="nav-text">Initial Idea</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Coding"><span class="nav-number">1.3.2.</span> <span class="nav-text">Coding</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1312-Minimum-Insertion-Steps-to-Make-a-String-Palindrome"><span class="nav-number">1.4.</span> <span class="nav-text">1312. Minimum Insertion Steps to Make a String Palindrome</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#initial-idea"><span class="nav-number">1.4.1.</span> <span class="nav-text">initial idea.</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Liang Xu</p>
+  <div class="site-description" itemprop="description">This is the place for Liang to make any notes if he feels like it</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liang Xu</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '149ebf414bce9afa23bb',
+      clientSecret: '5184b7ef0e3ac34dbd679b6e16523efef720a670',
+      repo: 'http://abysmalocean.github.io',
+      owner: 'abysmalocean',
+      admin: ['abysmalocean'],
+      id: '4603e65361469c402bffcc0bca34e070',
+        language: 'en',
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+</body>
+</html>

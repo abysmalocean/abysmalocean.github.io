@@ -46,13 +46,13 @@
   };
 </script>
 
-  <meta name="description" content="Longest Substring Without Repeating CharactersGiven a string, find the length of the longest substring without repeating characters.       Approached 1: Sliding window and a set We can define a slidin">
+  <meta name="description" content="Longest Substring Without Repeating Characters Given a string, find the length of the longest substring without repeating characters.      Approached 1: Sliding window and a set We can define a slidin">
 <meta name="keywords" content="Leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode-100-6-Longest-Substring-Without-Repeating-Characters.md">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;31&#x2F;leetcode-100-6-Longest-Substring-Without-Repeating-Characters-md&#x2F;index.html">
 <meta property="og:site_name" content="Liang Xu">
-<meta property="og:description" content="Longest Substring Without Repeating CharactersGiven a string, find the length of the longest substring without repeating characters.       Approached 1: Sliding window and a set We can define a slidin">
+<meta property="og:description" content="Longest Substring Without Repeating Characters Given a string, find the length of the longest substring without repeating characters.      Approached 1: Sliding window and a set We can define a slidin">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2019-12-31T18:04:26.000Z">
 <meta name="twitter:card" content="summary">
@@ -245,24 +245,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Longest-Substring-Without-Repeating-Characters"><a href="#Longest-Substring-Without-Repeating-Characters" class="headerlink" title="Longest Substring Without Repeating Characters"></a>Longest Substring Without Repeating Characters</h1><p>Given a string, find the length of the longest substring without repeating characters.</p>
+        <h1 id="Longest-Substring-Without-Repeating-Characters"><a class="header-anchor" href="#Longest-Substring-Without-Repeating-Characters"></a>Longest Substring Without Repeating Characters</h1>
+<p>Given a string, find the length of the longest substring without repeating characters.</p>
 <p align = "center">   <img width = "500" src = "images/06_Longest_Substring_Without_Repeating_Characters_2019-12-31-12-39-36.png "> </p>
-
 <p>Approached 1: Sliding window and a set</p>
-<p>We can define a sliding window like this, </p>
+<p>We can define a sliding window like this,</p>
 <ul>
-<li>left: window start, include this element. </li>
-<li>right: window end, not including this element, and it is the element going to test in the next step.<br>[left, right); </li>
+<li>left: window start, include this element.</li>
+<li>right: window end, not including this element, and it is the element going to test in the next step.<br>
+[left, right);</li>
 </ul>
-<p>if the left == right, window length is 0;<br>stopping condition: right == length of the string.<br>using a set, to record what is in the current window. </p>
-<p>There will be two cases: </p>
+<p>if the left == right, window length is 0;<br>
+stopping condition: right == length of the string.<br>
+using a set, to record what is in the current window.</p>
+<p>There will be two cases:</p>
 <ul>
-<li>s[right] in the window. </li>
-<li>s[right] not in the window. </li>
+<li>s[right] in the window.</li>
+<li>s[right] not in the window.</li>
 </ul>
-<p>Case 1: in the window:<br>example , h i n a b c d e a f g<br>left = 0 and right = 8;<br>in this case the s[right] = a is in the window, and what we need to do is to move the left pointer to the position which s[left] == s[right]. Also, when we move the pointer, we need to keep removing the s[left] element from the set. This while stopping condition is when s[left] == s[right]. Then we can move the left forward one step. </p>
+<p>Case 1: in the window:<br>
+example , h i n a b c d e a f g<br>
+left = 0 and right = 8;<br>
+in this case the s[right] = a is in the window, and what we need to do is to move the left pointer to the position which s[left] == s[right]. Also, when we move the pointer, we need to keep removing the s[left] element from the set. This while stopping condition is when s[left] == s[right]. Then we can move the left forward one step.</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(<span class="built_in">string</span> s)</span> </span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">int</span> len = s.length(); </span><br><span class="line">        <span class="keyword">if</span> (len &lt;= <span class="number">1</span>) <span class="keyword">return</span> len; </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>; </span><br><span class="line">        <span class="keyword">int</span> maxLen = <span class="number">1</span>; </span><br><span class="line">        </span><br><span class="line">        <span class="built_in">unordered_set</span>&lt;<span class="keyword">char</span>&gt; sets; </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(right &lt; len)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(sets.count(s[right]) &gt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">while</span>(s[left] != s[right])</span><br><span class="line">                &#123;</span><br><span class="line">                    sets.erase(s[left]); </span><br><span class="line">                    ++left; </span><br><span class="line">                &#125;</span><br><span class="line">                ++left; </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            sets.insert(s[right]); </span><br><span class="line">            ++right; </span><br><span class="line">            maxLen = max(maxLen, right - left); </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> maxLen; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>This is not a very hash table, let us try to use a simplified hash table.<br>Set is an very expensive data structure, and we know there are only several char can be displayed in a string. </p>
+<p>This is not a very hash table, let us try to use a simplified hash table.<br>
+Set is an very expensive data structure, and we know there are only several char can be displayed in a string.</p>
 <p><strong>Commonly used tables are:</strong></p>
 <ul>
 <li>int[26] for Letters ‘a’ - ‘z’ or ‘A’ - ‘Z’</li>
@@ -347,7 +354,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -360,7 +367,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

@@ -46,13 +46,13 @@
   };
 </script>
 
-  <meta name="description" content="3 SumGiven an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.       This is a very typical ques">
+  <meta name="description" content="3 Sum Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.      This is a very typical ques">
 <meta name="keywords" content="Leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode-100-09-3SUM">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;05&#x2F;leetcode-100-09-3SUM&#x2F;index.html">
 <meta property="og:site_name" content="Liang Xu">
-<meta property="og:description" content="3 SumGiven an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.       This is a very typical ques">
+<meta property="og:description" content="3 Sum Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.      This is a very typical ques">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2020-01-05T22:42:59.000Z">
 <meta name="twitter:card" content="summary">
@@ -245,21 +245,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="3-Sum"><a href="#3-Sum" class="headerlink" title="3 Sum"></a>3 Sum</h1><p>Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.</p>
+        <h1 id="3-Sum"><a class="header-anchor" href="#3-Sum"></a>3 Sum</h1>
+<p>Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.</p>
 <p align = "center">   <img width = "500" src = "images/10_3SUM_2020-01-05-17-26-33.png "> </p>
-
-<p>This is a very typical question, and we are going to solve it by 2 methods; </p>
-<h2 id="Sorted-array"><a href="#Sorted-array" class="headerlink" title="Sorted array"></a>Sorted array</h2><p>The most difficult is how can we find the answer without the duplicated element in the result. </p>
-<h2 id="First-Method"><a href="#First-Method" class="headerlink" title="First Method"></a>First Method</h2><p>Sorted array and two pointers. </p>
-<p>Using a sorted array, keep track what is the duplicated elements.<br>First, we select which element must be in the result, and keep this element fix. One pointer point to the next element, and one pointer point to the end of array. Sum all the pointer pointed elements. There will be 3 cases:</p>
+<p>This is a very typical question, and we are going to solve it by 2 methods;</p>
+<h2 id="Sorted-array"><a class="header-anchor" href="#Sorted-array"></a>Sorted array</h2>
+<p>The most difficult is how can we find the answer without the duplicated element in the result.</p>
+<h2 id="First-Method"><a class="header-anchor" href="#First-Method"></a>First Method</h2>
+<p>Sorted array and two pointers.</p>
+<p>Using a sorted array, keep track what is the duplicated elements.<br>
+First, we select which element must be in the result, and keep this element fix. One pointer point to the next element, and one pointer point to the end of array. Sum all the pointer pointed elements. There will be 3 cases:</p>
 <ol>
-<li>sum == 0; push the element to the answer. </li>
-<li>sum &lt; 0; means, we need more power, so we move the smaller pointer. </li>
-<li>sum &gt; 0: this mean, the current number to big, move back the bigger pointer. </li>
+<li>sum == 0; push the element to the answer.</li>
+<li>sum &lt; 0; means, we need more power, so we move the smaller pointer.</li>
+<li>sum &gt; 0: this mean, the current number to big, move back the bigger pointer.</li>
 </ol>
-<p>Because the pointer is exclusive, which means the pointed elements are used/using. So the stopping condiction is left == right. </p>
+<p>Because the pointer is exclusive, which means the pointed elements are used/using. So the stopping condiction is left == right.</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; threeSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res; </span><br><span class="line">        <span class="keyword">if</span> (nums.size() == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        </span><br><span class="line">        sort(nums.begin(), nums.end()); </span><br><span class="line"> </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size() - <span class="number">1</span>; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> ((i&gt;<span class="number">0</span>) &amp;&amp; (nums[i]==nums[i<span class="number">-1</span>]))</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">int</span> left = i + <span class="number">1</span>; </span><br><span class="line">            <span class="keyword">int</span> right = nums.size() - <span class="number">1</span>; </span><br><span class="line">            </span><br><span class="line">            <span class="keyword">while</span>(left &lt; right)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> sum = nums[left] + nums[right] + nums[i]; </span><br><span class="line">                <span class="keyword">if</span>(sum == <span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    res.push_back(&#123;nums[left] , nums[right] , nums[i]&#125;);</span><br><span class="line">                    ++left;</span><br><span class="line">                    --right; </span><br><span class="line">                    <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[left] == nums[left - <span class="number">1</span>]) ++left; </span><br><span class="line">                    <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[right] == nums[right + <span class="number">1</span>]) --right; </span><br><span class="line">                    </span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> ( sum &gt; <span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    --right; </span><br><span class="line">                &#125; <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    ++left; </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res; </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time: O(n^2)<br>Space: O(n) &lt;- used in the sorting / o(1) depends what sorting algoritm used. </p>
+<p>Time: O(n^2)<br>
+Space: O(n) &lt;- used in the sorting / o(1) depends what sorting algoritm used.</p>
 
     </div>
 
@@ -281,7 +285,10 @@
     <a href="/2020/01/04/leetcode-100-09-Valid-Prentheses/" rel="prev" title="leetcode-100-09-Valid-Prentheses">
       <i class="fa fa-chevron-left"></i> leetcode-100-09-Valid-Prentheses
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/01/06/leetcode-100-11-Maximum-Subarray/" rel="next" title="leetcode-100-11-Maximum-Subarray">
+      leetcode-100-11-Maximum-Subarray <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -334,7 +341,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -347,7 +354,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

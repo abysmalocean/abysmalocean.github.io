@@ -206,6 +206,887 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/04/02-why-Do-We-need-Taking-Care-of-Performance/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Xu">
+      <meta itemprop="description" content="This is the place for Liang to make any notes if he feels like it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liang Xu">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/04/02-why-Do-We-need-Taking-Care-of-Performance/" class="post-title-link" itemprop="url">02 Why do we care about performance?</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-04 23:40:18" itemprop="dateCreated datePublished" datetime="2019-12-04T23:40:18-05:00">2019-12-04</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Software engineer or programmer? what is the difference? Performance optimization and capacity efficiency sounds very important, but why do I need to care about this?<br>
+In this post, I will talk about why you need to care about performance when you called yourself a software engineer.</p>
+<h2 id="How-to-define-performance"><a class="header-anchor" href="#How-to-define-performance"></a>How to define performance</h2>
+<p>There are several indexs to measure the performance.</p>
+<ul>
+<li>Throughput : throughput performance is often expressed as transactions per second, or TPS.</li>
+<li>Service latency : service latency is the delay between a client request and a cloud service provider’s response.</li>
+<li>Scalability: System easy to scale by adding more computing resources, for example adding more meory or CPUs.</li>
+<li>Resource Utilization: computing resource for a unit of request.(CPU memory).</li>
+<li>Reliability, not going to discussed int his serious.</li>
+</ul>
+<p>What we want are:</p>
+<ul>
+<li>Throughput: High</li>
+<li>Service latency: Low</li>
+<li>Scalability: Easy</li>
+<li>Resource Utilization: Less</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i, j;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> x[<span class="number">4000</span>][<span class="number">4000</span>]; </span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">40000</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="number">4000</span>; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        x[j][i] = i + j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i, j;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> x[<span class="number">4000</span>][<span class="number">4000</span>]; </span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">40000</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="number">4000</span>; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        x[j][i] = i + j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Do you know the difference between those two coding styles? Which one is faster? It depends, depends on how the system saves the 2 dimension array. If this is c++ code(it is), the performance would make much difference because of the memory hierarchy.</p>
+<p>Ok, there will be several examples related to performance, I am not going to list everything, just let you know why you need to care about performance.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/04/01-Coding-Performance/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Xu">
+      <meta itemprop="description" content="This is the place for Liang to make any notes if he feels like it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liang Xu">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/04/01-Coding-Performance/" class="post-title-link" itemprop="url">01 coding is inevitable performance is optional</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-04 22:38:40" itemprop="dateCreated datePublished" datetime="2019-12-04T22:38:40-05:00">2019-12-04</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Is this true? Certainly not. When we thinking about coding, performance is the most important concept in our minds.</p>
+<h2 id="Winning-depends-on-performance"><a class="header-anchor" href="#Winning-depends-on-performance"></a>Winning depends on performance</h2>
+<p>Performance optimization and capacity efficiency are the most important topics for the IT company. It determines who can provide a better service.</p>
+<p>Thinking in performance not only means you need to think in terms of algorithm, but also you need to know how the system works and the system architecture. For example, SSD as a flash cache lets the system have another level of memory, what is memory mountain, what is cache-oblivious algorithm whey they are useful.</p>
+<p>All performance topics will be discussed in this TAG: HighPerformance.</p>
+<p>I used to do some research in this topic, graph computing. There will be some posts talk about graph computing also. Thanks for reading this.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/04/01-Inception-Versions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Xu">
+      <meta itemprop="description" content="This is the place for Liang to make any notes if he feels like it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liang Xu">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/04/01-Inception-Versions/" class="post-title-link" itemprop="url">Inception Versions</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-04 16:03:38" itemprop="dateCreated datePublished" datetime="2019-12-04T16:03:38-05:00">2019-12-04</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Inception-versions"><a class="header-anchor" href="#Inception-versions"></a>Inception versions</h3>
+<p>In this section, I will compare the difference version of inception. Explain how they think, what kinds of problem they what to solve.</p>
+<h4 id="Inception-v1"><a class="header-anchor" href="#Inception-v1"></a>Inception v1</h4>
+<p>The first version of inception is based on the computation efficiency. As we know that, modern computing system are not good at sparse matrix computation, lost of the resource are wasted due to the sparsity. Also, our deep convolutional neural network are a sparse matrix multiplication. So the first idea is to approximate the dense matrix multiplication by using several convolutional together. The original words are “The main idea of the Inception architecture is based on finding out how an optimal local sparse structure in a convolutional vision network can be approximated and covered by readily available dense components”.<br>
+The original inception module are build based on several different convolutional filters 1x1, 3x3 ,5x5, and a pooling layer.<br>
+<img src="images/01_inception_01.png" alt=""></p>
+<p>However, the number of 5x5 filters are very big compared with 3x3. Also, when adding the pooling units, the merging of their number of output filters equals to the number of filters in the previous stage. So, in the concatenation layer, the input size from the pooling layer concatenated convolutional layers make the output inevitable increase in the number of outputs form state to state. This is the reason they propose the second version.</p>
+<h5 id="Inception-V2"><a class="header-anchor" href="#Inception-V2"></a>Inception V2</h5>
+<p>Inception V2 module is with the demension reduction with 1X1 filter. 1x1 filter are applying dimension reductions and projections wherever the computational requeiremnts would increase too much otherwise.</p>
+<p><img src="images/01_inception_02.png" alt=""></p>
+<p>The 1x1 convolutions are used tp compute reductions before the expensive 3x3 and 5x5 convolutions. They also include the use of rectified linear activation which makes them dual purpose.</p>
+<h4 id="Inception-V3"><a class="header-anchor" href="#Inception-V3"></a>Inception V3</h4>
+<p>Inception V3 is proposed by another paper. It trying to reduce the filter form nxn to 1xn. In this module, they studied the relation of filter size and how to optimize them. For example, they trying to use 2 3x3 filters instead of 1 5*5. Like the filter below.<br>
+<img src="images/01_inception_03.png" alt=""><br>
+<img src="images/01_inception_03_2.png" alt=""></p>
+<h4 id="Inception-V4"><a class="header-anchor" href="#Inception-V4"></a>Inception V4</h4>
+<p>Inception V4 also proposed by another paper. The inception of v4’s idea came from ResNet. In that paper, they proposed lots of paper talked about different versions of the neural network connections, especially how to do something similar with the ResNet.<br>
+<img src="images/01_inception_04.png" alt=""></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/03/smart-pointer-implementation-cpp-02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Xu">
+      <meta itemprop="description" content="This is the place for Liang to make any notes if he feels like it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liang Xu">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/03/smart-pointer-implementation-cpp-02/" class="post-title-link" itemprop="url">CPP_02 Smart Pointer Implementation</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-03 00:17:02" itemprop="dateCreated datePublished" datetime="2019-12-03T00:17:02-05:00">2019-12-03</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Smart-pointer-in-C"><a class="header-anchor" href="#Smart-pointer-in-C"></a>Smart pointer in C++</h2>
+<p>From the previous post, there is a shape_wrapper class which has basic idea of smart pointer.<br>
+In this post, I will discuss hwo can we change the shape_wrapper to a smart pointer.</p>
+<h3 id="Last-time-shape-wrapper"><a class="header-anchor" href="#Last-time-shape-wrapper"></a>Last time shape_wrapper</h3>
+<p>The shape_wrapper for last time</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">shape_wrapper</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="keyword">explicit</span> <span class="title">shape_wrapper</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    shape* ptr = <span class="literal">nullptr</span>)</span></span></span><br><span class="line">    : ptr_(ptr) &#123;&#125;</span><br><span class="line">  ~shape_wrapper()</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">delete</span> ptr_;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function">shape* <span class="title">get</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> ptr_; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">  shape* ptr_;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>This class have some basic idea of smartpointer, it can release the object when its exceed the boundary. Hoever, something is missing.</p>
+<ol>
+<li>This class only works for shape class.</li>
+<li>This class is not woking like a pointe,</li>
+<li>copy constructor and copy assiagnment is not defined.</li>
+</ol>
+<h3 id="template"><a class="header-anchor" href="#template"></a>template</h3>
+<p>We can use template for this class, and makes it used for other types.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">smart_ptr</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="keyword">explicit</span> <span class="title">smart_ptr</span><span class="params">(T* ptr = <span class="literal">nullptr</span>)</span></span></span><br><span class="line">    : ptr_(ptr) &#123;&#125;</span><br><span class="line">  ~smart_ptr()</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">delete</span> ptr_;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function">T* <span class="title">get</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> ptr_; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">  T* ptr_;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Compare with the shape_wrapper,we can declare the template<typename T>, then we change the type ‘shape’ to template T in the code body. For the previous case, shape_wraper = smart_ptr<shape>.</p>
+<p>For now, this smart_ptr have some basic RAII function, it can release the resource when the resource out of its working boundary. However, something is missing.</p>
+<ul>
+<li>it can not use * to dereference resource.</li>
+<li>It can not use -&gt; to point to the object member.</li>
+<li>It can not use when treat it like a boolean operator.<br>
+We can add some member function to solve this issue.</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">smart_ptr</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ...</span><br><span class="line">    T&amp; <span class="keyword">operator</span>*() <span class="keyword">const</span>&#123; <span class="keyword">return</span> *ptr_; &#125;</span><br><span class="line">    T* <span class="keyword">operator</span>-&gt;() <span class="keyword">const</span>&#123; <span class="keyword">return</span> ptr_; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">operator</span> <span class="title">bool</span><span class="params">()</span> <span class="keyword">const</span></span>&#123; <span class="keyword">return</span> ptr_; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Copy-constructor-and-assignment"><a class="header-anchor" href="#Copy-constructor-and-assignment"></a>Copy constructor and assignment</h3>
+<p>we can call the copy constructor and assignment constructor as copy, and this is a little bit complicated compare with the previous case. How to implement is not a problem, but how to define it would be carefully defined. For example, the following case:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">smart_ptr&lt;shape&gt; ptr1&#123;create_shape(shape_type::circle)&#125;; <span class="comment">// copy </span></span><br><span class="line">smart_ptr&lt;shape&gt; ptr2&#123;ptr1&#125;; <span class="comment">// copy</span></span><br></pre></td></tr></table></figure>
+<p>For the second case, it should report a error during compiling or we need to find a better way to define this? Let us see how can we do this:<br>
+The simplest case is prohibit the copy constructor and copy assignment constructor.(the difference will be explained at the end of this article). The code can be programmed as following:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">smart_ptr</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    ...</span><br><span class="line">    smart_ptr(<span class="keyword">const</span> smart_ptr&amp;) = <span class="keyword">delete</span>; <span class="comment">// copy constructor</span></span><br><span class="line">    smart_ptr&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> smart_ptr&amp;) = <span class="keyword">delete</span>; <span class="comment">// copy assignment constrctor</span></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Prohibit those two constructor is very easy, it solved one type error. Otherwise, the code -&gt; smart_ptr<shape> ptr2{ptr1} will become undefined behavior during runtime, it will release the resource twice and crash the program, but it is find during the complication.</p>
+<p>Can we copy the object during the copy smart_ptr? No, nobody will do this, the propose of smart_ptr is reduce the wrapped object copy times. And our point type is shape, but the real pointer should be circle or triangle object. In c++ there is no such a clone method like Java, for common case, there is no other way you can construct a derived class base on a parents type.</p>
+<p>Can we swap the owner ship of the smart pointer? Let us look at the code below:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">smart_ptr</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    ...</span><br><span class="line">    smart_ptr(smart_ptr&amp; other) <span class="comment">// copy constructor</span></span><br><span class="line">    &#123;</span><br><span class="line">        ptr_ = other.release(); </span><br><span class="line">    &#125;</span><br><span class="line">    smart_ptr&amp; <span class="keyword">operator</span>=(smart_ptr&amp; rhs) <span class="comment">// copy assignment constructor</span></span><br><span class="line">    &#123;</span><br><span class="line">        smart_ptr(rhs).swap(*<span class="keyword">this</span>); </span><br><span class="line">        <span class="comment">// use the copy constructor to build a tmp object based on the rhs</span></span><br><span class="line">        <span class="comment">// then swap the ownership of this tmp object with the memebr</span></span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>; </span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// define the release function</span></span><br><span class="line">    <span class="function">T* <span class="title">release</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        T* ptr = ptr_;</span><br><span class="line">        ptr_ = <span class="literal">nullptr</span>; <span class="comment">// pointed to a null ptr</span></span><br><span class="line">        <span class="keyword">return</span> ptr; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// define the swap fucntion</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(smart_ptr&amp; rhs)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">using</span> <span class="built_in">std</span>::swap; </span><br><span class="line">        swap(ptr_, rhs.ptr_); </span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>During the copy, we can call other.release() release the ownership of the object. And during the copy assignment, we can swap the ownership with the temporary object during the copy construction (the first line in the copy assignment constructor).<br>
+If you learn something like</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">this</span> != &amp;rhs) then ...</span><br></pre></td></tr></table></figure>
+<p>this is redundant, and not safe. If something wrong happened during the assignment and through out something, the original object might be already broken, and it is not a complete object anymore.</p>
+<p>This is common case to make sure the strong exception safety. Copy assignment has two steps, the first step is copy then swap, and the exception can only happen in the first step. And if the exception is in the first step, there will be on affect on the <strong>this object</strong>(because during the copy <strong>this</strong> is intact). So weather the copy is successful or not, the result only has two types, sucsssfulled assigned or not, and both of the types are not going to destroy the original object.</p>
+<p>However, our smart_ptr works in some situation, but it is very easy to make mistake. Because, after you assign the object, the original object loss the ownership which is very easy for programmer to make mistakes.</p>
+<p>This is how the auto_ptr define in c<ins>98, and it is deleted from std in c</ins>17.</p>
+<h3 id="“Move”-pointer"><a class="header-anchor" href="#“Move”-pointer"></a>“Move” pointer</h3>
+<p>Let’s see how can we use move to optimize the start_ptr.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">smart_ptr</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    ...</span><br><span class="line">    smart_ptr(smart_ptr&amp;&amp; other)</span><br><span class="line">    &#123;</span><br><span class="line">        ptr_ = other.release();</span><br><span class="line">    &#125;</span><br><span class="line">    smart_ptr&amp; <span class="keyword">operator</span>=(smart_ptr rhs)</span><br><span class="line">    &#123;</span><br><span class="line">        rhs.swap(*<span class="keyword">this</span>);</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>We changed two places:</p>
+<ol>
+<li>In the copy constructor I have changed the smart_ptr&amp; tp smart_ptr&amp;&amp;; So this is not copy constructor anymore, this is move constructor.</li>
+<li>In the assignment constructor the input change from smart_ptr&amp; to smart_ptr, this</li>
+</ol>
+<p>is copied version compared with the previous one. We do not need to generate a temporary object. For right now, the assignment is a copy or move totally depends on the <strong>constructor using copy constructor or move constructor</strong>. The result is shown below:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">smart_ptr&lt;shape&gt; ptr1&#123;create_shape(shape_type::circle)&#125;; </span><br><span class="line">smart_ptr&lt;shape&gt; ptr2&#123;ptr1&#125;;   <span class="comment">// complication error. ptr1 will loss the ownership</span></span><br><span class="line">smart_ptr&lt;shape&gt; ptr3; </span><br><span class="line">ptr3 = ptr1;                   <span class="comment">// complication error. ptr1 will loss the ownership</span></span><br><span class="line">ptr3 = <span class="built_in">std</span>::move(ptr1);        <span class="comment">// OK, programmer knows it will loss the ownership</span></span><br><span class="line">smart_ptr&lt;shape&gt; ptr4&#123;<span class="built_in">std</span>::move(ptr3)&#125;; <span class="comment">// OK</span></span><br></pre></td></tr></table></figure>
+<p>This is like the unique_ptr.</p>
+<h3 id="derived-pointer-type-change-to-father-type"><a class="header-anchor" href="#derived-pointer-type-change-to-father-type"></a>derived pointer type change to father type</h3>
+<p>There is a small defect, for the above case. For example, circle* can directly change to shape* according to hwo circle defined. However, smart_ptr<circle> can not change to smart_ptr<shape>.<br>
+We can add some template code to make it works. For our implement, we can add a constructor.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt;</span><br><span class="line">smart_ptr(smart_ptr&lt;U&gt;&amp;&amp; other)</span><br><span class="line">&#123;</span><br><span class="line">    ptr_ = other.release(); </span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">By doing <span class="keyword">this</span>, smart_ptr&lt;circle&gt; can move to smart_ptr&lt;shape&gt;. However, we have a better way to <span class="keyword">do</span> <span class="keyword">this</span>, will discussed in the following chapter. </span><br><span class="line"></span><br><span class="line">### Reference Counting</span><br><span class="line"><span class="built_in">unique_ptr</span> is a safe smart pointer. However, one object can only has one unique pointer <span class="keyword">not</span> works <span class="keyword">for</span> all cases. For some cases, we need to define an object pointed by several objects, <span class="keyword">and</span> when no one point to the object, its will call the destructor to <span class="keyword">delete</span> itself. This is the basic idea <span class="keyword">for</span> share_ptr. </span><br><span class="line"></span><br><span class="line">So different <span class="built_in">shared_ptr</span> can share one object, <span class="keyword">and</span> count how many pointer pointed to it. Our implement:</span><br><span class="line">```cpp</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">shared_count</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    shared_count();</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">add_count</span><span class="params">()</span></span>; </span><br><span class="line">    <span class="function"><span class="keyword">long</span> <span class="title">reduce_count</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">long</span> <span class="title">get_count</span><span class="params">()</span> <span class="keyword">const</span></span>; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>This shared_count has a constructor and 3 methods.</p>
+<ol>
+<li>add counter.</li>
+<li>reduce counter.</li>
+<li>get the counter.<br>
+Add counter no return needed, and reduce counter need to return the counter. The calling method can check whether it is the last one pointed to this object. Now, we are not going to implement a multi-tread version, we are using a simplified version for single thread version only.</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">shared_count</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">    shared_count() : count_(<span class="number">1</span>) &#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">add_count</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        ++count_;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">long</span> <span class="title">reduce_count</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        --count_;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">long</span> <span class="title">get_count</span><span class="params">()</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> count_;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>: </span><br><span class="line">    <span class="keyword">long</span> count_; </span><br><span class="line">&#125;;</span><br><span class="line">``` </span><br><span class="line">Now we can revise our smart pointer, constructor <span class="keyword">and</span> destructor <span class="keyword">and</span> <span class="keyword">private</span> member functions. </span><br><span class="line">```cpp</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">smart_ptr</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">smart_ptr</span><span class="params">(T* ptr = <span class="literal">nullptr</span>)</span></span></span><br><span class="line">    : ptr_(ptr)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(ptr)</span><br><span class="line">        &#123;</span><br><span class="line">            shared_count_ = <span class="keyword">new</span> shared_count(); </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ~smart_ptr()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (ptr_ &amp;&amp; </span><br><span class="line">           !shared_count_-&gt;reduce_count())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">delete</span> ptr_;</span><br><span class="line">            <span class="keyword">delete</span> shared_count_;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>: </span><br><span class="line">    T* ptr_;</span><br><span class="line">    shared_count* shared_count_; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Compare with the previous version, the constructor construct a shared_conut. And the destructor will check the ptr_ empty or not. If it is not empty reduce the count, and if the reduce_count return a 0, then delete the ptr_ and shared_count_ object.<br>
+We need a new swap function.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(smart_ptr&amp; rhs)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="built_in">std</span>::swap; </span><br><span class="line">    swap(ptr_, rhs.ptr_);</span><br><span class="line">    swap(shared_count_, rhs.shared_count_); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">smart_ptr(<span class="keyword">const</span> smart_ptr&amp; other) <span class="comment">// copy constructor</span></span><br><span class="line">&#123;</span><br><span class="line">    ptr_ = other.ptr_;</span><br><span class="line">    <span class="keyword">if</span>(ptr_)</span><br><span class="line">    &#123;</span><br><span class="line">        other.shared_count_ -&gt; add_count(); <span class="comment">// add a count to the previous object </span></span><br><span class="line">        shared_count_ = other.shared_count_;</span><br><span class="line">        <span class="comment">// shared_count_ is a common object across all the object</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> U&gt;</span><br><span class="line">smart_ptr(<span class="keyword">const</span> smart_ptr&amp; other)</span><br><span class="line">&#123;</span><br><span class="line">    ptr_ = other.ptr_;</span><br><span class="line">    <span class="keyword">if</span> (ptr_) <span class="comment">// ptr_ is not nullptr</span></span><br><span class="line">    &#123;</span><br><span class="line">        other.shared_count_ -&gt; add_count();</span><br><span class="line">        shared_count_ = other.shared_count_;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt;</span><br><span class="line">smart_ptr(smart_ptr&lt;U&gt;&amp;&amp; other) <span class="comment">// move constructor, transfer the ownership</span></span><br><span class="line">&#123;</span><br><span class="line">    ptr_ = other.ptr_; </span><br><span class="line">    <span class="keyword">if</span> (ptr_)</span><br><span class="line">    &#123;</span><br><span class="line">        shared_count_ = other.shared_count_;</span><br><span class="line">        other.ptr_    = <span class="literal">nullptr</span>; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>For copy, if the pointer is not empty, we should add 1 to the counter class, and copy the counter class pointer. For move, we do not need to change the reference counting, just change the original object pointer to nullptr.<br>
+However, the code above have some complication error.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fatal error: ‘ptr_’ is a private member of ‘smart_ptr&lt;circle&gt;’</span><br><span class="line">``` </span><br><span class="line">The reason is that, the template are not friend between each other, so it can not access the ptr_ and shared_count_. we need to <span class="built_in">declare</span> the friendship </span><br><span class="line"></span><br><span class="line">```cpp</span><br><span class="line">template&lt;typename U&gt;</span><br><span class="line">friend class smart_ptr</span><br></pre></td></tr></table></figure>
+<p>For previous case, we need to release the ownership manually. After the reference counting, we can release the ownership by counting. We need to add one more functon to achieve this.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">use_count</span><span class="params">()</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (ptr_) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> shared_count_ -&gt; get_count();</span><br><span class="line">        <span class="comment">// in this case, the return value should not 0; </span></span><br><span class="line">    &#125; <span class="keyword">else</span> </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Cast-the-pointer-type"><a class="header-anchor" href="#Cast-the-pointer-type"></a>Cast the pointer type</h3>
+<p>In C++ there are 3 cases for type change:</p>
+<ul>
+<li>static_cast</li>
+<li>reinterpret_cast</li>
+<li>const_cast</li>
+<li>dynamic_cast<br>
+code</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt;</span><br><span class="line">smart_ptr(<span class="keyword">const</span> smart_ptr&lt;U&gt;&amp; other, T* ptr)</span><br><span class="line">&#123;</span><br><span class="line">    ptr_ = ptr; </span><br><span class="line">    <span class="keyword">if</span> (ptr_)</span><br><span class="line">    &#123;</span><br><span class="line">        other.shared_count_ -&gt; add_count();</span><br><span class="line">        shared_count_ = other.shared_count_;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Now we have the template for changing the types.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</span><br><span class="line">smart_ptr&lt;T&gt; dynamic_pointer_cast(<span class="keyword">const</span> smart_ptr&lt;U&gt;&amp; other)</span><br><span class="line">&#123;</span><br><span class="line">    T* ptr = <span class="keyword">dynamic_cast</span>&lt;T*&gt;(other.get); </span><br><span class="line">    <span class="keyword">return</span> smart_ptr&lt;T&gt;(other, ptr); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Whole-Code"><a class="header-anchor" href="#Whole-Code"></a>Whole Code</h3>
+<p>Now we have everything we need, then we can test the code.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;utility&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::swap; </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">shape</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">virtual</span> ~shape() &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">circle</span> :</span> <span class="keyword">public</span> shape</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ~circle() </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"~circles"</span>); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">shared_count</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    shared_count() <span class="keyword">noexcept</span></span><br><span class="line">     : count_(<span class="number">1</span>) &#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">add_count</span><span class="params">()</span> <span class="keyword">noexcept</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        ++count_; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">long</span> <span class="title">reduce_count</span><span class="params">()</span> <span class="keyword">noexcept</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> --count_;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">long</span> <span class="title">get_count</span><span class="params">()</span> <span class="keyword">const</span> <span class="keyword">noexcept</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> count_; </span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">long</span> count_; </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">smart_ptr</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt; <span class="keyword">friend</span> <span class="class"><span class="keyword">class</span> <span class="title">smart_ptr</span>;</span> </span><br><span class="line">    </span><br><span class="line">    <span class="comment">// constructor</span></span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">smart_ptr</span><span class="params">(T* ptr = <span class="literal">nullptr</span>)</span></span></span><br><span class="line">    : ptr_(ptr)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (ptr)</span><br><span class="line">        &#123;</span><br><span class="line">            shared_count_ = <span class="keyword">new</span> shared_count();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// destructor</span></span><br><span class="line">    ~smart_ptr()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (ptr_ &amp;&amp; !shared_count_-&gt;reduce_count())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">delete</span> ptr_;</span><br><span class="line">            <span class="keyword">delete</span> shared_count_;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// copy constructor</span></span><br><span class="line">    smart_ptr(<span class="keyword">const</span> smart_ptr&amp; other)</span><br><span class="line">    &#123;</span><br><span class="line">        ptr_ = other.ptr_;</span><br><span class="line">        <span class="keyword">if</span>(ptr_)</span><br><span class="line">        &#123;</span><br><span class="line">            other.shared_count_-&gt; add_count();</span><br><span class="line">            shared_count_ = other.shared_count_; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> U&gt;</span><br><span class="line">    smart_ptr(<span class="keyword">const</span> smart_ptr&lt;U&gt;&amp; other) <span class="keyword">noexcept</span></span><br><span class="line">    &#123;</span><br><span class="line">        ptr_ = other.ptr_;</span><br><span class="line">        <span class="keyword">if</span>(ptr_)</span><br><span class="line">        &#123;</span><br><span class="line">            other.shared_count_-&gt; add_count();</span><br><span class="line">            shared_count_ = other.shared_count_; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> U&gt;</span><br><span class="line">    smart_ptr(smart_ptr&lt;U&gt;&amp;&amp; other) <span class="keyword">noexcept</span></span><br><span class="line">    &#123;</span><br><span class="line">        ptr_ = other.ptr_;</span><br><span class="line">        <span class="keyword">if</span> (ptr_)</span><br><span class="line">        &#123;</span><br><span class="line">            shared_count_ = other.shared_count_;</span><br><span class="line">            other.ptr_ = <span class="literal">nullptr</span>; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// use this when using the cast fucntion</span></span><br><span class="line">    <span class="comment">// constructor, do not need to define the return type</span></span><br><span class="line">    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt;</span><br><span class="line">    smart_ptr(<span class="keyword">const</span> smart_ptr&lt;U&gt;&amp; other, T* ptr) <span class="keyword">noexcept</span></span><br><span class="line">    &#123;</span><br><span class="line">        ptr_ = other.ptr_;</span><br><span class="line">        <span class="keyword">if</span>(ptr_)</span><br><span class="line">        &#123;</span><br><span class="line">            other.shared_count_-&gt; add_count();</span><br><span class="line">            shared_count_ = other.shared_count_; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    smart_ptr&amp;</span><br><span class="line">    <span class="keyword">operator</span>=(smart_ptr rhs) <span class="keyword">noexcept</span></span><br><span class="line">    &#123;</span><br><span class="line">        rhs.swap(*<span class="keyword">this</span>);</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">T* <span class="title">get</span><span class="params">()</span> <span class="keyword">const</span> <span class="keyword">noexcept</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ptr_;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">long</span> <span class="title">use_count</span><span class="params">()</span> <span class="keyword">const</span> <span class="keyword">noexcept</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (ptr_)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> shared_count_-&gt;get_count(); </span><br><span class="line">        &#125; <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(smart_ptr&amp; rhs)</span> <span class="keyword">noexcept</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">using</span> <span class="built_in">std</span>::swap;</span><br><span class="line">        swap(ptr_, rhs.ptr_);</span><br><span class="line">        swap(shared_count_, rhs.shared_count_); </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// operators </span></span><br><span class="line">    T&amp; <span class="keyword">operator</span>*() <span class="keyword">const</span> <span class="keyword">noexcept</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> *ptr_;</span><br><span class="line">    &#125;</span><br><span class="line">    T* <span class="keyword">operator</span>-&gt;() <span class="keyword">const</span> <span class="keyword">noexcept</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> ptr_;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">operator</span> <span class="title">bool</span><span class="params">()</span> <span class="keyword">const</span> <span class="keyword">noexcept</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ptr_;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    T* ptr_;</span><br><span class="line">    shared_count* shared_count_; </span><br><span class="line">&#125;; </span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(smart_ptr&lt;T&gt;&amp; lhs, </span></span></span><br><span class="line"><span class="function"><span class="params">          smart_ptr&lt;T&gt;&amp; rhs)</span> <span class="keyword">noexcept</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    lhs.swap(rhs); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</span><br><span class="line">smart_ptr&lt;T&gt; static_pointer_cast(</span><br><span class="line">    <span class="keyword">const</span> smart_ptr&lt;U&gt;&amp; other) <span class="keyword">noexcept</span></span><br><span class="line">&#123;</span><br><span class="line">    T* ptr = <span class="keyword">static_cast</span>&lt;T*&gt;(other.get()); </span><br><span class="line">    <span class="keyword">return</span> smart_ptr&lt;T&gt;(other, ptr); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</span><br><span class="line">smart_ptr&lt;T&gt; reinterpret_pointer_cast(</span><br><span class="line">    <span class="keyword">const</span> smart_ptr&lt;U&gt;&amp; other) <span class="keyword">noexcept</span></span><br><span class="line">&#123;</span><br><span class="line">    T* ptr = <span class="keyword">reinterpret_cast</span>&lt;T*&gt;(other.get()); </span><br><span class="line">    <span class="keyword">return</span> smart_ptr&lt;T&gt;(other, ptr); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</span><br><span class="line">smart_ptr&lt;T&gt; const_pointer_cast(</span><br><span class="line">    <span class="keyword">const</span> smart_ptr&lt;U&gt;&amp; other) <span class="keyword">noexcept</span></span><br><span class="line">&#123;</span><br><span class="line">    T* ptr = <span class="keyword">const_cast</span>&lt;T*&gt;(other.get());</span><br><span class="line">    <span class="keyword">return</span> smart_ptr&lt;T&gt;(other, ptr); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</span><br><span class="line">smart_ptr&lt;T&gt; dynamic_pointer_cast(</span><br><span class="line">    <span class="keyword">const</span> smart_ptr&lt;U&gt;&amp; other) <span class="keyword">noexcept</span></span><br><span class="line">&#123;</span><br><span class="line">    T* ptr = <span class="keyword">dynamic_cast</span>&lt;T*&gt;(other.get()); </span><br><span class="line">    <span class="keyword">return</span> smart_ptr&lt;T&gt;(other, ptr); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  smart_ptr&lt;circle&gt; ptr1(<span class="keyword">new</span> circle());</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"use count of ptr1 is %ld\n"</span>,</span><br><span class="line">         ptr1.use_count());</span><br><span class="line">  smart_ptr&lt;shape&gt; ptr2;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"use count of ptr2 was %ld\n"</span>,</span><br><span class="line">         ptr2.use_count());</span><br><span class="line">  ptr2 = ptr1;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"use count of ptr2 is now %ld\n"</span>,</span><br><span class="line">         ptr2.use_count());</span><br><span class="line">  <span class="keyword">if</span> (ptr1) &#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"ptr1 is not empty"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>We will discuss the smart pointe later, thanks for reading this. I will try my best to post more technique blog.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/27/hexo-study/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Xu">
+      <meta itemprop="description" content="This is the place for Liang to make any notes if he feels like it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liang Xu">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/27/hexo-study/" class="post-title-link" itemprop="url">hexo_study2</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-27 01:05:27" itemprop="dateCreated datePublished" datetime="2019-11-27T01:05:27-05:00">2019-11-27</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Global-Asset-Folder"><a class="header-anchor" href="#Global-Asset-Folder"></a>Global Asset Folder</h3>
+<p>Assets are non-post files in the source folder, such as images, CSS or JavaScript files. For instance, If you are only going to have a few images in the Hexo project, then the easiest way is to keep them in a source/images directory. Then, you can access them using something like regular image called in MK.</p>
+<h3 id="Post-Asset-Folder"><a class="header-anchor" href="#Post-Asset-Folder"></a>Post Asset Folder</h3>
+<p>For users who expect to regularly serve images and/or other assets, and for those who prefer to separate their assets on a post-per-post basis, Hexo also provides a more organized way to manage assets.<br>
+his slightly more involved, but very convenient approach to asset management can be turned on by setting the post_asset_folder setting in _config.yml to true.</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">_config.yml</span></span><br><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>With asset folder management enabled, Hexo will create a folder every time you make a new post with the hexo new</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[layout] &lt;title&gt; command.</span><br></pre></td></tr></table></figure>
+<p>This asset folder will have the same name as the markdown file associated with the post. Place all assets related to your post into the associated folder, and you will be able to reference them using a <strong>relative path</strong>, making for an easier and more convenient workflow. What is relative path?</p>
+<h3 id="Tag-Plugins-For-Relative-Path-Referencing"><a class="header-anchor" href="#Tag-Plugins-For-Relative-Path-Referencing"></a>Tag Plugins For Relative Path Referencing</h3>
+<p>Referencing images or other assets using normal markdown syntax and relative paths may lead to incorrect display on archive or index pages.<br>
+with the release of Hexo 3, several new tag plugins were added to core. These enable you to reference your assets more easily in posts:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_path slug %&#125;</span><br><span class="line">&#123;% asset_img slug [title] %&#125;</span><br><span class="line">&#123;% asset_link slug [title] %&#125;</span><br></pre></td></tr></table></figure>
+<p>For example, with post asset folders enabled, if you place an image example.jpg into your asset folder, it will not appear on the index page if you reference it using a relative path with regular ! [] (/example.jpg) markdown syntax (however, it will work as expected in the post itself).<br>
+The correct way to reference the image will thus be using tag plugin syntax rather than markdown:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img example.jpg This is an example image %&#125;</span><br><span class="line">&#123;% asset_img <span class="string">"spaced asset.png"</span> <span class="string">"spaced title"</span> %&#125;</span><br></pre></td></tr></table></figure>
+<p>This way, the image will appear both inside the post and on index and archive pages.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/24/hexoStudy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Xu">
+      <meta itemprop="description" content="This is the place for Liang to make any notes if he feels like it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liang Xu">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/24/hexoStudy/" class="post-title-link" itemprop="url">hexoStudy_1</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-24 16:35:11" itemprop="dateCreated datePublished" datetime="2019-11-24T16:35:11-05:00">2019-11-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-11-28 23:40:27" itemprop="dateModified" datetime="2019-11-28T23:40:27-05:00">2019-11-28</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Setup"><a class="header-anchor" href="#Setup"></a>Setup</h3>
+<p>Once initialized, here’s what your project folder will look like:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+<h4 id="config-yml"><a class="header-anchor" href="#config-yml"></a>_config.yml</h4>
+<p>site configuration file. You can configure most setting here.</p>
+<h4 id="package-json"><a class="header-anchor" href="#package-json"></a>package.json</h4>
+<p>Application data. The EJS, Stylus and Markdown renderers are installed by default. If you want, you can uninstall them later.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package.json</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"hexo-site"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.0.0"</span>,</span><br><span class="line">  <span class="attr">"private"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">"hexo"</span>: &#123;</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">""</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"hexo"</span>: <span class="string">"^3.8.0"</span>,</span><br><span class="line">    <span class="attr">"hexo-generator-archive"</span>: <span class="string">"^0.1.5"</span>,</span><br><span class="line">    <span class="attr">"hexo-generator-category"</span>: <span class="string">"^0.1.3"</span>,</span><br><span class="line">    <span class="attr">"hexo-generator-index"</span>: <span class="string">"^0.2.1"</span>,</span><br><span class="line">    <span class="attr">"hexo-generator-tag"</span>: <span class="string">"^0.2.0"</span>,</span><br><span class="line">    <span class="attr">"hexo-renderer-ejs"</span>: <span class="string">"^0.3.1"</span>,</span><br><span class="line">    <span class="attr">"hexo-renderer-stylus"</span>: <span class="string">"^0.3.3"</span>,</span><br><span class="line">    <span class="attr">"hexo-renderer-marked"</span>: <span class="string">"^0.3.2"</span>,</span><br><span class="line">    <span class="attr">"hexo-server"</span>: <span class="string">"^0.3.3"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="scaffolds"><a class="header-anchor" href="#scaffolds"></a>scaffolds</h4>
+<p>Scaffold folder. When you create a new post, Hexo bases the new file on the scaffold.</p>
+<h4 id="source"><a class="header-anchor" href="#source"></a>source</h4>
+<p>Source folder. This is where you put your site’s content.<br>
+Hexo <strong>ignores</strong> hidden files and files or folders whose names are prefixed with _ (underscore) - except the _posts folder.Renderable files (e.g. Markdown, HTML) will be processed and put into the public folder, while other files will simply be copied.</p>
+<h4 id="themes"><a class="header-anchor" href="#themes"></a>themes</h4>
+<p>Theme folder. Hexo generates a static website by combining the site contents with the theme.</p>
+<h3 id="Configuration"><a class="header-anchor" href="#Configuration"></a>Configuration</h3>
+<p>You can modify site settings in _config.yml</p>
+<h4 id="Site"><a class="header-anchor" href="#Site"></a>Site</h4>
+<p><strong>Site</strong><br>
+Setting	and its description:<br>
+<strong>title</strong>: The title of your website<br>
+<strong>subtitle</strong>:The subtitle of your website<br>
+<strong>description</strong>: The description of your website<br>
+<strong>keywords</strong>: The keywords of your website. Separate multiple keywords with commas ,.<br>
+<strong>author</strong>: Your name<br>
+<strong>language</strong>: The language of your website. Use a 2-letter ISO-639-1 code or optionally its variant. Default is en.<br>
+<strong>timezone</strong>: The timezone of your website. Hexo uses the setting on your computer by default. You can find the list of available timezones <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank" rel="noopener">here</a>. Some examples are America/New_York, Japan, and UTC.</p>
+<h4 id="URL"><a class="header-anchor" href="#URL"></a>URL</h4>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>The URL of your website</td>
+<td></td>
+</tr>
+<tr>
+<td>root</td>
+<td>The root directory of your website</td>
+<td></td>
+</tr>
+<tr>
+<td>permalink</td>
+<td>The  permalink format of articles</td>
+<td>:year/:month/:day/:title/</td>
+</tr>
+<tr>
+<td>permalink_defaults</td>
+<td>Default values of each segment in permalink</td>
+<td></td>
+</tr>
+<tr>
+<td>pretty_urls</td>
+<td>Rewrite the permalinkvariables to pretty URLs</td>
+<td></td>
+</tr>
+<tr>
+<td>pretty_urls.trailing_index</td>
+<td>Trailing index.html, set to false to remove it</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Commands"><a class="header-anchor" href="#Commands"></a>Commands</h3>
+<h4 id="init"><a class="header-anchor" href="#init"></a>init</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init [folder]</span><br></pre></td></tr></table></figure>
+<h4 id="new"><a class="header-anchor" href="#new"></a>new</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<p>Creates a new article. If no layout is provided, Hexo will use the default_layout from _config.yml. If the title contains spaces, surround it with quotation marks.</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p, --path</td>
+<td>Post path. Customize the path of the post.</td>
+</tr>
+<tr>
+<td>-r, --replace</td>
+<td>Replace the current post if existed.</td>
+</tr>
+<tr>
+<td>-s, --slug</td>
+<td>Post slug. Customize the URL of the post.</td>
+</tr>
+</tbody>
+</table>
+<p>By default, Hexo will use the title to define the path of the file. For pages, it will create a deirectory of that name and an <a href="http://index.md" target="_blank" rel="noopener">index.md</a> file in it.Use the --path option to override that behaviour and define the file path:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page --path about/me <span class="string">"About me"</span></span><br></pre></td></tr></table></figure>
+<p>page teamplate is in the scaffolds folder.<br>
+will create source/about/me.md file with the title “About me” set in the front matter. Please note that the title is mandatory. For example, this will not result in the behaviour you might expect:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page --path about/me</span><br></pre></td></tr></table></figure>
+<p>will create the post source/_posts/about/me.md with the title “page” in the front matter. This is because there is only one argument (page) and the default layout is post.</p>
+<h4 id="generate"><a class="header-anchor" href="#generate"></a>generate</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-d, --deploy</td>
+<td>Deploy after generation finishes</td>
+</tr>
+</tbody>
+</table>
+<h4 id="publish"><a class="header-anchor" href="#publish"></a>publish</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+<p>Publishes a draft. Move the file from draft to post folder.</p>
+<h3 id="Writing"><a class="header-anchor" href="#Writing"></a>Writing</h3>
+<p>To create a new post or a new page, you can run the following command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<p>post is the default layout, but you can supply your own. You can change the default layout by editing the default_layout setting in _config.yml.</p>
+<h4 id="Layout"><a class="header-anchor" href="#Layout"></a>Layout</h4>
+<p>There are three default layouts in Hexo: post, page and draft. Files created by each of them is saved to a different path. Newly created posts are saved to the source/_posts folder.</p>
+<table>
+<thead>
+<tr>
+<th>Layout</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>post</td>
+<td>source/_posts</td>
+</tr>
+<tr>
+<td>root</td>
+<td>source</td>
+</tr>
+<tr>
+<td>draft</td>
+<td>source/_drafts</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Filename"><a class="header-anchor" href="#Filename"></a>Filename</h4>
+<p>By default, Hexo uses the post title as its filename. You can edit the <strong>new_post_name</strong> seting in _config.yml to change the default filename.  For example, :year-:month-:day-:title.md will prefix filenames with the post creation date. You can use the following placeholders:</p>
+<table>
+<thead>
+<tr>
+<th>Layout</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:title</td>
+<td>Post title (lower case, with spaces replaced by hyphens)</td>
+</tr>
+<tr>
+<td>:year</td>
+<td>Created year, e.g. 2015</td>
+</tr>
+<tr>
+<td>:month</td>
+<td>Created month (leading zeros), e.g. 04</td>
+</tr>
+<tr>
+<td>:i_month</td>
+<td>Created month (no leading zeros), e.g. 4</td>
+</tr>
+<tr>
+<td>:day</td>
+<td>Created day (leading zeros), e.g. 07</td>
+</tr>
+<tr>
+<td>:i_day</td>
+<td>Created day (no leading zeros), e.g. 7</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Draft"><a class="header-anchor" href="#Draft"></a>Draft</h4>
+<p>Previously, we mentioned a special layout in Hexo: draft. Posts initialized with this layout are saved to the <strong>source/_drafts</strong> folder. You can use the publish command to move drafts to the source/_posts folder. publish works in a similar way to the new command.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo publish [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<p>Drafts are not displayed by default. You can add the --draft option when running Hexo or enable the render_drafts setting in _config.yml to render drafts.</p>
+<h4 id="Scaffolds"><a class="header-anchor" href="#Scaffolds"></a>Scaffolds</h4>
+<p>When creating posts, Hexo will build files based on the corresponding file in scaffolds folder. For example:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new photo <span class="string">"My Gallery"</span></span><br></pre></td></tr></table></figure>
+<p>When you run this command, Hexo will try to find <a href="http://photo.md" target="_blank" rel="noopener">photo.md</a> in the scaffolds folder and build the post based on it. The following placeholders are available in scaffolds:</p>
+<table>
+<thead>
+<tr>
+<th>Layout</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>layout</td>
+<td>Layout</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Title</td>
+</tr>
+<tr>
+<td>date</td>
+<td>File created date</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Front-matter"><a class="header-anchor" href="#Front-matter"></a>Front-matter</h3>
+<p>Front-matter is a block of YAML or JSON at the beginning of the file that is used to configure settings for your writings. Front-matter is terminated by three dashes when written in YAML or three semicolons when written in JSON.</p>
+<p>YAML</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">AML</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Hello</span> <span class="string">World</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2013</span><span class="string">/7/13</span> <span class="number">20</span><span class="string">:46:25</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">JSON</span><br><span class="line">"title": "Hello World",</span><br><span class="line">"date": "2013/7/13 20:46:25"</span><br><span class="line">;;;</span><br></pre></td></tr></table></figure>
+<h4 id="Settings-Their-Default-Values"><a class="header-anchor" href="#Settings-Their-Default-Values"></a>Settings &amp; Their Default Values</h4>
+<table>
+<thead>
+<tr>
+<th>Layout</th>
+<th>Path</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>layout</td>
+<td>layout</td>
+<td></td>
+</tr>
+<tr>
+<td>title</td>
+<td>Title</td>
+<td>Filename (posts only)</td>
+</tr>
+<tr>
+<td>date</td>
+<td>Published date</td>
+<td>File created date</td>
+</tr>
+<tr>
+<td>updated</td>
+<td>Updated date</td>
+<td>File updated date</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>Enables comment feature for the post</td>
+<td>true</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>Tags</td>
+<td>(Not available for pages)</td>
+</tr>
+<tr>
+<td>categories</td>
+<td>Categories (Not available for pages)</td>
+<td></td>
+</tr>
+<tr>
+<td>permalink</td>
+<td>Overrides the default permalink of the post</td>
+<td></td>
+</tr>
+<tr>
+<td>keywords</td>
+<td>The keywords that only used in meta tag and Open Graph (not recommended</td>
+<td></td>
+</tr>
+<tr>
+<td>excerpt</td>
+<td>Page excerpt in plain text. Use this plugin to format the text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="Categories-Tags"><a class="header-anchor" href="#Categories-Tags"></a>Categories &amp; Tags</h4>
+<p>Only posts support the use of categories and tags.</p>
+<ol>
+<li><strong>Categories</strong> apply to posts in order, resulting in a hierarchy of classifications and sub-classifications.</li>
+<li><strong>Tags</strong> are all defined on the same hierarchical level so the order in which they appear is not important.<br>
+<strong>Example</strong></li>
+</ol>
+<p>categories:</p>
+<ul>
+<li>Sports</li>
+<li>Baseball</li>
+</ul>
+<p>tags:</p>
+<ul>
+<li>Injury</li>
+<li>Fight</li>
+<li>Shocking</li>
+</ul>
+<p>If you want to apply multiple category hierarchies, use a list of names instead of a single name. If Hexo sees any categories defined this way on a post, it will treat each category for that post as its own independent hierarchy.<br>
+<strong>Example</strong></p>
+<p>categories:</p>
+<ul>
+<li>[Sports, Baseball]</li>
+<li>[MLB, American League, Boston Red Sox]</li>
+<li>[MLB, American League, New York Yankees]</li>
+<li>Rivalries</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/24/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Xu">
+      <meta itemprop="description" content="This is the place for Liang to make any notes if he feels like it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liang Xu">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/24/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-24 16:09:05" itemprop="dateCreated datePublished" datetime="2019-11-24T16:09:05-05:00">2019-11-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a class="header-anchor" href="#Quick-Start"></a>Quick Start</h2>
+<h3 id="Create-a-new-post"><a class="header-anchor" href="#Create-a-new-post"></a>Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a class="header-anchor" href="#Run-server"></a>Run server</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a class="header-anchor" href="#Generate-static-files"></a>Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a class="header-anchor" href="#Deploy-to-remote-sites"></a>Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/24/hello-world2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -244,8 +1125,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Welcome to my post, and this is a place for me to write anything I feed like. Making notes for what I have learn, sharing ideas with whoever reads it. </p>
-<h3 id="Test-post"><a href="#Test-post" class="headerlink" title="Test post"></a>Test post</h3><p><img src="/images/images.png" alt=""></p>
+          <p>Welcome to my post, and this is a place for me to write anything I feed like. Making notes for what I have learn, sharing ideas with whoever reads it.</p>
+<h3 id="Test-post"><a class="header-anchor" href="#Test-post"></a>Test post</h3>
+<p><img src="/images/images.png" alt=""></p>
 
       
     </div>
@@ -400,76 +1282,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/22/testPost/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Liang Xu">
-      <meta itemprop="description" content="This is the place for Liang to make any notes if he feels like it">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Liang Xu">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/22/testPost/" class="post-title-link" itemprop="url">testPost</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-11-22 13:52:49" itemprop="dateCreated datePublished" datetime="2019-11-22T13:52:49-05:00">2019-11-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-24 16:09:05" itemprop="dateModified" datetime="2019-11-24T16:09:05-05:00">2019-11-24</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="img.png" alt=""></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -513,7 +1330,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -526,7 +1343,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

@@ -46,13 +46,13 @@
   };
 </script>
 
-  <meta name="description" content="This post will talk about the container.  Stringmembers:   begin end empty size swap      Because string needs to compatible with C language, so begin point to the beginning of the char array, and end">
+  <meta name="description" content="This post will talk about the container. String members:  begin end empty size swap     Because string needs to compatible with C language, so begin point to the beginning of the char array, and end p">
 <meta name="keywords" content="c++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CPP_05 Container_01">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;13&#x2F;c-Continer-CPP-05&#x2F;index.html">
 <meta property="og:site_name" content="Liang Xu">
-<meta property="og:description" content="This post will talk about the container.  Stringmembers:   begin end empty size swap      Because string needs to compatible with C language, so begin point to the beginning of the char array, and end">
+<meta property="og:description" content="This post will talk about the container. String members:  begin end empty size swap     Because string needs to compatible with C language, so begin point to the beginning of the char array, and end p">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2019-12-13T05:37:27.000Z">
 <meta name="twitter:card" content="summary">
@@ -245,8 +245,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>This post will talk about the container. </p>
-<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><p>members: </p>
+        <p>This post will talk about the container.</p>
+<h2 id="String"><a class="header-anchor" href="#String"></a>String</h2>
+<p>members:</p>
 <ul>
 <li>begin</li>
 <li>end</li>
@@ -255,8 +256,7 @@
 <li>swap</li>
 </ul>
 <p align = "center"> <img width = "500" src = "images/04_container_2019-12-12-22-31-16.png "> </p>
-
-<p>Because string needs to compatible with C language, so begin point to the beginning of the char array, and end pointed to the “\0” this is a bit different compared with the normal container. For most of the cast, end() will point a space. </p>
+<p>Because string needs to compatible with C language, so begin point to the beginning of the char array, and end pointed to the “\0” this is a bit different compared with the normal container. For most of the cast, end() will point a space.</p>
 <ul>
 <li>support + += operation</li>
 <li>find</li>
@@ -265,58 +265,67 @@
 <li>to numbers <code>stoi</code> and <code>to_string</code></li>
 </ul>
 <blockquote>
-<p><strong>stoi</strong><br>Convert string to integer<br>int stoi (const string&amp; str, size_t* idx = 0, int base = 10);<br><code>str</code>: String object with the representation of an integral number.<br><code>idx</code>: Pointer to an object of type size_t, whose value is set by the function to position of the next character in str after the numerical value.</p>
+<p><strong>stoi</strong><br>
+Convert string to integer<br>
+int stoi (const string&amp; str, size_t* idx = 0, int base = 10);<br>
+<code>str</code>: String object with the representation of an integral number.<br>
+<code>idx</code>: Pointer to an object of type size_t, whose value is set by the function to position of the next character in str after the numerical value.</p>
 </blockquote>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// stoi example</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt; // std::cout</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt; // std::string, std::stoi</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="built_in">std</span>::<span class="built_in">string</span> str_dec = <span class="string">"2001, A Space Odyssey"</span>;</span><br><span class="line"> <span class="built_in">std</span>::<span class="built_in">string</span> str_hex = <span class="string">"40c3"</span>;</span><br><span class="line"> <span class="built_in">std</span>::<span class="built_in">string</span> str_bin = <span class="string">"-10010110001"</span>;</span><br><span class="line"> <span class="built_in">std</span>::<span class="built_in">string</span> str_auto = <span class="string">"0x7f"</span>;</span><br><span class="line"></span><br><span class="line"> <span class="built_in">std</span>::<span class="built_in">string</span>::size_type sz; <span class="comment">// alias of size_t</span></span><br><span class="line"></span><br><span class="line"> <span class="keyword">int</span> i_dec = <span class="built_in">std</span>::stoi (str_dec,&amp;sz);</span><br><span class="line"> <span class="keyword">int</span> i_hex = <span class="built_in">std</span>::stoi (str_hex,<span class="literal">nullptr</span>,<span class="number">16</span>);</span><br><span class="line"> <span class="keyword">int</span> i_bin = <span class="built_in">std</span>::stoi (str_bin,<span class="literal">nullptr</span>,<span class="number">2</span>);</span><br><span class="line"> <span class="keyword">int</span> i_auto = <span class="built_in">std</span>::stoi (str_auto,<span class="literal">nullptr</span>,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"> <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; str_dec &lt;&lt; <span class="string">": "</span> &lt;&lt; i_dec &lt;&lt; <span class="string">" and ["</span> &lt;&lt; str_dec.substr(sz) &lt;&lt; <span class="string">"]\n"</span>;</span><br><span class="line"> <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; str_hex &lt;&lt; <span class="string">": "</span> &lt;&lt; i_hex &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line"> <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; str_bin &lt;&lt; <span class="string">": "</span> &lt;&lt; i_bin &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line"> <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; str_auto &lt;&lt; <span class="string">": "</span> &lt;&lt; i_auto &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2001, A Space Odyssey: 2001 and [, A Space Odyssey]</span><br><span class="line">40c3: 16579</span><br><span class="line">-10010110001: -1201</span><br><span class="line">0x7f: 127</span><br></pre></td></tr></table></figure>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">int</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">long</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">unsigned</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">unsigned</span> <span class="keyword">long</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">float</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">double</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">long</span> <span class="keyword">double</span> val)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>Not recommaned to use as a interface. for example<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span>* <span class="title">getChar</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; inString)</span></span>; </span><br><span class="line"><span class="function"><span class="keyword">void</span>* <span class="title">getChar</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* inString)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>Not recommaned to use as a interface. for example</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span>* <span class="title">getChar</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; inString)</span></span>; </span><br><span class="line"><span class="function"><span class="keyword">void</span>* <span class="title">getChar</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* inString)</span></span>;</span><br></pre></td></tr></table></figure>
 <p>Simple program</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> name;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"What's your name? "</span>;</span><br><span class="line">getline(<span class="built_in">cin</span>, name);</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"Nice to meet you, "</span> &lt;&lt; name</span><br><span class="line"> &lt;&lt; <span class="string">"!\n"</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h2><p>std::vector probability the most popular container. </p>
+<h2 id="Vector"><a class="header-anchor" href="#Vector"></a>Vector</h2>
+<p>std::vector probability the most popular container.</p>
 <p align = "center"> <img width = "500" src = "images/04_container_2019-12-12-23-01-09.png "> </p>
-
-<p>The member function like the string. </p>
+<p>The member function like the string.</p>
 <p><strong>Operations</strong></p>
 <ul>
-<li>[], access the array member. </li>
-<li>capacity, get the memory size. </li>
-<li>reserve to change the memory size. </li>
-<li>resize, change the size. </li>
+<li>[], access the array member.</li>
+<li>capacity, get the memory size.</li>
+<li>reserve to change the memory size.</li>
+<li>resize, change the size.</li>
 <li>pop_back, push_back</li>
 <li>insert (to any place)</li>
 <li>erase (any place)</li>
 <li>emplace (and place)</li>
 <li>empalce_back</li>
 </ul>
-<h3 id="capacity-change"><a href="#capacity-change" class="headerlink" title="capacity change"></a>capacity change</h3><p>If a container has push and pop, it means the container has good performance doing it. As a vector, push_back, and pop_back are O(1) amortized.<br>However, when push_back, insert, reserve, resize will cause memory reallocation, the vector will ‘MOVE’ the old element to the new memory address. Vector needs to protect the exception, so it will use a constructor will not through the exception(a function using noexcept). So it will use a copy constructor. Therefore, for custom element types that cost more to use copy constructor, we should define a move constructor, and defined as <strong>noexcept</strong>, or we can only put the pointer. This is the reason we need to use the noexcept in the smart_ptr. </p>
+<h3 id="capacity-change"><a class="header-anchor" href="#capacity-change"></a>capacity change</h3>
+<p>If a container has push and pop, it means the container has good performance doing it. As a vector, push_back, and pop_back are O(1) amortized.<br>
+However, when push_back, insert, reserve, resize will cause memory reallocation, the vector will ‘MOVE’ the old element to the new memory address. Vector needs to protect the exception, so it will use a constructor will not through the exception(a function using noexcept). So it will use a copy constructor. Therefore, for custom element types that cost more to use copy constructor, we should define a move constructor, and defined as <strong>noexcept</strong>, or we can only put the pointer. This is the reason we need to use the noexcept in the smart_ptr.</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>; </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Obj1</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line"> Obj1()</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="built_in">cout</span> &lt;&lt; <span class="string">"Obj1() \n"</span>; </span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> Obj1(<span class="keyword">const</span> Obj1&amp;)</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="built_in">cout</span> &lt;&lt; <span class="string">"Obj1(const Obj1&amp;) \n"</span>; </span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> Obj1(Obj1&amp;&amp;)</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="built_in">cout</span> &lt;&lt; <span class="string">"Obj1(Obj1&amp;&amp;) \n"</span>; </span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Obj2</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line"> Obj2()</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="built_in">cout</span> &lt;&lt; <span class="string">"Obj2() \n"</span>; </span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> Obj2(<span class="keyword">const</span> Obj2&amp;)</span><br><span class="line"> &#123;</span><br><span class="line"> <span class="built_in">cout</span> &lt;&lt; <span class="string">"Obj2(const Obj2&amp;) \n"</span>; </span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> Obj2(Obj2&amp;&amp;) <span class="keyword">noexcept</span></span><br><span class="line"> &#123;</span><br><span class="line"> <span class="built_in">cout</span> &lt;&lt; <span class="string">"Obj2(Obj2&amp;&amp;) \n"</span>; </span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Difference between the obj1 and obj2 is the move constructor has a noexcept, which means the move constructor will not cause an exception. </span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="built_in">vector</span>&lt;Obj1&gt; v1; </span><br><span class="line"> v1.reserve(<span class="number">2</span>); </span><br><span class="line"> v1.empalce_back(); </span><br><span class="line"> v1.empalce_back(); </span><br><span class="line"> v1.empalce_back(); </span><br><span class="line"></span><br><span class="line"> <span class="built_in">vector</span>&lt;Obj2&gt; v2; </span><br><span class="line"> v2.reserve(<span class="number">2</span>); </span><br><span class="line"> v2.emplace_back(); </span><br><span class="line"> v2.emplace_back(); </span><br><span class="line"> v2.emplace_back(); </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Out put of the previous program. </p>
+<p>Out put of the previous program.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Obj1() </span><br><span class="line">Obj1() </span><br><span class="line">Obj1() </span><br><span class="line">Obj1(const Obj1&amp;) </span><br><span class="line">Obj1(const Obj1&amp;) </span><br><span class="line">Obj2() </span><br><span class="line">Obj2() </span><br><span class="line">Obj2() </span><br><span class="line">Obj2(Obj2&amp;&amp;)</span><br></pre></td></tr></table></figure>
-<h3 id="Difference-empalce-back-and-push-back"><a href="#Difference-empalce-back-and-push-back" class="headerlink" title="Difference empalce_back and push_back"></a>Difference empalce_back and push_back</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="built_in">vector</span>&lt;Obj1&gt; v1;</span><br><span class="line"> v1.reserve(<span class="number">10</span>); </span><br><span class="line"> <span class="built_in">cout</span> &lt;&lt; <span class="string">"Push Back"</span> &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line"> v1.push_back(Obj1()); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Difference-empalce-back-and-push-back"><a class="header-anchor" href="#Difference-empalce-back-and-push-back"></a>Difference empalce_back and push_back</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="built_in">vector</span>&lt;Obj1&gt; v1;</span><br><span class="line"> v1.reserve(<span class="number">10</span>); </span><br><span class="line"> <span class="built_in">cout</span> &lt;&lt; <span class="string">"Push Back"</span> &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line"> v1.push_back(Obj1()); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Push Back</span><br><span class="line">Obj1() </span><br><span class="line">Obj1(Obj1&amp;&amp;) </span><br><span class="line">Obj1(~Obj1()) </span><br><span class="line">Obj1(~Obj1())</span><br></pre></td></tr></table></figure>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="built_in">vector</span>&lt;Obj1&gt; v1;</span><br><span class="line"> v1.reserve(<span class="number">10</span>); </span><br><span class="line"> <span class="built_in">cout</span> &lt;&lt; <span class="string">"emplace back"</span> &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line"> v1.emplace_back();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">emplace back</span><br><span class="line">Obj1() </span><br><span class="line">Obj1(~Obj1()</span><br></pre></td></tr></table></figure>
-<p>use reserve to reserve the size of a vector can increase the performance. </p>
-<h2 id="Deque"><a href="#Deque" class="headerlink" title="Deque"></a>Deque</h2><p>deque: double-ended queue. Can push_front and push_back. </p>
+<p>use reserve to reserve the size of a vector can increase the performance.</p>
+<h2 id="Deque"><a class="header-anchor" href="#Deque"></a>Deque</h2>
+<p>deque: double-ended queue. Can push_front and push_back.</p>
 <ul>
-<li>push_front, empalce_front, and pop_front. </li>
-<li><strong>do not have</strong> data, capacity, and reserve. </li>
+<li>push_front, empalce_front, and pop_front.</li>
+<li><strong>do not have</strong> data, capacity, and reserve.</li>
 </ul>
 <p align = "center"> <img width = "500" src = "images/04_container_2019-12-13-00-11-51.png "> </p>
-
 <ul>
-<li>only part of the data are saved continuous. </li>
+<li>only part of the data are saved continuous.</li>
 <li>index[i / chunk_size][i % chunk_size]</li>
 </ul>
-<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p>the list is a <strong>doubly-linked list</strong>. </p>
+<h2 id="List"><a class="header-anchor" href="#List"></a>List</h2>
+<p>the list is a <strong>doubly-linked list</strong>.</p>
 <ul>
-<li>insert any place O(1). </li>
-<li>can not randomly access. </li>
-<li>push_front, empalce_front, pop_front. </li>
-<li>no data, capacity, and reserve. </li>
+<li>insert any place O(1).</li>
+<li>can not randomly access.</li>
+<li>push_front, empalce_front, pop_front.</li>
+<li>no data, capacity, and reserve.</li>
 </ul>
-<p>Every element in the array are not continuous allocated. </p>
+<p>Every element in the array are not continuous allocated.</p>
 <ul>
 <li>merge</li>
 <li>remove</li>
@@ -326,12 +335,14 @@
 <li>unique</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sort(vec.begin(), vec.end()); <span class="comment">// OK</span></span><br><span class="line"><span class="comment">// sort(lst.begin(), lst.end()); // Error</span></span><br><span class="line">lst.sort(); <span class="comment">// OK</span></span><br></pre></td></tr></table></figure>
-<p>Sorting a list is different from sorting a verctor which is a random access data structure. </p>
-<h2 id="Forward-List"><a href="#Forward-List" class="headerlink" title="Forward List"></a>Forward List</h2><p>The forward list is a single linked list. </p>
+<p>Sorting a list is different from sorting a verctor which is a random access data structure.</p>
+<h2 id="Forward-List"><a class="header-anchor" href="#Forward-List"></a>Forward List</h2>
+<p>The forward list is a single linked list.</p>
 <p align = "center"> <img width = "500" src = "images/04_container_2019-12-13-00-22-42.png "> </p>
-
-<p>To save memory space. However, it can support insert_after, can not support inset to a particular space. It does not have a backward pointer, so it can not connect to the previous node. </p>
-<h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><p>Abstract data structure. (container adaptor)<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Container</span> = <span class="title">deque</span>&lt;T&gt; &gt; <span class="title">class</span> <span class="title">queue</span>;</span></span><br></pre></td></tr></table></figure></p>
+<p>To save memory space. However, it can support insert_after, can not support inset to a particular space. It does not have a backward pointer, so it can not connect to the previous node.</p>
+<h2 id="Queue"><a class="header-anchor" href="#Queue"></a>Queue</h2>
+<p>Abstract data structure. (container adaptor)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Container</span> = <span class="title">deque</span>&lt;T&gt; &gt; <span class="title">class</span> <span class="title">queue</span>;</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>empty</li>
 <li>size</li>
@@ -341,16 +352,16 @@
 <li>pop_front</li>
 </ul>
 <p align = "center"> <img width = "500" src = "images/04_container_2019-12-13-00-28-55.png "> </p>
-
 <ul>
 <li>empalce -&gt; emplace_back</li>
 <li>push -&gt; push_back</li>
 <li>pop -&gt; pop_front</li>
 </ul>
 <p>can not scan the queue, there is no begin() and end()</p>
-<h2 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h2><p>abstrct data type<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Container</span> = <span class="title">deque</span>&lt;T&gt; &gt; <span class="title">class</span> <span class="title">stack</span>;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Stack"><a class="header-anchor" href="#Stack"></a>Stack</h2>
+<p>abstrct data type</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Container</span> = <span class="title">deque</span>&lt;T&gt; &gt; <span class="title">class</span> <span class="title">stack</span>;</span></span><br></pre></td></tr></table></figure>
 <p align = "center"> <img width = "500" src = "images/04_container_2019-12-13-00-31-35.png "> </p>
-
 
     </div>
 
@@ -428,7 +439,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -441,7 +452,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

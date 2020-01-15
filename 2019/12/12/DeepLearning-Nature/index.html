@@ -46,13 +46,13 @@
   };
 </script>
 
-  <meta name="description" content="Deep LearningThis paper is published in 2015 in Nature, and it is a very important work for deep learning. After this work, deep learning still has a huge improvement. For this paper, I will list all">
+  <meta name="description" content="Deep Learning This paper is published in 2015 in Nature, and it is a very important work for deep learning. After this work, deep learning still has a huge improvement. For this paper, I will list all">
 <meta name="keywords" content="CV_Paper,CNN">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DeepLearning_Nature">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;12&#x2F;DeepLearning-Nature&#x2F;index.html">
 <meta property="og:site_name" content="Liang Xu">
-<meta property="og:description" content="Deep LearningThis paper is published in 2015 in Nature, and it is a very important work for deep learning. After this work, deep learning still has a huge improvement. For this paper, I will list all">
+<meta property="og:description" content="Deep Learning This paper is published in 2015 in Nature, and it is a very important work for deep learning. After this work, deep learning still has a huge improvement. For this paper, I will list all">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2019-12-12T19:03:58.000Z">
 <meta name="twitter:card" content="summary">
@@ -245,8 +245,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Deep-Learning"><a href="#Deep-Learning" class="headerlink" title="Deep Learning"></a>Deep Learning</h1><p>This paper is published in 2015 in Nature, and it is a very important work for deep learning. After this work, deep learning still has a huge improvement. For this paper, I will list all the sentences I feel like to share with.</p>
-<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><blockquote>
+        <h1 id="Deep-Learning"><a class="header-anchor" href="#Deep-Learning"></a>Deep Learning</h1>
+<p>This paper is published in 2015 in Nature, and it is a very important work for deep learning. After this work, deep learning still has a huge improvement. For this paper, I will list all the sentences I feel like to share with.</p>
+<h2 id="1-Introduction"><a class="header-anchor" href="#1-Introduction"></a>1. Introduction</h2>
+<blockquote>
 <p><strong>Deep learning</strong> allows <strong>computational models</strong> that are composed of <strong>multiple processing layers</strong> to learn <strong>representations</strong> of data with <strong>multiple levels</strong> of <strong>abstraction</strong>.</p>
 </blockquote>
 <p>First of all, the deep learning model is a computational model and is composed of multiple processing layers, which means whatever method they used they used it multiple times. And the model is a representation learning, so it will find a way to represent the data by multiple levels of abstraction.</p>
@@ -259,7 +261,8 @@
 <p>Representation learning is a set of methods that allows a machine to be fed with raw data and to <strong>automatically discover</strong> the <strong>representations</strong> needed for detection or classification. Deep learning methods are representation learning methods with multiple levels of representation, obtained by composing <strong>simple but non-linear modules</strong> that each transform the representation at one level (starting with the raw input) into a representation at a higher, slightly more abstract level.</p>
 </blockquote>
 <p>The key aspect of deep learning is that these layers of features are not designed by a human, instead, they are learned from data using a general-purpose learning procedure.</p>
-<h2 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a>Supervised Learning</h2><p>For typical supervised learning, the machine model used to have a fixed size input and fixed output. The input is raw data or hand made features vectors, and the model expected to find the relationship between the input and the output. For deep learning case, the machine modified its internal adjustable parameters to reduce the error score. These adjustable parameters, often called weights, are real numbers that can be seen as ‘knobs’ that define the input-output function of the machine.</p>
+<h2 id="Supervised-Learning"><a class="header-anchor" href="#Supervised-Learning"></a>Supervised Learning</h2>
+<p>For typical supervised learning, the machine model used to have a fixed size input and fixed output. The input is raw data or hand made features vectors, and the model expected to find the relationship between the input and the output. For deep learning case, the machine modified its internal adjustable parameters to reduce the error score. These adjustable parameters, often called weights, are real numbers that can be seen as ‘knobs’ that define the input-output function of the machine.</p>
 <blockquote>
 <p>To properly <strong>adjust the weight vector</strong>, the learning algorithm computes a <strong>gradient vector</strong> that, for <em>each weight, indicates by what amount the error would increase or decrease if the weight was increased by a tiny amount</em>. The weight vector is then adjusted in the opposite direction to the gradient vector.</p>
 </blockquote>
@@ -269,99 +272,114 @@
 </blockquote>
 <p>So it says using all the training data to find the steepest descent. However, this is not reality. Deep learning usually using a large amount of data, and using all the data to update is very inefficient and also memory size is limited.</p>
 <blockquote>
-<p>In practice, most practitioners use a procedure called stochastic gradient descent (SGD). This consists of showing the input vector for a few examples, computing the outputs and the errors, computing the average gradient for those examples, and adjusting the weights accordingly. The process is repeated for many small sets of examples from the training set until the average of the objective function stops decreasing. It is called stochastic because each small set of examples gives a noisy estimate of the average gradient overall examples. </p>
-<p><strong>selectivity–invariance dilemma</strong><br>One that produces representations that are selective to the aspects of the images that are important for discrimination, but that are invariant to irrelevant aspects such as the pose of the animal. </p>
+<p>In practice, most practitioners use a procedure called stochastic gradient descent (SGD). This consists of showing the input vector for a few examples, computing the outputs and the errors, computing the average gradient for those examples, and adjusting the weights accordingly. The process is repeated for many small sets of examples from the training set until the average of the objective function stops decreasing. It is called stochastic because each small set of examples gives a noisy estimate of the average gradient overall examples.</p>
+</blockquote>
+<blockquote>
+<p><strong>selectivity–invariance dilemma</strong><br>
+One that produces representations that are selective to the aspects of the images that are important for discrimination, but that are invariant to irrelevant aspects such as the pose of the animal.</p>
+</blockquote>
+<blockquote>
 <p>A deep-learning architecture is a <strong>multilayer stack of simple modules</strong>, all (or most) of which are subject to learning, and many of which compute non-linear input-output mappings. <strong>Each module in the stack transforms its input to</strong> <strong>increase both the selectivity and the invariance of the representation</strong>. With multiple non-linear layers, say a depth of 5 to 20, a system can implement extremely intricate functions of its inputs that are simultaneously <strong>sensitive to minute details</strong> and <strong>insensitive to large irrelevant variations</strong> such as the background, pose, lighting and surrounding objects.</p>
 </blockquote>
-<h3 id="Backpropagation-to-train-multilayer-architectures"><a href="#Backpropagation-to-train-multilayer-architectures" class="headerlink" title="Backpropagation to train multilayer architectures"></a>Backpropagation to train multilayer architectures</h3><blockquote>
-<p>The backpropagation procedure to compute the gradient of an objective function with respect to the weights of a multilayer stack of modules is nothing more than a practical application of the chain rule for derivatives. </p>
+<h3 id="Backpropagation-to-train-multilayer-architectures"><a class="header-anchor" href="#Backpropagation-to-train-multilayer-architectures"></a>Backpropagation to train multilayer architectures</h3>
+<blockquote>
+<p>The backpropagation procedure to compute the gradient of an objective function with respect to the weights of a multilayer stack of modules is nothing more than a practical application of the chain rule for derivatives.</p>
 </blockquote>
 <p align = "center"> <img width = "500" src = "images/00_DeepLearning_2019-12-12-01-02-20.png "> </p>
-
-<p>Figure 1, Multilayer neural networks and backpropagation. <strong>a</strong>, A multi- layer neural network (shown by the connected dots) can distort the input space to make the classes of data (examples of which are on the red and blue lines) linearly separable. </p>
+<p>Figure 1, Multilayer neural networks and backpropagation. <strong>a</strong>, A multi- layer neural network (shown by the connected dots) can distort the input space to make the classes of data (examples of which are on the red and blue lines) linearly separable.</p>
 <p align = "center"> <img width = "500" src = "images/00_DeepLearning_2019-12-12-01-02-50.png "> </p>
-
-<p><strong>b</strong>, b, The chain rule of derivatives tells us how two small effects (that of a small change of x on y, and that of y on z) are composed. A small change $\nabla x$ in $x$ gets transformed first into a small change $\Delta y$ in $y$ by getting multiplied by $\partial{y}/\partial{x}$. Similarly, the change of $\nabla y$ creates a change of $\nabla z$ in $z$. Substituting one equation into the other gives the chain rule of derivatives - how $\nabla x$ gets turned into $\nabla z$ through multiplication by the product of $\partial{y}/\partial{x}$ and $\partial{z}/\partial{x}$. It also works when $x$, $y$ and $z$ are vectors. </p>
+<p><strong>b</strong>, b, The chain rule of derivatives tells us how two small effects (that of a small change of x on y, and that of y on z) are composed. A small change $\nabla x$ in $x$ gets transformed first into a small change $\Delta y$ in $y$ by getting multiplied by $\partial{y}/\partial{x}$. Similarly, the change of $\nabla y$ creates a change of $\nabla z$ in $z$. Substituting one equation into the other gives the chain rule of derivatives - how $\nabla x$ gets turned into $\nabla z$ through multiplication by the product of $\partial{y}/\partial{x}$ and $\partial{z}/\partial{x}$. It also works when $x$, $y$ and $z$ are vectors.</p>
 <p align = "center"> <img width = "500" src = "images/00_DeepLearning_2019-12-12-01-02-59.png "> </p>
-
-<p>This is one of the examples for forwarding computing. The equations used for computing the forward pass in a neural net with two hidden layers and one output layer, each constituting a module through which one can backpropagate gradients. At each layer, we first compute to total input $z$ to each unit, which is a weighted sum of the outputs of the units in the layer below. The nonlinear function $f(.)$ is applied to $z$ to get the output of the unit(For simplicity, we have omitted bias terms.<br> ). The non-linear functions used in neural networks include the rectified linear unit (ReLU) $f(z) = max(0, z)$, commonly used in recent years, as well as the more conventional sigmoids, such as the hyperbolic tangent, $f(z) = (\exp(z) - \exp(-z)) / (\exp(z) + \exp(-z))$ and the logistic function logistic, $f(z) = 1/(1 + \exp(-z))$. </p>
-<p>Equation for the output. </p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-y_l &= f(z_l) \\
-z_l &= \sum_{k \in H_2}{w_{kl}y_{k}}
-\end{aligned}</script><p>Equation for the Hidden units H2. </p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-y_k &= f(z_k) \\
-z_k &= \sum_{j \in H_1}{w_{jk}y_{j}}
-\end{aligned}</script><p>Equation for the Hidden units H1. </p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-y_j &= f(z_j) \\
-z_j &= \sum_{i \in input}{w_{ij}x_{i}}
-\end{aligned}</script><p align = "center"> <img width = "500" src = "images/00_DeepLearning_2019-12-12-01-03-10.png "> </p>
-
-<p><strong>d</strong>, The equations used for computing the backward pass. At each hidden layer, we compute the error derivative with respect to the output of each unit, which is a weighted sum of the error derivatives with respect to the total inputs to the units in the layers above. We then convert the error derivative with respect to the output into the error derivative with respect to the input by multiplying it by the gradient of $f(z)$. At the output layer, the error derivative with respect to the output of a unit is computed by differentiating the cost function. This gives $y<em>{l} - t</em>{l}$ if the cost function for unit l is $0.5(y<em>l - t_l)^2$, where $t_l$ is the target value. Once the $\partial{E}/\partial{z_k}$ is known, the error-derivative for the weight $w</em>{jk}$ on the connection form unit $j$ in the layer below is just $y_j \partial{E}/\partial{k}$. In this example:<br>Derivative for the output layer. The error function assumed as $0.5(y_l - t_l)^2$.</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\frac{\partial{E}}{\partial{y_l}} &= y_l - t_l \\
-\frac{\partial{E}}{\partial{z_l}} &= \frac{\partial{E}}{\partial{y_l}} \frac{\partial{y_l}}{\partial{z_l}}
-\end{aligned}</script><p>The derivative for the Hidden 1. And every node affected by every node in the above layer. </p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\frac{\partial{E}}{\partial{y_k}} &= \sum_{I \in out}{w_{kl}\frac{\partial{E}}{\partial{z_l}}} \\
-\frac{\partial{E}}{\partial{z_k}} &= \frac{\partial{E}}{\partial{y_k}} \frac{\partial{y_k}}{\partial{z_k}}
-\end{aligned}</script><p>The backpropagation can give you all the gradient you need to know in order to change the weights. </p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\frac{\partial{E}}{\partial{y_j}} &= \sum_{k \in H2}{w_{jk}\frac{\partial{E}}{\partial{z_k}}} \\
-\frac{\partial{E}}{\partial{z_j}} &= \frac{\partial{E}}{\partial{y_j}} \frac{\partial{y_j}}{\partial{z_j}}
-\end{aligned}</script><blockquote>
+<p>This is one of the examples for forwarding computing. The equations used for computing the forward pass in a neural net with two hidden layers and one output layer, each constituting a module through which one can backpropagate gradients. At each layer, we first compute to total input $z$ to each unit, which is a weighted sum of the outputs of the units in the layer below. The nonlinear function $f(.)$ is applied to $z$ to get the output of the unit(For simplicity, we have omitted bias terms.<br>
+). The non-linear functions used in neural networks include the rectified linear unit (ReLU) $f(z) = max(0, z)$, commonly used in recent years, as well as the more conventional sigmoids, such as the hyperbolic tangent, $f(z) = (\exp(z) - \exp(-z)) / (\exp(z) + \exp(-z))$ and the logistic function logistic, $f(z) = 1/(1 + \exp(-z))$.</p>
+<p>Equation for the output.</p>
+<p>$$<br>
+\begin{aligned}<br>
+y_l &amp;= f(z_l) \<br>
+z_l &amp;= \sum_{k \in H_2}{w_{kl}y_{k}}<br>
+\end{aligned}<br>
+$$</p>
+<p>Equation for the Hidden units H2.</p>
+<p>$$<br>
+\begin{aligned}<br>
+y_k &amp;= f(z_k) \<br>
+z_k &amp;= \sum_{j \in H_1}{w_{jk}y_{j}}<br>
+\end{aligned}<br>
+$$</p>
+<p>Equation for the Hidden units H1.</p>
+<p>$$<br>
+\begin{aligned}<br>
+y_j &amp;= f(z_j) \<br>
+z_j &amp;= \sum_{i \in input}{w_{ij}x_{i}}<br>
+\end{aligned}<br>
+$$</p>
+<p align = "center"> <img width = "500" src = "images/00_DeepLearning_2019-12-12-01-03-10.png "> </p>
+<p><strong>d</strong>, The equations used for computing the backward pass. At each hidden layer, we compute the error derivative with respect to the output of each unit, which is a weighted sum of the error derivatives with respect to the total inputs to the units in the layers above. We then convert the error derivative with respect to the output into the error derivative with respect to the input by multiplying it by the gradient of $f(z)$. At the output layer, the error derivative with respect to the output of a unit is computed by differentiating the cost function. This gives $y_{l} - t_{l}$ if the cost function for unit l is $0.5(y_l - t_l)^2$, where $t_l$ is the target value. Once the $\partial{E}/\partial{z_k}$ is known, the error-derivative for the weight $w_{jk}$ on the connection form unit $j$ in the layer below is just $y_j \partial{E}/\partial{k}$. In this example:<br>
+Derivative for the output layer. The error function assumed as $0.5(y_l - t_l)^2$.</p>
+<p>$$<br>
+\begin{aligned}<br>
+\frac{\partial{E}}{\partial{y_l}} &amp;= y_l - t_l \<br>
+\frac{\partial{E}}{\partial{z_l}} &amp;= \frac{\partial{E}}{\partial{y_l}} \frac{\partial{y_l}}{\partial{z_l}}<br>
+\end{aligned}<br>
+$$</p>
+<p>The derivative for the Hidden 1. And every node affected by every node in the above layer.</p>
+<p>$$<br>
+\begin{aligned}<br>
+\frac{\partial{E}}{\partial{y_k}} &amp;= \sum_{I \in out}{w_{kl}\frac{\partial{E}}{\partial{z_l}}} \<br>
+\frac{\partial{E}}{\partial{z_k}} &amp;= \frac{\partial{E}}{\partial{y_k}} \frac{\partial{y_k}}{\partial{z_k}}<br>
+\end{aligned}<br>
+$$</p>
+<p>The backpropagation can give you all the gradient you need to know in order to change the weights.</p>
+<p>$$<br>
+\begin{aligned}<br>
+\frac{\partial{E}}{\partial{y_j}} &amp;= \sum_{k \in H2}{w_{jk}\frac{\partial{E}}{\partial{z_k}}} \<br>
+\frac{\partial{E}}{\partial{z_j}} &amp;= \frac{\partial{E}}{\partial{y_j}} \frac{\partial{y_j}}{\partial{z_j}}<br>
+\end{aligned}<br>
+$$</p>
+<blockquote>
 <p>The backpropagation equation can be applied repeatedly to propagate gradients through all modules, starting from the output at the top (where the network produces its prediction) all the way to the bottom (where the external input is fed). Once these gradients have been computed, it is straightforward to compute the gradients with respect to the weights of each module.</p>
 </blockquote>
-<h3 id="Local-Minima"><a href="#Local-Minima" class="headerlink" title="Local Minima"></a>Local Minima</h3><p>In particular, backpropagation was commonly thought that simple gradient descent would get trapped in <strong>poor local minima</strong> — weight configurations for which no small change would reduce the average error.</p>
+<h3 id="Local-Minima"><a class="header-anchor" href="#Local-Minima"></a>Local Minima</h3>
+<p>In particular, backpropagation was commonly thought that simple gradient descent would get trapped in <strong>poor local minima</strong> — weight configurations for which no small change would reduce the average error.</p>
 <p>In practice, poor local minima are rarely a problem with large networks. Regardless of the initial conditions, the system nearly always reaches solutions of very similar quality. Recent theoretical and empirical results strongly suggest that local minima are not a serious issue in general.</p>
 <p>Instead, the landscape is packed with a combinatorially large number of <strong>saddle points</strong> where the <strong>gradient</strong> is zero, and the <strong>surface curves up</strong> in most dimensions and <strong>curves down</strong> in the remainder. The analysis seems to show that saddle points with only a few downward curving directions are present in very large numbers, but almost all of them have very similar values of the objective function. Hence, it does not much matter which of these saddle points the algorithm gets stuck at.</p>
-<h2 id="Convolutional-neural-networks"><a href="#Convolutional-neural-networks" class="headerlink" title="Convolutional neural networks"></a>Convolutional neural networks</h2><p>ConvNets are designed to process data that come in the form of multiple arrays.<br>There are four key ideas behind ConvNets that take advantage of the properties of natural signals: </p>
+<h2 id="Convolutional-neural-networks"><a class="header-anchor" href="#Convolutional-neural-networks"></a>Convolutional neural networks</h2>
+<p>ConvNets are designed to process data that come in the form of multiple arrays.<br>
+There are four key ideas behind ConvNets that take advantage of the properties of natural signals:</p>
 <ul>
 <li>local connections</li>
 <li>shared weights,</li>
-<li>pooling and the </li>
+<li>pooling and the</li>
 <li>use of many layers.</li>
 </ul>
 <p align = "center"> <img width = "500" src = "images/00_DeepLearning_2019-12-12-01-11-14.png "> </p>
-
 <p>Figure2: Each rectangular image is a feature map corresponding to the output for one of the learned features, detected at each of the image positions. Information flows bottom-up, with lower-level features acting as oriented edge detectors, and a score is computed for each image class in output. ReLU, rectified linear unit.</p>
-<p>The first few stages are composed of two types of layers: <strong>convolutional layers</strong> and <strong>pooling layers</strong>. Units in a convolutional layer are organized in <strong>feature maps</strong>, within which <strong>each unit is connected to local patches</strong> in the feature maps of the previous layer through a set of weights called a <strong>filter bank</strong>. The result of this local weighted sum is then passed through a nonlinearity such as a ReLU. All units in a feature map share the same filter bank. Different feature maps in a layer use different filter banks. Two reasons: </p>
+<p>The first few stages are composed of two types of layers: <strong>convolutional layers</strong> and <strong>pooling layers</strong>. Units in a convolutional layer are organized in <strong>feature maps</strong>, within which <strong>each unit is connected to local patches</strong> in the feature maps of the previous layer through a set of weights called a <strong>filter bank</strong>. The result of this local weighted sum is then passed through a nonlinearity such as a ReLU. All units in a feature map share the same filter bank. Different feature maps in a layer use different filter banks. Two reasons:</p>
 <ul>
 <li>First, in array data such as images, local groups of values are often highly correlated, forming distinctive local motifs that are easily detected.</li>
-<li>Second, the local statistics of images and other signals are invariant to location. In other words, if a motif can appear in one part of the image, it could appear anywhere, hence the idea of units at different locations sharing the same weights and detecting the same pattern in different parts of the array. </li>
+<li>Second, the local statistics of images and other signals are invariant to location. In other words, if a motif can appear in one part of the image, it could appear anywhere, hence the idea of units at different locations sharing the same weights and detecting the same pattern in different parts of the array.</li>
 </ul>
-<p>The role of the <strong>pooling layer</strong> is to <strong>merge</strong> <strong>semantically similar</strong> features into one. Because the relative positions of the features forming a motif can vary somewhat, reliably detecting the motif can be done by coarse-graining the position of each feature. </p>
+<p>The role of the <strong>pooling layer</strong> is to <strong>merge</strong> <strong>semantically similar</strong> features into one. Because the relative positions of the features forming a motif can vary somewhat, reliably detecting the motif can be done by coarse-graining the position of each feature.</p>
 <p>Backpropagating gradients through a ConvNet is as simple as through a regular deep network, allowing all the weights in all the filter banks to be trained.</p>
-<h2 id="Image-understanding-with-deep-convolutional-networks"><a href="#Image-understanding-with-deep-convolutional-networks" class="headerlink" title="Image understanding with deep convolutional networks"></a>Image understanding with deep convolutional networks</h2><p>A recent stunning demonstration combines ConvNets and recurrent net modules for the generation of image captions. </p>
+<h2 id="Image-understanding-with-deep-convolutional-networks"><a class="header-anchor" href="#Image-understanding-with-deep-convolutional-networks"></a>Image understanding with deep convolutional networks</h2>
+<p>A recent stunning demonstration combines ConvNets and recurrent net modules for the generation of image captions.</p>
 <p align = "center"> <img width = "500" src = "images/00_DeepLearning_2019-12-12-01-11-26.png "> </p>
-
 <p>Figure 3 | From image to text. Captions generated by a recurrent neural network(RNN) tanking as an extra input, the representation extracted by a deep convolution network (CNN) from a test image, with the RNN trained to ‘translate’ high-level representations of images into captions. When the RNN is given the ability to focus its attention on a different location in the input image as it generates each word</p>
-<h2 id="Distributed-representations-and-language-processing"><a href="#Distributed-representations-and-language-processing" class="headerlink" title="Distributed representations and language processing"></a>Distributed representations and language processing</h2><p>Deep-learning theory shows that deep nets have two different exponential advantages over classical learning algorithms that do not use <strong>distributed representations</strong>. Both of these advantages arise from the power of composition and depend on the underlying data-generating distribution having an appropriate componential structure. Both of these advantages arise from the power of composition and depend on the underlying data-generating distribution having an appropriate componential structure. </p>
+<h2 id="Distributed-representations-and-language-processing"><a class="header-anchor" href="#Distributed-representations-and-language-processing"></a>Distributed representations and language processing</h2>
+<p>Deep-learning theory shows that deep nets have two different exponential advantages over classical learning algorithms that do not use <strong>distributed representations</strong>. Both of these advantages arise from the power of composition and depend on the underlying data-generating distribution having an appropriate componential structure. Both of these advantages arise from the power of composition and depend on the underlying data-generating distribution having an appropriate componential structure.</p>
 <ul>
-<li>First, learning distributed representations enable generalization to new combinations of the values of learned features beyond those seen during training. </li>
-<li>Second, composing layers of representation in a deep net bring the potential for another exponential advantage. </li>
+<li>First, learning distributed representations enable generalization to new combinations of the values of learned features beyond those seen during training.</li>
+<li>Second, composing layers of representation in a deep net bring the potential for another exponential advantage.</li>
 </ul>
 <p align = "center"> <img width = "500" src = "images/00_DeepLearning_2019-12-12-13-49-10.png "> </p>
-
-
 <p align = "center"> <img width = "500" src = "images/00_DeepLearning_2019-12-12-13-46-30.png "> </p>
-
 <p align = "center"> <img width = "500" src = "images/00_DeepLearning_2019-12-12-13-46-45.png "> </p>
-
-<p>Figure 4 | Visualizing the learned word vectors. </p>
-<h2 id="Recurrent-neural-networks"><a href="#Recurrent-neural-networks" class="headerlink" title="Recurrent neural networks"></a>Recurrent neural networks</h2><p>RNNs process an input sequence one element at a time, maintaining in their hidden units a ‘state vector’ that implicitly contains information about the history of all the past elements of the sequence. When we consider the outputs of the hidden units at different discrete time steps as if they were the outputs of different neurons in a deep multilayer network (Fig. 5, right), it becomes clear how we can apply backpropagation to train RNNs.</p>
+<p>Figure 4 | Visualizing the learned word vectors.</p>
+<h2 id="Recurrent-neural-networks"><a class="header-anchor" href="#Recurrent-neural-networks"></a>Recurrent neural networks</h2>
+<p>RNNs process an input sequence one element at a time, maintaining in their hidden units a ‘state vector’ that implicitly contains information about the history of all the past elements of the sequence. When we consider the outputs of the hidden units at different discrete time steps as if they were the outputs of different neurons in a deep multilayer network (Fig. 5, right), it becomes clear how we can apply backpropagation to train RNNs.</p>
 <p align = "center"> <img width = "500" src = "images/00_DeepLearning_2019-12-12-01-11-41.png "> </p>
-
-<p>Figure 5. A recurrent neural network and the unfolding in time of the computation involved in its forward computation. </p>
-<p>RNNs are very powerful dynamic systems, but training them has proved to be problematic because the backpropagated gradients either <strong>grow or shrink</strong> at each time step, so over many time steps they typically <strong>explode or vanish</strong>. </p>
+<p>Figure 5. A recurrent neural network and the unfolding in time of the computation involved in its forward computation.</p>
+<p>RNNs are very powerful dynamic systems, but training them has proved to be problematic because the backpropagated gradients either <strong>grow or shrink</strong> at each time step, so over many time steps they typically <strong>explode or vanish</strong>.</p>
 
     </div>
 
@@ -440,7 +458,7 @@ z_j &= \sum_{i \in input}{w_{ij}x_{i}}
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -453,7 +471,7 @@ z_j &= \sum_{i \in input}{w_{ij}x_{i}}
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

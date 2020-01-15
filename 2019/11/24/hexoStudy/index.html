@@ -46,13 +46,13 @@
   };
 </script>
 
-  <meta name="description" content="SetupOnce initialized, here’s what your project folder will look like:12345678.├── _config.yml├── package.json├── scaffolds├── source|   ├── _drafts|   └── _posts└── themes _config.ymlsite configurati">
+  <meta name="description" content="Setup Once initialized, here’s what your project folder will look like: 12345678.├── _config.yml├── package.json├── scaffolds├── source|   ├── _drafts|   └── _posts└── themes _config.yml site configur">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexoStudy_1">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hexoStudy&#x2F;index.html">
 <meta property="og:site_name" content="Liang Xu">
-<meta property="og:description" content="SetupOnce initialized, here’s what your project folder will look like:12345678.├── _config.yml├── package.json├── scaffolds├── source|   ├── _drafts|   └── _posts└── themes _config.ymlsite configurati">
+<meta property="og:description" content="Setup Once initialized, here’s what your project folder will look like: 12345678.├── _config.yml├── package.json├── scaffolds├── source|   ├── _drafts|   └── _posts└── themes _config.yml site configur">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2019-11-29T04:40:27.317Z">
 <meta name="twitter:card" content="summary">
@@ -252,15 +252,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h3><p>Once initialized, here’s what your project folder will look like:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure></p>
-<h4 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h4><p>site configuration file. You can configure most setting here. </p>
-<h4 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h4><p>Application data. The EJS, Stylus and Markdown renderers are installed by default. If you want, you can uninstall them later.<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package.json</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"hexo-site"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.0.0"</span>,</span><br><span class="line">  <span class="attr">"private"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">"hexo"</span>: &#123;</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">""</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"hexo"</span>: <span class="string">"^3.8.0"</span>,</span><br><span class="line">    <span class="attr">"hexo-generator-archive"</span>: <span class="string">"^0.1.5"</span>,</span><br><span class="line">    <span class="attr">"hexo-generator-category"</span>: <span class="string">"^0.1.3"</span>,</span><br><span class="line">    <span class="attr">"hexo-generator-index"</span>: <span class="string">"^0.2.1"</span>,</span><br><span class="line">    <span class="attr">"hexo-generator-tag"</span>: <span class="string">"^0.2.0"</span>,</span><br><span class="line">    <span class="attr">"hexo-renderer-ejs"</span>: <span class="string">"^0.3.1"</span>,</span><br><span class="line">    <span class="attr">"hexo-renderer-stylus"</span>: <span class="string">"^0.3.3"</span>,</span><br><span class="line">    <span class="attr">"hexo-renderer-marked"</span>: <span class="string">"^0.3.2"</span>,</span><br><span class="line">    <span class="attr">"hexo-server"</span>: <span class="string">"^0.3.3"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="scaffolds"><a href="#scaffolds" class="headerlink" title="scaffolds"></a>scaffolds</h4><p>Scaffold folder. When you create a new post, Hexo bases the new file on the scaffold.</p>
-<h4 id="source"><a href="#source" class="headerlink" title="source"></a>source</h4><p>Source folder. This is where you put your site’s content.<br>Hexo <strong>ignores</strong> hidden files and files or folders whose names are prefixed with _ (underscore) - except the _posts folder.Renderable files (e.g. Markdown, HTML) will be processed and put into the public folder, while other files will simply be copied.</p>
-<h4 id="themes"><a href="#themes" class="headerlink" title="themes"></a>themes</h4><p>Theme folder. Hexo generates a static website by combining the site contents with the theme.</p>
-<h3 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h3><p>You can modify site settings in _config.yml</p>
-<h4 id="Site"><a href="#Site" class="headerlink" title="Site"></a>Site</h4><p><strong>Site</strong><br>Setting    and its description:<br><strong>title</strong>: The title of your website<br><strong>subtitle</strong>:The subtitle of your website<br><strong>description</strong>: The description of your website<br><strong>keywords</strong>: The keywords of your website. Separate multiple keywords with commas ,.<br><strong>author</strong>: Your name<br><strong>language</strong>: The language of your website. Use a 2-letter ISO-639-1 code or optionally its variant. Default is en.<br><strong>timezone</strong>: The timezone of your website. Hexo uses the setting on your computer by default. You can find the list of available timezones <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank" rel="noopener">here</a>. Some examples are America/New_York, Japan, and UTC.</p>
-<h4 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h4><div class="table-container">
+        <h3 id="Setup"><a class="header-anchor" href="#Setup"></a>Setup</h3>
+<p>Once initialized, here’s what your project folder will look like:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+<h4 id="config-yml"><a class="header-anchor" href="#config-yml"></a>_config.yml</h4>
+<p>site configuration file. You can configure most setting here.</p>
+<h4 id="package-json"><a class="header-anchor" href="#package-json"></a>package.json</h4>
+<p>Application data. The EJS, Stylus and Markdown renderers are installed by default. If you want, you can uninstall them later.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package.json</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"hexo-site"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.0.0"</span>,</span><br><span class="line">  <span class="attr">"private"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">"hexo"</span>: &#123;</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">""</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"hexo"</span>: <span class="string">"^3.8.0"</span>,</span><br><span class="line">    <span class="attr">"hexo-generator-archive"</span>: <span class="string">"^0.1.5"</span>,</span><br><span class="line">    <span class="attr">"hexo-generator-category"</span>: <span class="string">"^0.1.3"</span>,</span><br><span class="line">    <span class="attr">"hexo-generator-index"</span>: <span class="string">"^0.2.1"</span>,</span><br><span class="line">    <span class="attr">"hexo-generator-tag"</span>: <span class="string">"^0.2.0"</span>,</span><br><span class="line">    <span class="attr">"hexo-renderer-ejs"</span>: <span class="string">"^0.3.1"</span>,</span><br><span class="line">    <span class="attr">"hexo-renderer-stylus"</span>: <span class="string">"^0.3.3"</span>,</span><br><span class="line">    <span class="attr">"hexo-renderer-marked"</span>: <span class="string">"^0.3.2"</span>,</span><br><span class="line">    <span class="attr">"hexo-server"</span>: <span class="string">"^0.3.3"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="scaffolds"><a class="header-anchor" href="#scaffolds"></a>scaffolds</h4>
+<p>Scaffold folder. When you create a new post, Hexo bases the new file on the scaffold.</p>
+<h4 id="source"><a class="header-anchor" href="#source"></a>source</h4>
+<p>Source folder. This is where you put your site’s content.<br>
+Hexo <strong>ignores</strong> hidden files and files or folders whose names are prefixed with _ (underscore) - except the _posts folder.Renderable files (e.g. Markdown, HTML) will be processed and put into the public folder, while other files will simply be copied.</p>
+<h4 id="themes"><a class="header-anchor" href="#themes"></a>themes</h4>
+<p>Theme folder. Hexo generates a static website by combining the site contents with the theme.</p>
+<h3 id="Configuration"><a class="header-anchor" href="#Configuration"></a>Configuration</h3>
+<p>You can modify site settings in _config.yml</p>
+<h4 id="Site"><a class="header-anchor" href="#Site"></a>Site</h4>
+<p><strong>Site</strong><br>
+Setting	and its description:<br>
+<strong>title</strong>: The title of your website<br>
+<strong>subtitle</strong>:The subtitle of your website<br>
+<strong>description</strong>: The description of your website<br>
+<strong>keywords</strong>: The keywords of your website. Separate multiple keywords with commas ,.<br>
+<strong>author</strong>: Your name<br>
+<strong>language</strong>: The language of your website. Use a 2-letter ISO-639-1 code or optionally its variant. Default is en.<br>
+<strong>timezone</strong>: The timezone of your website. Hexo uses the setting on your computer by default. You can find the list of available timezones <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank" rel="noopener">here</a>. Some examples are America/New_York, Japan, and UTC.</p>
+<h4 id="URL"><a class="header-anchor" href="#URL"></a>URL</h4>
 <table>
 <thead>
 <tr>
@@ -302,11 +321,12 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h3 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h3><h4 id="init"><a href="#init" class="headerlink" title="init"></a>init</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init [folder]</span><br></pre></td></tr></table></figure>
-<h4 id="new"><a href="#new" class="headerlink" title="new"></a>new</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Commands"><a class="header-anchor" href="#Commands"></a>Commands</h3>
+<h4 id="init"><a class="header-anchor" href="#init"></a>init</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init [folder]</span><br></pre></td></tr></table></figure>
+<h4 id="new"><a class="header-anchor" href="#new"></a>new</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
 <p>Creates a new article. If no layout is provided, Hexo will use the default_layout from _config.yml. If the title contains spaces, surround it with quotation marks.</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -316,23 +336,27 @@
 </thead>
 <tbody>
 <tr>
-<td>p, —path</td>
+<td>p, --path</td>
 <td>Post path. Customize the path of the post.</td>
 </tr>
 <tr>
-<td>-r, —replace</td>
+<td>-r, --replace</td>
 <td>Replace the current post if existed.</td>
 </tr>
 <tr>
-<td>-s, —slug</td>
+<td>-s, --slug</td>
 <td>Post slug. Customize the URL of the post.</td>
 </tr>
 </tbody>
 </table>
-</div>
-<p>By default, Hexo will use the title to define the path of the file. For pages, it will create a deirectory of that name and an index.md file in it.Use the —path option to override that behaviour and define the file path:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page --path about/me <span class="string">"About me"</span></span><br></pre></td></tr></table></figure><br>page teamplate is in the scaffolds folder.<br>will create source/about/me.md file with the title “About me” set in the front matter. Please note that the title is mandatory. For example, this will not result in the behaviour you might expect:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page --path about/me</span><br></pre></td></tr></table></figure><br>will create the post source/_posts/about/me.md with the title “page” in the front matter. This is because there is only one argument (page) and the default layout is post.</p>
-<h4 id="generate"><a href="#generate" class="headerlink" title="generate"></a>generate</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<div class="table-container">
+<p>By default, Hexo will use the title to define the path of the file. For pages, it will create a deirectory of that name and an <a href="http://index.md" target="_blank" rel="noopener">index.md</a> file in it.Use the --path option to override that behaviour and define the file path:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page --path about/me <span class="string">"About me"</span></span><br></pre></td></tr></table></figure>
+<p>page teamplate is in the scaffolds folder.<br>
+will create source/about/me.md file with the title “About me” set in the front matter. Please note that the title is mandatory. For example, this will not result in the behaviour you might expect:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page --path about/me</span><br></pre></td></tr></table></figure>
+<p>will create the post source/_posts/about/me.md with the title “page” in the front matter. This is because there is only one argument (page) and the default layout is post.</p>
+<h4 id="generate"><a class="header-anchor" href="#generate"></a>generate</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -342,17 +366,20 @@
 </thead>
 <tbody>
 <tr>
-<td>-d, —deploy</td>
+<td>-d, --deploy</td>
 <td>Deploy after generation finishes</td>
 </tr>
 </tbody>
 </table>
-</div>
-<h4 id="publish"><a href="#publish" class="headerlink" title="publish"></a>publish</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure>
-<p>Publishes a draft. Move the file from draft to post folder. </p>
-<h3 id="Writing"><a href="#Writing" class="headerlink" title="Writing"></a>Writing</h3><p>To create a new post or a new page, you can run the following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure><br>post is the default layout, but you can supply your own. You can change the default layout by editing the default_layout setting in _config.yml.</p>
-<h4 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h4><p>There are three default layouts in Hexo: post, page and draft. Files created by each of them is saved to a different path. Newly created posts are saved to the source/_posts folder.</p>
-<div class="table-container">
+<h4 id="publish"><a class="header-anchor" href="#publish"></a>publish</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+<p>Publishes a draft. Move the file from draft to post folder.</p>
+<h3 id="Writing"><a class="header-anchor" href="#Writing"></a>Writing</h3>
+<p>To create a new post or a new page, you can run the following command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<p>post is the default layout, but you can supply your own. You can change the default layout by editing the default_layout setting in _config.yml.</p>
+<h4 id="Layout"><a class="header-anchor" href="#Layout"></a>Layout</h4>
+<p>There are three default layouts in Hexo: post, page and draft. Files created by each of them is saved to a different path. Newly created posts are saved to the source/_posts folder.</p>
 <table>
 <thead>
 <tr>
@@ -375,9 +402,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h4 id="Filename"><a href="#Filename" class="headerlink" title="Filename"></a>Filename</h4><p>By default, Hexo uses the post title as its filename. You can edit the <strong>new_post_name</strong> seting in _config.yml to change the default filename.  For example, :year-:month-:day-:title.md will prefix filenames with the post creation date. You can use the following placeholders:</p>
-<div class="table-container">
+<h4 id="Filename"><a class="header-anchor" href="#Filename"></a>Filename</h4>
+<p>By default, Hexo uses the post title as its filename. You can edit the <strong>new_post_name</strong> seting in _config.yml to change the default filename.  For example, :year-:month-:day-:title.md will prefix filenames with the post creation date. You can use the following placeholders:</p>
 <table>
 <thead>
 <tr>
@@ -412,10 +438,14 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h4 id="Draft"><a href="#Draft" class="headerlink" title="Draft"></a>Draft</h4><p>Previously, we mentioned a special layout in Hexo: draft. Posts initialized with this layout are saved to the <strong>source/_drafts</strong> folder. You can use the publish command to move drafts to the source/_posts folder. publish works in a similar way to the new command.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo publish [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure><br>Drafts are not displayed by default. You can add the —draft option when running Hexo or enable the render_drafts setting in _config.yml to render drafts.</p>
-<h4 id="Scaffolds"><a href="#Scaffolds" class="headerlink" title="Scaffolds"></a>Scaffolds</h4><p>When creating posts, Hexo will build files based on the corresponding file in scaffolds folder. For example:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new photo <span class="string">"My Gallery"</span></span><br></pre></td></tr></table></figure><br>When you run this command, Hexo will try to find photo.md in the scaffolds folder and build the post based on it. The following placeholders are available in scaffolds:</p>
-<div class="table-container">
+<h4 id="Draft"><a class="header-anchor" href="#Draft"></a>Draft</h4>
+<p>Previously, we mentioned a special layout in Hexo: draft. Posts initialized with this layout are saved to the <strong>source/_drafts</strong> folder. You can use the publish command to move drafts to the source/_posts folder. publish works in a similar way to the new command.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo publish [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<p>Drafts are not displayed by default. You can add the --draft option when running Hexo or enable the render_drafts setting in _config.yml to render drafts.</p>
+<h4 id="Scaffolds"><a class="header-anchor" href="#Scaffolds"></a>Scaffolds</h4>
+<p>When creating posts, Hexo will build files based on the corresponding file in scaffolds folder. For example:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new photo <span class="string">"My Gallery"</span></span><br></pre></td></tr></table></figure>
+<p>When you run this command, Hexo will try to find <a href="http://photo.md" target="_blank" rel="noopener">photo.md</a> in the scaffolds folder and build the post based on it. The following placeholders are available in scaffolds:</p>
 <table>
 <thead>
 <tr>
@@ -438,11 +468,12 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h3 id="Front-matter"><a href="#Front-matter" class="headerlink" title="Front-matter"></a>Front-matter</h3><p>Front-matter is a block of YAML or JSON at the beginning of the file that is used to configure settings for your writings. Front-matter is terminated by three dashes when written in YAML or three semicolons when written in JSON.</p>
-<p>YAML<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">AML</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Hello</span> <span class="string">World</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2013</span><span class="string">/7/13</span> <span class="number">20</span><span class="string">:46:25</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Front-matter"><a class="header-anchor" href="#Front-matter"></a>Front-matter</h3>
+<p>Front-matter is a block of YAML or JSON at the beginning of the file that is used to configure settings for your writings. Front-matter is terminated by three dashes when written in YAML or three semicolons when written in JSON.</p>
+<p>YAML</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">AML</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Hello</span> <span class="string">World</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2013</span><span class="string">/7/13</span> <span class="number">20</span><span class="string">:46:25</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">JSON</span><br><span class="line">"title": "Hello World",</span><br><span class="line">"date": "2013/7/13 20:46:25"</span><br><span class="line">;;;</span><br></pre></td></tr></table></figure>
-<h4 id="Settings-amp-Their-Default-Values"><a href="#Settings-amp-Their-Default-Values" class="headerlink" title="Settings &amp; Their Default Values"></a>Settings &amp; Their Default Values</h4><div class="table-container">
+<h4 id="Settings-Their-Default-Values"><a class="header-anchor" href="#Settings-Their-Default-Values"></a>Settings &amp; Their Default Values</h4>
 <table>
 <thead>
 <tr>
@@ -500,14 +531,16 @@
 <tr>
 <td>excerpt</td>
 <td>Page excerpt in plain text. Use this plugin to format the text</td>
+<td></td>
 </tr>
 </tbody>
 </table>
-</div>
-<h4 id="Categories-amp-Tags"><a href="#Categories-amp-Tags" class="headerlink" title="Categories &amp; Tags"></a>Categories &amp; Tags</h4><p>Only posts support the use of categories and tags. </p>
+<h4 id="Categories-Tags"><a class="header-anchor" href="#Categories-Tags"></a>Categories &amp; Tags</h4>
+<p>Only posts support the use of categories and tags.</p>
 <ol>
-<li><strong>Categories</strong> apply to posts in order, resulting in a hierarchy of classifications and sub-classifications. </li>
-<li><strong>Tags</strong> are all defined on the same hierarchical level so the order in which they appear is not important.<br><strong>Example</strong></li>
+<li><strong>Categories</strong> apply to posts in order, resulting in a hierarchy of classifications and sub-classifications.</li>
+<li><strong>Tags</strong> are all defined on the same hierarchical level so the order in which they appear is not important.<br>
+<strong>Example</strong></li>
 </ol>
 <p>categories:</p>
 <ul>
@@ -520,7 +553,8 @@
 <li>Fight</li>
 <li>Shocking</li>
 </ul>
-<p>If you want to apply multiple category hierarchies, use a list of names instead of a single name. If Hexo sees any categories defined this way on a post, it will treat each category for that post as its own independent hierarchy.<br><strong>Example</strong></p>
+<p>If you want to apply multiple category hierarchies, use a list of names instead of a single name. If Hexo sees any categories defined this way on a post, it will treat each category for that post as its own independent hierarchy.<br>
+<strong>Example</strong></p>
 <p>categories:</p>
 <ul>
 <li>[Sports, Baseball]</li>
@@ -591,7 +625,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Setup"><span class="nav-number">1.</span> <span class="nav-text">Setup</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#config-yml"><span class="nav-number">1.1.</span> <span class="nav-text">_config.yml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#package-json"><span class="nav-number">1.2.</span> <span class="nav-text">package.json</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scaffolds"><span class="nav-number">1.3.</span> <span class="nav-text">scaffolds</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#source"><span class="nav-number">1.4.</span> <span class="nav-text">source</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#themes"><span class="nav-number">1.5.</span> <span class="nav-text">themes</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Configuration"><span class="nav-number">2.</span> <span class="nav-text">Configuration</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Site"><span class="nav-number">2.1.</span> <span class="nav-text">Site</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#URL"><span class="nav-number">2.2.</span> <span class="nav-text">URL</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Commands"><span class="nav-number">3.</span> <span class="nav-text">Commands</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#init"><span class="nav-number">3.1.</span> <span class="nav-text">init</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#new"><span class="nav-number">3.2.</span> <span class="nav-text">new</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#generate"><span class="nav-number">3.3.</span> <span class="nav-text">generate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#publish"><span class="nav-number">3.4.</span> <span class="nav-text">publish</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Writing"><span class="nav-number">4.</span> <span class="nav-text">Writing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Layout"><span class="nav-number">4.1.</span> <span class="nav-text">Layout</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Filename"><span class="nav-number">4.2.</span> <span class="nav-text">Filename</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Draft"><span class="nav-number">4.3.</span> <span class="nav-text">Draft</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Scaffolds"><span class="nav-number">4.4.</span> <span class="nav-text">Scaffolds</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Front-matter"><span class="nav-number">5.</span> <span class="nav-text">Front-matter</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Settings-amp-Their-Default-Values"><span class="nav-number">5.1.</span> <span class="nav-text">Settings &amp; Their Default Values</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Categories-amp-Tags"><span class="nav-number">5.2.</span> <span class="nav-text">Categories &amp; Tags</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Setup"><span class="nav-number">1.</span> <span class="nav-text">Setup</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#config-yml"><span class="nav-number">1.1.</span> <span class="nav-text">_config.yml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#package-json"><span class="nav-number">1.2.</span> <span class="nav-text">package.json</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scaffolds"><span class="nav-number">1.3.</span> <span class="nav-text">scaffolds</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#source"><span class="nav-number">1.4.</span> <span class="nav-text">source</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#themes"><span class="nav-number">1.5.</span> <span class="nav-text">themes</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Configuration"><span class="nav-number">2.</span> <span class="nav-text">Configuration</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Site"><span class="nav-number">2.1.</span> <span class="nav-text">Site</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#URL"><span class="nav-number">2.2.</span> <span class="nav-text">URL</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Commands"><span class="nav-number">3.</span> <span class="nav-text">Commands</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#init"><span class="nav-number">3.1.</span> <span class="nav-text">init</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#new"><span class="nav-number">3.2.</span> <span class="nav-text">new</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#generate"><span class="nav-number">3.3.</span> <span class="nav-text">generate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#publish"><span class="nav-number">3.4.</span> <span class="nav-text">publish</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Writing"><span class="nav-number">4.</span> <span class="nav-text">Writing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Layout"><span class="nav-number">4.1.</span> <span class="nav-text">Layout</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Filename"><span class="nav-number">4.2.</span> <span class="nav-text">Filename</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Draft"><span class="nav-number">4.3.</span> <span class="nav-text">Draft</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Scaffolds"><span class="nav-number">4.4.</span> <span class="nav-text">Scaffolds</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Front-matter"><span class="nav-number">5.</span> <span class="nav-text">Front-matter</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Settings-Their-Default-Values"><span class="nav-number">5.1.</span> <span class="nav-text">Settings &amp; Their Default Values</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Categories-Tags"><span class="nav-number">5.2.</span> <span class="nav-text">Categories &amp; Tags</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -605,7 +639,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -618,7 +652,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
